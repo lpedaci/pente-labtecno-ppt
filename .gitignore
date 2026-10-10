@@ -1,0 +1,7 @@
+# Configuración local del asistente (no forma parte del trabajo)
+.claude/
+
+# Archivos del sistema
+Thumbs.db
+desktop.ini
+.DS_Store
