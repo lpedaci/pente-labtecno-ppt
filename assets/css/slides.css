@@ -172,3 +172,6 @@ body.m-scroll .refl{grid-template-columns:1fr}
 body.m-scroll .photos{grid-template-columns:1fr;grid-template-rows:none}
 body.m-scroll .photo{grid-column:auto;grid-row:auto;aspect-ratio:4/3}
 body.m-scroll .p-tall{aspect-ratio:3/4}
+.zoom{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:none;cursor:zoom-in;border-radius:inherit}
+.zoom:focus-visible{outline:3px solid var(--rose-light);outline-offset:-3px}
+.photo figcaption{pointer-events:none}

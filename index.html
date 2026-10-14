@@ -316,19 +316,19 @@
   <div class="head"><div><span class="eyebrow" data-a>Diagnóstico · registro fotográfico</span><h2 data-a style="--i:1">Los espacios del laboratorio principal</h2></div><span class="num">09</span></div>
   <div class="body photos">
     <figure class="photo p-wide" data-a style="--i:2">
-      <img src="assets/img/lab/laboratorio-piletas.jpg" width="1400" height="788" decoding="async" alt="Aula-laboratorio con mesadas de acero inoxidable y piletas a lo largo de las paredes, banquetas apiladas, una mesa central y una computadora al fondo.">
+      <button class="zoom" type="button" aria-label="Ampliar foto: Aula-laboratorio"><img src="assets/img/lab/laboratorio-piletas.jpg" width="1400" height="788" decoding="async" alt="Aula-laboratorio con mesadas de acero inoxidable y piletas a lo largo de las paredes, banquetas apiladas, una mesa central y una computadora al fondo."></button>
       <figcaption><span class="eyebrow">Aula-laboratorio</span>Mesadas con piletas para el trabajo experimental</figcaption>
     </figure>
     <figure class="photo p-tall" data-a style="--i:3">
-      <img src="assets/img/lab/microbiologia.jpg" width="1051" height="1400" decoding="async" alt="Área de microbiología: un pasillo angosto con heladeras, campana de extracción, mesada y estantes con frascos y reactivos.">
+      <button class="zoom" type="button" aria-label="Ampliar foto: Microbiología"><img src="assets/img/lab/microbiologia.jpg" width="1051" height="1400" decoding="async" alt="Área de microbiología: un pasillo angosto con heladeras, campana de extracción, mesada y estantes con frascos y reactivos."></button>
       <figcaption><span class="eyebrow">Microbiología</span>Campana de extracción y heladeras</figcaption>
     </figure>
     <figure class="photo p-tall" data-a style="--i:4">
-      <img src="assets/img/lab/deposito.jpg" width="717" height="1400" decoding="async" alt="Depósito de materiales con estanterías metálicas llenas de frascos, reactivos y material de vidrio.">
+      <button class="zoom" type="button" aria-label="Ampliar foto: Depósito"><img src="assets/img/lab/deposito.jpg" width="717" height="1400" decoding="async" alt="Depósito de materiales con estanterías metálicas llenas de frascos, reactivos y material de vidrio."></button>
       <figcaption><span class="eyebrow">Depósito</span>Reactivos y material de vidrio</figcaption>
     </figure>
     <figure class="photo p-wide" data-a style="--i:5">
-      <img src="assets/img/lab/aula-informatica.jpg" width="1179" height="660" decoding="async" alt="Aula de informática del laboratorio: computadoras de escritorio contra la pared, pizarrón con anotaciones de una práctica y un televisor sobre un mueble.">
+      <button class="zoom" type="button" aria-label="Ampliar foto: Aula de informática"><img src="assets/img/lab/aula-informatica.jpg" width="1179" height="660" decoding="async" alt="Aula de informática del laboratorio: computadoras de escritorio contra la pared, pizarrón con anotaciones de una práctica y un televisor sobre un mueble."></button>
       <figcaption><span class="eyebrow">Aula de informática</span>Nueve equipos, pizarrón y televisor</figcaption>
     </figure>
   </div>
@@ -655,6 +655,10 @@
 <div id="progress"></div>
 <div id="notes" hidden><span class="eyebrow">Notas del orador</span><div id="notesText"></div></div>
 <div id="grid" hidden><div class="wrap" id="gridWrap"></div></div>
+<dialog id="lightbox" aria-label="Foto ampliada">
+  <button class="lb-close" type="button" id="lbClose" aria-label="Cerrar foto ampliada"><span aria-hidden="true">✕</span></button>
+  <figure><img id="lbImg" src="" alt=""><figcaption id="lbCap"></figcaption></figure>
+</dialog>
 <nav id="bar" aria-label="Controles de la presentación">
   <button id="prev" aria-label="Diapositiva anterior">←</button>
   <span id="count">01 / 19</span>

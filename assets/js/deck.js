@@ -47,7 +47,7 @@
     slides.forEach((sl,k)=>{
       const b=document.createElement('button');b.className='thumb';b.type='button';
       b.innerHTML=`<div class="frame"></div>${String(k+1).padStart(2,'0')} · ${sl.dataset.title}`;
-      const c=sl.cloneNode(true);c.classList.add('is-static','is-active');c.classList.remove('is-prev');c.removeAttribute('aria-hidden');c.querySelectorAll('[id]').forEach(e=>e.removeAttribute('id'));
+      const c=sl.cloneNode(true);c.classList.add('is-static','is-active');c.classList.remove('is-prev');c.removeAttribute('aria-hidden');c.querySelectorAll('[id]').forEach(e=>e.removeAttribute('id'));c.querySelectorAll('.zoom').forEach(z=>z.tabIndex=-1);
       b.querySelector('.frame').appendChild(c);
       b.addEventListener('click',()=>{toggleGrid(false);go(k);});
       w.appendChild(b);
@@ -64,12 +64,25 @@
 
   $('prev').onclick=()=>go(cur-1);$('next').onclick=()=>go(cur+1);
   $('btnGrid').onclick=()=>toggleGrid();$('btnNotes').onclick=toggleNotes;$('btnFs').onclick=fs;
+  // Foto ampliada: el <dialog> modal maneja el foco y cierra con Escape
+  const lb=$('lightbox');
+  function openPhoto(btn){
+    const img=btn.querySelector('img'), cap=btn.closest('figure').querySelector('figcaption');
+    $('lbImg').src=img.currentSrc||img.src;$('lbImg').alt=img.alt;
+    $('lbCap').innerHTML=cap?cap.innerHTML:'';
+    lb.showModal();$('lbClose').focus();
+  }
+  document.addEventListener('click',e=>{const z=e.target.closest('.zoom');if(z&&!z.closest('#grid'))openPhoto(z);});
+  $('lbClose').onclick=()=>lb.close();
+  lb.addEventListener('click',e=>{if(e.target===lb)lb.close();});
+
   document.addEventListener('keydown',e=>{
+    if(lb.open)return;
     if(body.classList.contains('m-scroll'))return;
     if(e.metaKey||e.ctrlKey||e.altKey)return;
     const k=e.key;
     if(!$('grid').hidden){if(k==='Escape'||k==='g'||k==='G'){toggleGrid(false);e.preventDefault();}return;}
-    if(['ArrowRight','PageDown',' ','Enter'].includes(k)){if(k==='Enter'&&document.activeElement&&document.activeElement.tagName==='BUTTON')return;go(cur+1);e.preventDefault();}
+    if(['ArrowRight','PageDown',' ','Enter'].includes(k)){if(k===' '&&document.activeElement&&document.activeElement.classList.contains('zoom'))return;if(k==='Enter'&&document.activeElement&&document.activeElement.tagName==='BUTTON')return;go(cur+1);e.preventDefault();}
     else if(['ArrowLeft','PageUp','Backspace'].includes(k)){go(cur-1);e.preventDefault();}
     else if(k==='Home'){go(0);}else if(k==='End'){go(n-1);}
     else if(k==='g'||k==='G'){toggleGrid(true);}

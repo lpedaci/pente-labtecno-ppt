@@ -22,3 +22,16 @@ body.m-scroll #progress{display:none}
 .thumb .frame{position:relative;aspect-ratio:16/9;max-width:100%;overflow:hidden;border-radius:6px;border:2px solid transparent;margin-bottom:8px}
 .thumb.cur .frame{border-color:var(--rose)}
 .thumb .frame>.slide{position:absolute;inset:auto;left:0;top:0;width:var(--stage-w);height:var(--stage-h);opacity:1;visibility:visible;transform-origin:0 0;transition:none;pointer-events:none}
+
+/* Foto ampliada */
+#lightbox{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:72px clamp(16px,4vw,72px) 32px;border:0;background:transparent;color:var(--paper);font-family:var(--body)}
+#lightbox[open]{display:flex;align-items:center;justify-content:center;animation:lbIn .25s ease both}
+#lightbox::backdrop{background:rgba(6,24,18,.94)}
+#lightbox figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px;max-width:100%;max-height:100%}
+#lightbox img{display:block;max-width:100%;max-height:calc(100dvh - 160px);width:auto;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+#lightbox figcaption{font-size:16px;line-height:1.4;text-align:center;color:var(--sage);max-width:70ch}
+#lightbox figcaption .eyebrow{display:block;margin-bottom:4px;font-size:12px;color:var(--rose-light)}
+.lb-close{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));right:calc(16px + env(safe-area-inset-right,0px));width:48px;height:48px;border-radius:50%;border:1px solid rgba(156,195,164,.4);background:rgba(11,42,31,.8);color:var(--paper);font-size:20px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.lb-close:hover{background:var(--surface-dark)}
+.lb-close:focus-visible{outline:3px solid var(--rose-light);outline-offset:2px}
+@keyframes lbIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
