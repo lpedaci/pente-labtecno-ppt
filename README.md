@@ -24,15 +24,16 @@ La propuesta se trabajó como **ensayo simulado**: la planificación está compl
 | 06 | Fases de la implementación | Cronograma de marzo a noviembre de 2026 |
 | 07 | Roles y responsabilidades | Rol del tecnólogo educativo asumido por cada integrante |
 | 08 | Diagnóstico en números | Equipamiento disponible frente al tamaño de los cursos |
-| 09 | Lectura TPACK | Dónde se ubica la vacancia de conocimiento |
-| 10 | Bitácora de campo | Fragmentos del trabajo de campo (Anexo I) |
-| 11 | Evidencias recolectadas | Tipos de evidencia y su interpretación |
-| 12 | Hallazgo central | El celular como instrumento de trabajo y no como distracción |
-| 13 | Evaluación formativa | Decisiones que cambiaron durante el proceso |
-| 14 | Sistematización y análisis | Hallazgos y proyección futura |
-| 15 | Próximos pasos | Prueba piloto, condiciones institucionales e instrumentos |
-| 16 | Reflexión final | Aprendizajes del equipo |
-| 17 | Referencias | Bibliografía en APA 7 y declaración de uso de IA |
+| 09 | Los espacios del laboratorio | Registro fotográfico de las áreas de química |
+| 10 | Lectura TPACK | Dónde se ubica la vacancia de conocimiento |
+| 11 | Bitácora de campo | Fragmentos del trabajo de campo (Anexo I) |
+| 12 | Evidencias recolectadas | Tipos de evidencia y su interpretación |
+| 13 | Hallazgo central | El celular como instrumento de trabajo y no como distracción |
+| 14 | Evaluación formativa | Decisiones que cambiaron durante el proceso |
+| 15 | Sistematización y análisis | Hallazgos y proyección futura |
+| 16 | Próximos pasos | Prueba piloto, condiciones institucionales e instrumentos |
+| 17 | Reflexión final | Aprendizajes del equipo |
+| 18 | Referencias | Bibliografía en APA 7 y declaración de uso de IA |
 
 ## Cómo verla
 
@@ -49,7 +50,7 @@ Es un único archivo HTML, sin instalación ni dependencias (solo carga tipograf
 | `N` | Notas del orador |
 | `F` | Pantalla completa |
 
-Cada diapositiva tiene su propio enlace (`#s1` a `#s17`), útil para compartir una en particular.
+Cada diapositiva tiene su propio enlace (`#s1` a `#s19`), útil para compartir una en particular.
 
 **En celular** la presentación pasa a un modo de lectura vertical con desplazamiento continuo, adaptado a pantallas angostas.
 
