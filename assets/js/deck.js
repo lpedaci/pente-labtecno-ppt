@@ -47,7 +47,12 @@
     slides.forEach((sl,k)=>{
       const b=document.createElement('button');b.className='thumb';b.type='button';
       b.innerHTML=`<div class="frame"></div>${String(k+1).padStart(2,'0')} · ${sl.dataset.title}`;
-      const c=sl.cloneNode(true);c.classList.add('is-static','is-active');c.classList.remove('is-prev');c.removeAttribute('aria-hidden');c.querySelectorAll('[id]').forEach(e=>e.removeAttribute('id'));c.querySelectorAll('.zoom').forEach(z=>z.tabIndex=-1);
+      const c=sl.cloneNode(true);c.classList.add('is-static','is-active');c.classList.remove('is-prev');c.removeAttribute('aria-hidden');
+      // ids propios de la miniatura, para que los recortes (clipPath) de las ilustraciones sigan funcionando
+      c.querySelectorAll('[id]').forEach(e=>{const id=e.id,nid=id+'-t'+k;e.id=nid;c.querySelectorAll(`[clip-path="url(#${id})"]`).forEach(x=>x.setAttribute('clip-path',`url(#${nid})`));});
+      // la miniatura ya es un botón: las fotos ampliables pasan a ser simples contenedores
+      c.querySelectorAll('.zoom').forEach(z=>{const s=document.createElement('span');s.className='zoom';s.append(...z.childNodes);z.replaceWith(s);});
+      c.querySelectorAll('img').forEach(i=>i.decoding='sync');
       b.querySelector('.frame').appendChild(c);
       b.addEventListener('click',()=>{toggleGrid(false);go(k);});
       w.appendChild(b);
