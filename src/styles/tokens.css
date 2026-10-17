@@ -1,0 +1,33 @@
+/* Tokens de diseño: misma paleta y tipografías que la presentación del Laboratorio Ampliado. */
+:root{
+  --forest:#123A2C;   /* fondo de diapositivas oscuras */
+  --pine:#1F5C45;     /* superficies */
+  --leaf:#3E8A62;     /* acento primario */
+  --leaf-ink:#2F6E4D; /* verde para texto chico sobre claro (AA) */
+  --sage:#9CC3A4;     /* trazos y secundarios */
+  --mint:#E6F1E5;     /* fondo de diapositivas claras */
+  --paper:#F5FAF3;    /* papel */
+  --ink:#0F241B;      /* texto sobre claro */
+  --rose:#D4567A;     /* complementario */
+  --rose-light:#F08FAA;
+  --rose-deep:#8E2347;
+  --blush:#F5D2DC;
+  --amber:#E9B44C;
+  --muted:#46665A;
+  --line:#CFE2D1;
+  --line-soft:#D4E5D5;
+  --line-faint:#DCE9DC;
+  --surface-dark:#1D4E3C;
+  --backdrop:#0B2A1F;
+  --note:#FFFDF6;
+
+  --display:"Bricolage Grotesque Variable","Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",monospace;
+
+  --ease:cubic-bezier(.16,1,.3,1);
+  --stage-w:1600px;
+  --stage-h:900px;
+  --bar-h:64px;
+  color-scheme:dark;
+}

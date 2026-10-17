@@ -1,0 +1,230 @@
+---
+import Slide from '../components/Slide.astro';
+const { n } = Astro.props;
+const feedback = [
+  'La organización del diagnóstico institucional y su relación con la prohibición del celular',
+  'La fundamentación de la accesibilidad',
+  'La redacción de los objetivos específicos',
+  'La cobertura completa del marco político e institucional',
+  'Las intervenciones del tecnólogo educativo en cada etapa',
+  'La definición de los instrumentos de evaluación',
+];
+---
+<Slide n={n} title="Evaluación formativa" theme="paper" eyebrow="Evaluación formativa del proceso"
+  heading="El proceso obligó a modificar decisiones sobre la marcha"
+  bodyClass="ef-body"
+  notes="El recorrido muestra el giro del proceso. La propuesta del primer parcial no pudo implementarse en campo: la decisión principal fue reorientar el trabajo hacia un escrito de planificación con diagnóstico fundamentado. De ahí salen dos aprendizajes: la documentación pedagógica permite la reflexión del practicante y la socialización de experiencias (UTN, 2026b; en línea con Suárez, 2004), y planificar la búsqueda de evidencias forma parte del diseño de la enseñanza (Anijovich y Cappelletti, 2017). A mejorar: las horas, el aval y la revisión del acuerdo de convivencia se reordenan para quedar antes del codiseño. A la derecha, la cátedra valoró como pertinentes la problemática y la propuesta, y señaló seis aspectos a profundizar, que se iluminan de a uno.">
+  <figure class="ef" data-a style="--i:2">
+    <div class="route">
+      <svg viewBox="0 0 860 540" aria-hidden="true" class="route-svg">
+        <defs>
+          <pattern id="ef-stripes" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect width="10" height="10" fill="#D4567A" /><rect width="4" height="10" fill="#F08FAA" />
+          </pattern>
+        </defs>
+
+        <!-- 1 · propuesta original -->
+        <g class="a-pop d1">
+          <circle cx="100" cy="150" r="36" fill="#FFFFFF" stroke="#9CC3A4" stroke-width="3" />
+          <path d="M88 132h17l9 9v27H88z" fill="none" stroke="#1F5C45" stroke-width="2.6" stroke-linejoin="round" />
+          <path d="M93 150h16M93 158h12" stroke="#D4567A" stroke-width="2.6" stroke-linecap="round" />
+        </g>
+        <g class="a-fade d2">
+          <text x="100" y="214" text-anchor="middle" class="t-sm">Propuesta del</text>
+          <text x="100" y="234" text-anchor="middle" class="t-sm">primer parcial</text>
+        </g>
+
+        <!-- recorrido planeado que choca -->
+        <path class="a-draw d3 ln" d="M136 150H292" pathLength="1" />
+        <g class="barrier">
+          <g class="a-pop d4"><g class="a-shake d5">
+            <rect x="300" y="104" width="30" height="92" rx="6" fill="url(#ef-stripes)" />
+          </g></g>
+        </g>
+        <g class="a-fade d6">
+          <text x="315" y="74" text-anchor="middle" class="t-mono rose">NO PUDO</text>
+          <text x="315" y="92" text-anchor="middle" class="t-mono rose">IMPLEMENTARSE EN CAMPO</text>
+        </g>
+
+        <!-- desvío hacia la decisión principal -->
+        <path class="a-draw d7 ln accent" d="M268 150C330 150 330 296 396 296" pathLength="1" />
+        <g class="a-pop d8">
+          <rect x="400" y="250" width="440" height="96" rx="18" fill="#123A2C" />
+          <text x="428" y="280" class="t-mono pink">DECISIÓN PRINCIPAL</text>
+          <text x="428" y="307" class="t-head light">Escrito de planificación</text>
+          <text x="428" y="333" class="t-head light">con diagnóstico fundamentado</text>
+        </g>
+
+        <!-- aprendizajes -->
+        <path class="a-draw d9 ln" d="M660 250V196" pathLength="1" />
+        <text x="490" y="24" class="t-mono green a-fade d9">APRENDIZAJES</text>
+        <g class="a-slide d10">
+          <rect x="490" y="38" width="350" height="68" rx="14" fill="#FFFFFF" stroke="#CFE2D1" />
+          <text x="510" y="66" class="t-body"><tspan class="b">Documentación pedagógica:</tspan></text>
+          <text x="510" y="90" class="t-body">reflexión y socialización · UTN (2026b)</text>
+        </g>
+        <g class="a-slide d11">
+          <rect x="490" y="122" width="350" height="74" rx="14" fill="#FFFFFF" stroke="#CFE2D1" />
+          <text x="510" y="150" class="t-body"><tspan class="b">Evidencias planificadas desde el diseño</tspan></text>
+          <text x="510" y="176" class="t-cite">Anijovich y Cappelletti (2017)</text>
+        </g>
+
+        <!-- a mejorar: las condiciones pasan antes del codiseño -->
+        <path class="a-draw d12 ln" d="M620 346V392" pathLength="1" />
+        <text x="330" y="388" class="t-mono rose a-fade d12">A MEJORAR</text>
+        <g class="a-fade d13">
+          <g class="cond">
+            <rect x="330" y="404" width="84" height="48" rx="12" fill="#F5D2DC" /><text x="372" y="434" text-anchor="middle" class="t-body b">Horas</text>
+            <rect x="424" y="404" width="76" height="48" rx="12" fill="#F5D2DC" /><text x="462" y="434" text-anchor="middle" class="t-body b">Aval</text>
+            <rect x="510" y="404" width="210" height="48" rx="12" fill="#F5D2DC" /><text x="615" y="434" text-anchor="middle" class="t-body b">Acuerdo de convivencia</text>
+          </g>
+          <g class="cod">
+            <rect x="742" y="404" width="110" height="48" rx="12" fill="#FFFFFF" stroke="#3E8A62" stroke-width="2" /><text x="797" y="434" text-anchor="middle" class="t-body b">Codiseño</text>
+          </g>
+        </g>
+        <path class="a-draw d15 ln" d="M724 428H736" pathLength="1" />
+        <text x="330" y="488" class="t-body a-fade d15">Condiciones institucionales <tspan class="b rosed">antes del codiseño</tspan></text>
+      </svg>
+    </div>
+
+    <div class="fb">
+      <span class="eyebrow">Retroalimentación de la cátedra</span>
+      <p class="ok-line">
+        <svg viewBox="0 0 32 32" class="check" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="#3E8A62" /><path class="a-draw d4" d="M9 16.5l4.5 4.5L23 11.5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" pathLength="1" /></svg>
+        <span>Valoró como <strong>pertinentes</strong> la problemática y la propuesta.</span>
+      </p>
+      <div class="agg">
+        <span class="agg-n">6</span>
+        <span class="agg-l">aspectos<br />a profundizar</span>
+        <span class="ticks" aria-hidden="true">
+          {feedback.map((_, k) => <i style={`--d1:${(1.9 + k * 0.15).toFixed(2)}s;--d2:${9 + k * 2}s`}></i>)}
+        </span>
+      </div>
+      <ol class="aspects">
+        {feedback.map((f, k) => <li style={`--d1:${(1.9 + k * 0.15).toFixed(2)}s;--d2:${9 + k * 2}s`}><span>{String(k + 1).padStart(2, '0')}</span>{f}</li>)}
+      </ol>
+    </div>
+
+    <button class="ef-toggle" type="button" aria-pressed="false" aria-label="Pausar animación">
+      <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z" fill="currentColor"/></svg>
+    </button>
+  </figure>
+
+  <!-- El recorrido en texto: lo leen los lectores de pantalla y se muestra en la lectura vertical (celular) -->
+  <div class="ef-alt">
+    <p><strong>Decisión principal.</strong> La propuesta no podía implementarse en campo: el trabajo se reorientó hacia un escrito de planificación con diagnóstico fundamentado.</p>
+    <p><strong>Aprendizajes.</strong> La documentación pedagógica permite “la reflexión del propio practicante, así como también la socialización de experiencias” (UTN, 2026b), en línea con Suárez (2004). Planificar la búsqueda de evidencias forma parte del diseño de la enseñanza (Anijovich y Cappelletti, 2017).</p>
+    <p><strong>A mejorar.</strong> Asegurar temprano las horas, el aval y la revisión del acuerdo de convivencia, antes del codiseño.</p>
+  </div>
+</Slide>
+
+<script>
+  // Reproduce la secuencia cada vez que se entra a la diapositiva; respeta la pausa manual.
+  const fig = document.querySelector<HTMLElement>('figure.ef');
+  const btn = fig?.querySelector<HTMLButtonElement>('.ef-toggle');
+  const slide = fig?.closest<HTMLElement>('.slide');
+  if (fig && btn && slide) {
+    const restart = () => { fig.classList.remove('run'); void fig.offsetWidth; fig.classList.add('run'); };
+    let was = slide.classList.contains('is-active');
+    if (was) restart();
+    new MutationObserver(() => {
+      const now = slide.classList.contains('is-active');
+      if (now && !was) restart();
+      was = now;
+    }).observe(slide, { attributes: true, attributeFilter: ['class'] });
+    btn.addEventListener('click', () => {
+      const paused = fig.classList.toggle('paused');
+      btn.setAttribute('aria-pressed', String(paused));
+      btn.setAttribute('aria-label', paused ? 'Reproducir animación' : 'Pausar animación');
+    });
+  }
+</script>
+
+<style>
+  :global(.ef-body){display:flex;flex-direction:column}
+  .ef{position:relative;margin:0;flex:1;display:grid;grid-template-columns:1.55fr 1fr;gap:36px;min-height:0}
+  .route{min-width:0;display:flex;align-items:center}
+  .route-svg{width:100%;height:100%;max-height:560px;overflow:visible}
+
+  /* tipografía dentro del SVG */
+  .route-svg text{font-family:var(--body);fill:var(--ink)}
+  .t-sm{font-size:16px;fill:var(--muted)!important}
+  .t-body{font-size:16px}
+  .t-cite{font-family:var(--mono)!important;font-size:13px;fill:var(--leaf-ink)!important}
+  .t-head{font-family:var(--display)!important;font-size:23px;font-weight:700;letter-spacing:-.01em}
+  .t-mono{font-family:var(--mono)!important;font-size:13px;font-weight:600;letter-spacing:.12em}
+  .route-svg .light{fill:var(--paper)}
+  .route-svg .pink{fill:var(--rose-light)}
+  .route-svg .rose{fill:var(--rose-deep)}
+  .route-svg .green{fill:var(--leaf-ink)}
+  .route-svg .b{font-weight:700}
+  .route-svg .rosed{fill:var(--rose-deep)}
+  .ln{fill:none;stroke:var(--sage);stroke-width:4;stroke-linecap:round}
+  .ln.accent{stroke:var(--leaf);stroke-width:5}
+
+  /* devolución de la cátedra */
+  .fb{display:flex;flex-direction:column;gap:12px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px 18px;min-width:0}
+  .ok-line{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:center;font-size:var(--sm);line-height:1.35}
+  .check{width:32px;height:32px}
+  .agg{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:14px 0 12px;border-top:1px solid var(--line);border-bottom:2px solid var(--leaf)}
+  .agg-n{font-family:var(--display);font-weight:800;font-size:52px;line-height:.9;color:var(--rose-deep);letter-spacing:-.04em}
+  .agg-l{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;line-height:1.4;color:var(--muted)}
+  .ticks{display:flex;gap:5px}
+  .ticks i{display:block;width:16px;height:6px;border-radius:3px;background:var(--leaf)}
+  .aspects{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;flex:1;justify-content:space-between}
+  .aspects li{position:relative;display:grid;grid-template-columns:30px 1fr;gap:10px;padding:9px 0 9px 14px;border-bottom:1px solid var(--line-soft);font-size:calc(var(--xs)*1.08);line-height:1.38;color:var(--ink)}
+  .aspects li:last-child{border-bottom:0}
+  .aspects li::before{content:"";position:absolute;left:0;top:9px;bottom:9px;width:3px;border-radius:2px;background:var(--rose);transform:scaleY(0);transform-origin:top}
+  .aspects li span{font-family:var(--mono);font-size:12px;color:var(--rose-deep);font-weight:600;padding-top:2px}
+
+  .ef-toggle{position:absolute;right:14px;top:14px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--pine);display:grid;place-items:center;cursor:pointer;opacity:.7;transition:opacity .25s var(--ease),transform .2s var(--ease)}
+  .ef-toggle:hover,.ef-toggle:focus-visible{opacity:1}
+  .ef-toggle:active{transform:scale(.95)}
+  .ef-toggle:focus-visible{outline:3px solid var(--rose-light);outline-offset:2px}
+  .ef-toggle svg{width:18px;height:18px;grid-area:1/1}
+  .i-play{display:none}
+  .ef.paused .i-play{display:block}
+  .ef.paused .i-pause{display:none}
+
+  .ef-alt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+
+  /* ---------- secuencia (solo con .run) ---------- */
+  .ef :is(.a-pop,.a-shake){transform-box:fill-box}
+  .a-pop{transform-origin:center}
+  .ef.run .a-pop{animation:ef-pop .6s var(--ease) both}
+  .ef.run .a-fade{animation:ef-fade .55s ease-out both}
+  .ef.run .a-slide{animation:ef-slide .6s var(--ease) both}
+  .ef.run .a-draw{stroke-dasharray:1;animation:ef-draw .8s cubic-bezier(.65,0,.35,1) both}
+  .ef.run .a-shake{animation:ef-shake .45s linear both}
+  .ef.run .cond{animation:ef-cond .9s cubic-bezier(.65,0,.35,1) 7s both}
+  .ef.run .cod{animation:ef-cod .9s cubic-bezier(.65,0,.35,1) 7s both}
+  .ef.run .d1{animation-delay:.2s}  .ef.run .d2{animation-delay:.45s} .ef.run .d3{animation-delay:.6s}
+  .ef.run .d4{animation-delay:1.35s} .ef.run .d5{animation-delay:1.85s} .ef.run .d6{animation-delay:2.05s}
+  .ef.run .d7{animation-delay:2.5s}  .ef.run .d8{animation-delay:3.25s} .ef.run .d9{animation-delay:3.9s}
+  .ef.run .d10{animation-delay:4.3s} .ef.run .d11{animation-delay:4.55s} .ef.run .d12{animation-delay:5.2s}
+  .ef.run .d13{animation-delay:5.7s} .ef.run .d15{animation-delay:8s}
+  /* aspectos de la cátedra: aparecen y después se iluminan de a uno, en ciclo */
+  .ef.run .ticks i{animation:ef-fade .5s ease-out both,ef-tick 12s linear infinite;animation-delay:var(--d1),var(--d2)}
+  .ef.run .aspects li{animation:ef-fade .5s ease-out both,ef-li 12s linear infinite;animation-delay:var(--d1),var(--d2)}
+  .ef.run .aspects li::before{animation:ef-bar 12s linear infinite;animation-delay:var(--d2)}
+  .ef.paused *{animation-play-state:paused!important}
+  :global(.is-static) .ef *{animation:none!important}
+
+  @keyframes ef-pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+  @keyframes ef-fade{from{opacity:0}to{opacity:1}}
+  @keyframes ef-slide{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+  @keyframes ef-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+  @keyframes ef-shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-4px)}80%{transform:translateX(3px)}}
+  @keyframes ef-cond{from{transform:translateX(122px)}to{transform:none}}
+  @keyframes ef-cod{0%{transform:translate(-412px,0)}50%{transform:translate(-206px,34px)}100%{transform:none}}
+  @keyframes ef-tick{0%,15%{background:var(--rose);transform:scaleY(1.5)}17%,100%{background:var(--leaf);transform:none}}
+  @keyframes ef-li{0%,15%{color:var(--ink)}17%,100%{color:#56705F}}
+  @keyframes ef-bar{0%{transform:scaleY(0)}2%,14%{transform:scaleY(1)}17%,100%{transform:scaleY(0)}}
+
+  /* lectura vertical: el recorrido se lee en texto */
+  :global(body.m-scroll) .ef{grid-template-columns:1fr}
+  :global(body.m-scroll) .route,:global(body.m-scroll) .ef-toggle{display:none}
+  :global(body.m-scroll) .ef-alt{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal;display:flex;flex-direction:column;gap:12px;margin-top:18px}
+  :global(body.m-scroll) .ef-alt p{font-size:var(--sm)}
+</style>

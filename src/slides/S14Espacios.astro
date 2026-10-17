@@ -1,0 +1,52 @@
+---
+import { Image, getImage } from 'astro:assets';
+import Slide from '../components/Slide.astro';
+import piletas from '../assets/lab/laboratorio-piletas.jpg';
+import micro from '../assets/lab/microbiologia.jpg';
+import deposito from '../assets/lab/deposito.jpg';
+import aula from '../assets/lab/aula-informatica.jpg';
+const { n } = Astro.props;
+
+const photos = [
+  { img: piletas, cls: 'p-wide a', tag: 'Aula-laboratorio con piletas', cap: 'Mesadas fijas con piletas para el trabajo experimental',
+    alt: 'Aula-laboratorio con mesadas de acero inoxidable y piletas a lo largo de las paredes, banquetas apiladas, una mesa central, una computadora al fondo y una pizarra en la pared.' },
+  { img: micro, cls: 'p-tall b', tag: 'Área de microbiología', cap: 'Campana de extracción, mesada y reactivos',
+    alt: 'Área de microbiología: un pasillo angosto con heladeras, campana de extracción, mesada y estantes con frascos y reactivos.' },
+  { img: deposito, cls: 'p-tall c', tag: 'Depósito de insumos', cap: 'Reactivos y material de vidrio',
+    alt: 'Depósito de materiales con estanterías metálicas llenas de frascos, reactivos y material de vidrio.' },
+  { img: aula, cls: 'p-wide d', tag: 'Aula de nueve equipos', cap: 'Computadoras con internet, pizarrón y televisor',
+    alt: 'Aula de informática del laboratorio: computadoras de escritorio contra la pared, pizarrón con anotaciones de una práctica y un televisor sobre un mueble.' },
+];
+const full = await Promise.all(photos.map((p) => getImage({ src: p.img, width: 1800, format: 'webp' })));
+---
+<Slide n={n} title="Los espacios del laboratorio" theme="paper" eyebrow="Diagnóstico · relevamiento de infraestructura"
+  heading="Los espacios del laboratorio principal"
+  bodyClass="photos"
+  notes="Las cuatro áreas del laboratorio principal, en el tercer piso: el aula-laboratorio con piletas, el área de microbiología, el depósito de insumos y el aula de nueve equipos con internet. Las imágenes confirman lo que dice el diagnóstico: el equipamiento existe; la limitación es su disponibilidad temporal y la estrategia didáctica de uso. Se puede ampliar cada foto.">
+  {photos.map((p, k) => (
+    <figure class:list={['photo', p.cls]} data-a style={`--i:${k + 2}`}>
+      <button class="zoom" type="button" aria-label={`Ampliar foto: ${p.tag}`} data-full={full[k].src}>
+        <Image src={p.img} alt={p.alt} widths={[480, 900, 1400]} sizes="(max-width: 760px) 100vw, 50vw" format="webp" />
+      </button>
+      <figcaption><span class="eyebrow">{p.tag}</span>{p.cap}</figcaption>
+    </figure>
+  ))}
+</Slide>
+
+<style>
+  :global(.photos){display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:18px}
+  .photo{position:relative;margin:0;min-height:0;border-radius:16px;overflow:hidden;background:var(--surface-dark);box-shadow:0 20px 40px -22px rgba(18,58,44,.5)}
+  .photo :global(img){position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
+  .photo:hover :global(img){transform:scale(1.035)}
+  .a{grid-column:1;grid-row:1}
+  .d{grid-column:1;grid-row:2}
+  .b{grid-column:2;grid-row:1 / span 2}
+  .c{grid-column:3;grid-row:1 / span 2}
+  .zoom{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:none;cursor:zoom-in;border-radius:inherit}
+  .zoom:focus-visible{outline:3px solid var(--rose-light);outline-offset:-3px}
+  figcaption{position:absolute;left:0;right:0;bottom:0;padding:56px 22px 18px;background:linear-gradient(transparent,rgba(11,42,31,.94) 70%);color:var(--paper);font-size:var(--sm);line-height:1.3;pointer-events:none}
+  figcaption .eyebrow{display:block;margin-bottom:6px;color:var(--rose-light)}
+  :global(body.m-scroll .photos){grid-template-columns:1fr;grid-template-rows:none}
+  :global(body.m-scroll) .photo{grid-column:auto;grid-row:auto;aspect-ratio:4/3}
+  :global(body.m-scroll) .p-tall{aspect-ratio:3/4}
+</style>

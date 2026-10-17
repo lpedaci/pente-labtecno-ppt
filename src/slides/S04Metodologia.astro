@@ -1,0 +1,76 @@
+---
+import Slide from '../components/Slide.astro';
+const { n } = Astro.props;
+const adkar = [
+  ['A', 'Conciencia'], ['D', 'Deseo'], ['K', 'Conocimiento'], ['A', 'Habilidad'], ['R', 'Refuerzo'],
+];
+---
+<Slide n={n} title="Metodología y marcos" theme="paper" eyebrow="Introducción · metodología"
+  heading="Investigación acción participativa, con dos modelos"
+  bodyClass="cols c2"
+  notes="Enfoque cualitativo con datos cuantitativos complementarios, en un diseño de investigación acción participativa donde el equipo docente es coautor. TPACK funciona como marco de diseño y de análisis; ADKAR, para entender la disposición institucional y ordenar el acompañamiento del cambio. La implementación no se concretó en campo, por eso el trabajo se plantea de manera simulada. El vínculo con el referente institucional se definió como codiseño y no como capacitación externa.">
+  <div class="stack" style="gap:22px">
+    <dl class="facts">
+      <div data-a style="--i:2"><dt>Enfoque</dt><dd>Cualitativo, con datos cuantitativos complementarios</dd></div>
+      <div data-a style="--i:3"><dt>Diseño</dt><dd>Investigación acción participativa: el equipo docente es <span class="hl">coautor de la propuesta</span></dd></div>
+      <div data-a style="--i:4"><dt>Vínculo</dt><dd>Codiseño con el referente institucional, no capacitación externa</dd></div>
+      <div data-a style="--i:5"><dt>Modalidad</dt><dd>La implementación no se concretó en campo: el trabajo se plantea de manera <strong>simulada</strong></dd></div>
+    </dl>
+  </div>
+  <div class="models">
+    <div class="panel model tpack" data-a style="--i:3">
+      <svg class="venn" viewBox="0 0 220 200" aria-hidden="true">
+        <circle cx="80" cy="78" r="58" fill="#3E8A62" fill-opacity=".72"/>
+        <circle cx="140" cy="78" r="58" fill="#E9B44C" fill-opacity=".72"/>
+        <circle cx="110" cy="128" r="58" fill="#D4567A" fill-opacity=".72"/>
+        <text x="52" y="64" fill="#FFFFFF" font-size="18" font-weight="800">C</text>
+        <text x="156" y="64" fill="#5A3F08" font-size="18" font-weight="800">P</text>
+        <text x="104" y="172" fill="#FFFFFF" font-size="18" font-weight="800">T</text>
+      </svg>
+      <div>
+        <span class="eyebrow">Marco de diseño y de análisis</span>
+        <h3>TPACK</h3>
+        <p class="sm muted">Mishra y Koehler (2006)</p>
+      </div>
+    </div>
+    <div class="panel model stacked adk" data-a style="--i:4">
+      <ol class="adkar" aria-label="Etapas del modelo ADKAR">
+        {adkar.map(([l, w], k) => <li style={`--k:${k}`}><b>{l}</b><span>{w}</span></li>)}
+      </ol>
+      <div>
+        <span class="eyebrow">Disposición institucional y acompañamiento del cambio</span>
+        <h3>ADKAR</h3>
+        <p class="sm muted">Hiatt (2006)</p>
+      </div>
+    </div>
+  </div>
+</Slide>
+
+<style>
+  .facts{margin:0;display:flex;flex-direction:column}
+  .facts div{display:grid;grid-template-columns:170px 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--line)}
+  .facts div:first-child{border-top:0;padding-top:0}
+  .facts dt{font-family:var(--mono);font-size:var(--xs);text-transform:uppercase;letter-spacing:.12em;color:var(--leaf-ink);padding-top:6px}
+  .facts dd{margin:0;font-size:var(--fs);line-height:1.4}
+  .models{display:grid;grid-template-rows:1fr 1fr;gap:22px}
+  .model{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:center}
+  .model .eyebrow{display:block;line-height:1.5}
+  .model h3{font-size:calc(var(--h3)*1.5);font-weight:800;color:var(--ink);margin:22px 0 14px;line-height:1}
+  .tpack{background:#fff;border:1px solid var(--line);box-shadow:0 18px 40px -24px rgba(18,58,44,.35)}
+  .tpack .eyebrow{color:var(--leaf-ink)}
+  .venn{width:100%;height:auto}
+  .venn text{font-family:var(--display)}
+  .adk{background:var(--blush)!important;border-color:transparent!important}
+  .adk .eyebrow{color:var(--rose-deep)}
+  .adk .muted{color:#6B3A4C!important}
+  .model.stacked{grid-template-columns:1fr;gap:30px;align-content:center}
+  .adkar{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;position:relative}
+  .adkar::before{content:"";position:absolute;left:10%;right:10%;top:26px;height:2px;background:rgba(142,35,71,.3)}
+  .adkar li{display:flex;flex-direction:column;align-items:center;gap:6px;position:relative}
+  .adkar b{display:grid;place-items:center;width:52px;height:52px;border-radius:12px;background:#fff;border:1.5px solid rgba(142,35,71,.35);font-family:var(--display);font-size:20px;color:var(--rose-deep)}
+  .adkar span{font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--rose-deep);text-align:center}
+  :global(body.m-scroll) .model{grid-template-columns:1fr}
+  :global(body.m-scroll) .facts div{grid-template-columns:1fr;gap:4px}
+  :global(body.m-scroll) .models{grid-template-rows:none}
+  :global(body.m-scroll) .venn{max-width:200px}
+</style>

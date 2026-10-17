@@ -1,0 +1,44 @@
+---
+import Slide from '../components/Slide.astro';
+const { n } = Astro.props;
+---
+<Slide n={n} title="Accesibilidad del laboratorio" theme="light" eyebrow="Accesibilidad del laboratorio"
+  heading="Una barrera que el diseño pedagógico no puede ignorar"
+  bodyClass="cols c-46"
+  notes="El laboratorio principal está en un tercer piso sin ascensor; las mesadas son fijas y las mesas tienen altura estandarizada, de modo que un estudiante con movilidad reducida no podría acceder ni trabajar allí. La normativa y el propio PEI obligan a considerarlo. Como la modificación edilicia excede el alcance del tecnólogo educativo, la propuesta asume tres acciones concretas.">
+  <div class="stack" style="gap:16px">
+    <ul class="barriers">
+      <li data-a style="--i:2"><svg class="ico" aria-hidden="true"><use href="#i-stairs"/></svg><p class="sm">Laboratorio principal en el <strong>tercer piso</strong>, sin ascensor ni otro medio de elevación <cite>(Anexo I, P3)</cite></p></li>
+      <li data-a style="--i:3"><svg class="ico" aria-hidden="true"><use href="#i-table"/></svg><p class="sm">Mesadas fijas y de tamaño predefinido; mesas con altura estandarizada</p></li>
+      <li data-a style="--i:4"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><p class="sm">Accesibilidad visual: son los propios docentes quienes adecuan el tamaño de los materiales</p></li>
+    </ul>
+    <div class="panel rose" data-a style="--i:5">
+      <p class="sm">Un estudiante con movilidad reducida <strong>no podría acceder al espacio ni trabajar en este</strong>.</p>
+    </div>
+    <div class="law" data-a style="--i:6">
+      <span class="eyebrow">Marco</span>
+      <p class="xs"><strong>Ley 26.378</strong> (2008): derecho a una educación inclusiva. <strong>Resolución CFE N.° 311/16</strong>: trayectoria de los estudiantes con discapacidad en el nivel secundario. El PEI se define como “una Escuela inclusiva” que trabaja para que “ninguno se pierda” <cite>(Escuela caso análogo, 2023, p. 17)</cite>.</p>
+    </div>
+  </div>
+  <div class="panel deep acts" data-a style="--i:4">
+    <span class="eyebrow">La modificación edilicia excede al tecnólogo educativo. La propuesta asume tres acciones</span>
+    <ol>
+      <li><span class="k">01</span><p>Registrar la barrera y <strong>elevarla al equipo directivo</strong> en el informe de diagnóstico.</p></li>
+      <li><span class="k">02</span><p>Garantizar que el <strong>registro audiovisual y el repositorio</strong> permitan participar de las etapas de análisis desde un aula accesible.</p></li>
+      <li><span class="k">03</span><p>Sistematizar las adecuaciones visuales que ya realizan los docentes como <strong>criterios del Diseño Universal para el Aprendizaje</strong> en las secuencias codiseñadas.</p></li>
+    </ol>
+  </div>
+</Slide>
+
+<style>
+  .barriers{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+  .barriers li{display:grid;grid-template-columns:48px 1fr;gap:18px;align-items:center;padding:12px 0;border-top:1px solid var(--line);color:var(--leaf)}
+  .barriers li:first-child{border-top:0;padding-top:0}
+  .barriers p{color:var(--ink)}
+  .law{display:flex;flex-direction:column;gap:8px;padding-top:6px}
+  .acts{display:flex;flex-direction:column;gap:22px}
+  .acts ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:20px}
+  .acts li{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:start;padding-top:20px;border-top:1px solid rgba(156,195,164,.25)}
+  .acts .k{font-family:var(--mono);font-size:calc(var(--h3)*.9);color:var(--rose-light);font-weight:600}
+  .acts p{font-size:var(--fs);line-height:1.4}
+</style>

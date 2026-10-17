@@ -1,0 +1,36 @@
+---
+import Deck from '../layouts/Deck.astro';
+import S01 from '../slides/S01Portada.astro';
+import S02 from '../slides/S02Introduccion.astro';
+import S03 from '../slides/S03Objetivos.astro';
+import S04 from '../slides/S04Metodologia.astro';
+import S05 from '../slides/S05Marco.astro';
+import S06 from '../slides/S06Normativo.astro';
+import S07 from '../slides/S07Cultura.astro';
+import S08 from '../slides/S08Estado.astro';
+import S09 from '../slides/S09Fases.astro';
+import S11 from '../slides/S11Roles.astro';
+import S12 from '../slides/S12Bitacora.astro';
+import S14 from '../slides/S14Espacios.astro';
+import S15 from '../slides/S15Numeros.astro';
+import S16 from '../slides/S16Evidencias.astro';
+import S18 from '../slides/S18Hallazgo.astro';
+import S19 from '../slides/S19Accesibilidad.astro';
+import S20 from '../slides/S20EvalFormativa.astro';
+import S21 from '../slides/S21Instrumentos.astro';
+import S22 from '../slides/S22Sistematizacion.astro';
+import S24 from '../slides/S24Reflexiones.astro';
+import S27 from '../slides/S27Anexo.astro';
+import S29 from '../slides/S29Referencias.astro';
+import S30 from '../slides/S30Cierre.astro';
+
+// El orden sigue al documento; la numeración se calcula sola.
+const slides = [S01, S02, S03, S04, S05, S06, S07, S08, S09, S11, S12, S14, S15, S16, S18, S19, S20, S21, S22, S24, S27, S29, S30];
+---
+<Deck
+  title="Laboratorio Ampliado · Actividad 4"
+  description="Sistematización de la intervención tecnopedagógica: de la prohibición del celular al laboratorio ampliado en una escuela secundaria técnica. UTN, Prácticas en Tecnología Educativa, Grupo 3, 2026."
+  total={slides.length}
+>
+  {slides.map((S, i) => <S n={i + 1} />)}
+</Deck>

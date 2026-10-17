@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=792" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Bricolage Grotesque"; src: url("fonts/bricolage.woff2") format("woff2"); font-weight: 200 800; font-display: block; }
+      @font-face { font-family: "Atkinson Hyperlegible"; src: url("fonts/atkinson-400.woff2") format("woff2"); font-weight: 400; font-display: block; }
+      @font-face { font-family: "Atkinson Hyperlegible"; src: url("fonts/atkinson-700.woff2") format("woff2"); font-weight: 700; font-display: block; }
+      @font-face { font-family: "JetBrains Mono"; src: url("fonts/jbmono-600.woff2") format("woff2"); font-weight: 600; font-display: block; }
+
+      :root {
+        --forest: #123a2c;
+        --pine: #1f5c45;
+        --leaf: #3e8a62;
+        --sage: #9cc3a4;
+        --mint: #e6f1e5;
+        --paper: #f5faf3;
+        --rose: #d4567a;
+        --rose-light: #f08faa;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 792px; overflow: hidden; background: var(--forest); }
+      #root { width: 100%; height: 100%; position: relative; font-family: "Atkinson Hyperlegible", sans-serif; color: var(--paper); }
+
+      .scene { position: absolute; inset: 0; }
+      .bg { position: absolute; inset: 0; background: var(--forest); overflow: hidden; }
+      .glow { position: absolute; width: 1100px; height: 1100px; left: 760px; top: -160px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(62, 138, 98, 0.42) 0%, rgba(31, 92, 69, 0.18) 45%, rgba(18, 58, 44, 0) 70%); }
+      .hexes { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.55; }
+
+      .content { position: absolute; inset: 0; display: flex; }
+      .left { width: 640px; flex: none; display: flex; flex-direction: column; justify-content: center; padding: 56px 0 48px 80px; }
+      .heads { display: grid; }
+      .head { grid-area: 1 / 1; display: flex; flex-direction: column; gap: 18px; }
+      .eyebrow { font-family: "JetBrains Mono", monospace; font-weight: 600; font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose-light); }
+      .head.b .eyebrow, .head.c .eyebrow { color: var(--sage); }
+      .title { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 84px; line-height: 0.98; letter-spacing: -0.03em; color: var(--paper); }
+      .title .hl { color: var(--rose-light); }
+      .title .ok { color: var(--mint); }
+      .sub { font-size: 34px; line-height: 1.3; color: var(--sage); }
+      .source { margin-top: 56px; padding-top: 18px; border-top: 1px solid rgba(156, 195, 164, 0.25);
+        font-family: "JetBrains Mono", monospace; font-weight: 600; font-size: 20px; letter-spacing: 0.06em; line-height: 1.5; color: var(--sage); opacity: 0.85; }
+      .art { display: block; width: 1280px; height: 792px; flex: none; overflow: visible; }
+      .art text { font-family: "Atkinson Hyperlegible", sans-serif; }
+      .mono { font-family: "JetBrains Mono", monospace !important; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="10" data-fps="30" data-width="1920" data-height="792">
+      <div id="scene" class="clip scene" data-start="0" data-duration="10" data-track-index="0">
+        <div class="bg">
+          <div class="glow" id="glow" data-layout-allow-overflow="true"></div>
+          <svg class="hexes" viewBox="0 0 1920 792" aria-hidden="true">
+            <defs>
+              <pattern id="hex" width="56" height="97" patternUnits="userSpaceOnUse">
+                <path d="M28 0l28 16v32L28 64 0 48V16zM28 64v33" fill="none" stroke="#9CC3A4" stroke-opacity=".12" stroke-width="1.2" />
+              </pattern>
+            </defs>
+            <rect width="1920" height="792" fill="url(#hex)" />
+          </svg>
+        </div>
+
+        <div class="content" id="content">
+          <div class="left">
+            <div class="heads">
+              <div class="head a" id="headA">
+                <span class="eyebrow" id="ebA">Antes</span>
+                <h1 class="title" id="tA">Celular <span class="hl">prohibido</span></h1>
+                <p class="sub" id="sA">Sin protocolo que defina cuándo y dónde usarlo</p>
+              </div>
+              <div class="head b" id="headB">
+                <span class="eyebrow" id="ebB">Con decisiones de diseño</span>
+                <h1 class="title" id="tB">Celular con <span class="ok">función definida</span></h1>
+                <p class="sub" id="sB">Toma de imágenes y registro audiovisual</p>
+              </div>
+              <div class="head c" id="headC">
+                <span class="eyebrow" id="ebC">Con roles, video y aplicaciones</span>
+                <h1 class="title" id="tC">La dispersión <span class="ok">disminuyó</span></h1>
+                <p class="sub" id="sC">en cierta medida</p>
+              </div>
+            </div>
+            <div class="source" id="source"><span>Caso análogo · cuaderno de campo</span><span style="display:block">8 de octubre de 2026</span></div>
+          </div>
+
+          <svg class="art" id="art" viewBox="0 0 1280 792" aria-hidden="true">
+            <!-- puntos: la dispersión del curso -->
+            <g id="dots"></g>
+
+            <!-- señal de prohibición -->
+            <g id="ban">
+              <circle id="banRing" cx="600" cy="380" r="235" fill="none" stroke="#D4567A" stroke-width="18" />
+              <line id="banSlash" x1="434" y1="214" x2="766" y2="546" stroke="#D4567A" stroke-width="18" stroke-linecap="round" />
+            </g>
+
+            <!-- celular -->
+            <g id="phone">
+              <g id="phoneShake">
+                <g transform="translate(490 180)">
+                  <rect width="220" height="400" rx="30" fill="#1C1C1E" stroke="#C7CCC9" stroke-width="5" />
+                  <rect x="12" y="44" width="196" height="300" rx="12" fill="#2C2C2E" />
+                  <rect x="88" y="18" width="44" height="8" rx="4" fill="#3A3A3C" />
+                  <circle cx="110" cy="370" r="13" fill="none" stroke="#E6F1E5" stroke-width="3" />
+
+                  <!-- A: notificaciones -->
+                  <g id="notifs">
+                    <g id="n1"><rect x="24" y="66" width="172" height="52" rx="14" fill="#3A4A43" /><circle cx="48" cy="92" r="10" fill="#D4567A" /><rect x="68" y="80" width="100" height="9" rx="4" fill="#9CC3A4" /><rect x="68" y="97" width="70" height="8" rx="4" fill="#6F8F7E" /></g>
+                    <g id="n2"><rect x="24" y="130" width="172" height="52" rx="14" fill="#3A4A43" /><circle cx="48" cy="156" r="10" fill="#F08FAA" /><rect x="68" y="144" width="88" height="9" rx="4" fill="#9CC3A4" /><rect x="68" y="161" width="104" height="8" rx="4" fill="#6F8F7E" /></g>
+                    <g id="n3"><rect x="24" y="194" width="172" height="52" rx="14" fill="#3A4A43" /><circle cx="48" cy="220" r="10" fill="#D4567A" /><rect x="68" y="208" width="110" height="9" rx="4" fill="#9CC3A4" /><rect x="68" y="225" width="60" height="8" rx="4" fill="#6F8F7E" /></g>
+                    <g id="n4"><rect x="24" y="258" width="172" height="52" rx="14" fill="#3A4A43" /><circle cx="48" cy="284" r="10" fill="#F08FAA" /><rect x="68" y="272" width="80" height="9" rx="4" fill="#9CC3A4" /><rect x="68" y="289" width="96" height="8" rx="4" fill="#6F8F7E" /></g>
+                  </g>
+
+                  <!-- B: visor de cámara -->
+                  <g id="cam">
+                    <path id="corners" d="M30 84v-22h22M190 84v-22h-22M30 302v22h22M190 302v22h-22" fill="none" stroke="#F08FAA" stroke-width="5" />
+                    <g id="flask">
+                      <clipPath id="flaskClip"><path d="M96 128h28v58l40 74q5 12-8 12H64q-13 0-8-12l40-74z" /></clipPath>
+                      <g clip-path="url(#flaskClip)"><rect id="liquid" x="40" y="236" width="140" height="120" fill="#F1BD7F" /></g>
+                      <path d="M96 128h28v58l40 74q5 12-8 12H64q-13 0-8-12l40-74z" fill="none" stroke="#9CC3A4" stroke-width="5" stroke-linejoin="round" />
+                      <rect x="90" y="120" width="40" height="10" rx="4" fill="#9CC3A4" />
+                    </g>
+                    <circle id="recDot" cx="40" cy="60" r="7" fill="#D4567A" />
+                    <text x="54" y="66" fill="#E6F1E5" font-size="17" class="mono">REC</text>
+                    <rect id="flash" x="12" y="44" width="196" height="300" rx="12" fill="#FFFFFF" />
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            <!-- B: fotos de las etapas -->
+            <g id="t1"><g transform="translate(720 120)">
+              <rect width="300" height="160" rx="16" fill="#F5FAF3" />
+              <rect x="12" y="12" width="128" height="136" rx="10" fill="#E6F1E5" />
+              <path d="M66 34h20v32l26 46q3 8-5 8H45q-8 0-5-8l26-46z" fill="none" stroke="#1F5C45" stroke-width="4" stroke-linejoin="round" />
+              <path d="M52 104h48l8 14q2 4-3 4H47q-5 0-3-4z" fill="#9CC3A4" />
+              <text x="160" y="70" fill="#1F5C45" font-size="20" class="mono">ETAPA 1</text>
+              <rect x="160" y="92" width="110" height="9" rx="4" fill="#CFE2D1" /><rect x="160" y="110" width="80" height="9" rx="4" fill="#CFE2D1" />
+            </g></g>
+            <g id="t2"><g transform="translate(720 300)">
+              <rect width="300" height="160" rx="16" fill="#F5FAF3" />
+              <rect x="12" y="12" width="128" height="136" rx="10" fill="#E6F1E5" />
+              <path d="M66 34h20v32l26 46q3 8-5 8H45q-8 0-5-8l26-46z" fill="none" stroke="#1F5C45" stroke-width="4" stroke-linejoin="round" />
+              <path d="M58 90h36l14 28q2 4-3 4H47q-5 0-3-4z" fill="#F1BD7F" />
+              <text x="160" y="70" fill="#1F5C45" font-size="20" class="mono">ETAPA 2</text>
+              <rect x="160" y="92" width="110" height="9" rx="4" fill="#CFE2D1" /><rect x="160" y="110" width="80" height="9" rx="4" fill="#CFE2D1" />
+            </g></g>
+            <g id="t3"><g transform="translate(720 480)">
+              <rect width="300" height="160" rx="16" fill="#F5FAF3" />
+              <rect x="12" y="12" width="128" height="136" rx="10" fill="#E6F1E5" />
+              <path d="M66 34h20v32l26 46q3 8-5 8H45q-8 0-5-8l26-46z" fill="none" stroke="#1F5C45" stroke-width="4" stroke-linejoin="round" />
+              <path d="M64 78h24l20 40q2 4-3 4H47q-5 0-3-4z" fill="#D4567A" />
+              <text x="160" y="70" fill="#1F5C45" font-size="20" class="mono">ETAPA 3</text>
+              <rect x="160" y="92" width="110" height="9" rx="4" fill="#CFE2D1" /><rect x="160" y="110" width="80" height="9" rx="4" fill="#CFE2D1" />
+            </g></g>
+
+            <!-- C: estrategias del caso análogo -->
+            <g id="c1"><g transform="translate(640 132)">
+              <rect width="600" height="96" rx="48" fill="#1D4E3C" stroke="#9CC3A4" stroke-opacity=".45" stroke-width="2" />
+              <g transform="translate(28 24)" fill="none" stroke-width="3.5" stroke-linecap="round">
+                <circle cx="10" cy="12" r="7" stroke="#9CC3A4" /><circle cx="38" cy="12" r="7" stroke="#9CC3A4" /><circle cx="24" cy="30" r="7" stroke="#F08FAA" />
+              </g>
+              <text x="100" y="58" fill="#F5FAF3" font-size="28" font-weight="700">Roles por pileta o por tarea</text>
+            </g></g>
+            <g id="c2"><g transform="translate(640 248)">
+              <rect width="600" height="96" rx="48" fill="#1D4E3C" stroke="#9CC3A4" stroke-opacity=".45" stroke-width="2" />
+              <g transform="translate(26 30)" fill="none" stroke="#9CC3A4" stroke-width="3.5" stroke-linejoin="round">
+                <rect x="0" y="4" width="34" height="30" rx="5" /><path d="M34 15l16-9v26l-16-9z" /><circle cx="10" cy="14" r="3.5" fill="#F08FAA" stroke="none" />
+              </g>
+              <text x="100" y="58" fill="#F5FAF3" font-size="28" font-weight="700">Video del proceso como evidencia</text>
+            </g></g>
+            <g id="c3"><g transform="translate(640 364)">
+              <rect width="600" height="96" rx="48" fill="#1D4E3C" stroke="#9CC3A4" stroke-opacity=".45" stroke-width="2" />
+              <g transform="translate(26 22)" fill="none" stroke-width="3.5" stroke-linecap="round">
+                <path d="M2 46h46M6 46V4" stroke="#9CC3A4" /><path d="M10 38c8-2 10-22 18-22s10 14 20-8" stroke="#F08FAA" />
+              </g>
+              <text x="100" y="58" fill="#F5FAF3" font-size="28" font-weight="700">GeoGebra, ofimática e IA</text>
+            </g></g>
+            <g id="c4"><g transform="translate(640 480)">
+              <rect width="600" height="96" rx="48" fill="#1D4E3C" stroke="#9CC3A4" stroke-opacity=".45" stroke-width="2" />
+              <g transform="translate(26 24)" fill="none" stroke="#9CC3A4" stroke-width="3.5" stroke-linejoin="round">
+                <rect x="0" y="0" width="48" height="44" rx="6" /><path d="M0 12h48" /><rect x="8" y="20" width="14" height="10" rx="2" fill="#F08FAA" stroke="none" />
+              </g>
+              <text x="100" y="58" fill="#F5FAF3" font-size="28" font-weight="700">Mensaje fijado en Microsoft Teams</text>
+            </g></g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // ---------- puntos deterministas (LCG con semilla fija) ----------
+      let seed = 20261008;
+      const rand = () => ((seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296);
+      const DOTS = 30, ORDERED = 22;
+      const dotsG = document.getElementById("dots");
+      const dots = [];
+      let made = 0;
+      while (made < DOTS) {
+        const x = 40 + rand() * 1200, y = 36 + rand() * 580;
+        if (Math.abs(x - 600) < 175 && y > 130 && y < 630) continue; // fuera del celular
+        const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        c.setAttribute("cx", x.toFixed(1));
+        c.setAttribute("cy", y.toFixed(1));
+        c.setAttribute("r", "11");
+        c.setAttribute("fill", made < ORDERED ? "#F08FAA" : "#D4567A");
+        dotsG.appendChild(c);
+        dots.push({ el: c, x, y, jx: (rand() - 0.5) * 80, jy: (rand() - 0.5) * 60 });
+        made++;
+      }
+
+      const tl = gsap.timeline({ paused: true });
+
+      // fondo: respiración lenta
+      tl.fromTo("#glow", { scale: 0.92, x: -30 }, { scale: 1.06, x: 30, duration: 10, ease: "sine.inOut" }, 0);
+      tl.fromTo("#source", { autoAlpha: 0 }, { autoAlpha: 0.85, duration: 0.6, ease: "sine.out" }, 0.4);
+
+      // ===== ESCENA A · celular prohibido (0 → 2.9) =====
+      tl.fromTo("#ebA", { autoAlpha: 0, x: -20 }, { autoAlpha: 1, x: 0, duration: 0.6, ease: "power3.out" }, 0.15);
+      tl.fromTo("#tA", { autoAlpha: 0, x: -40 }, { autoAlpha: 1, x: 0, duration: 0.7, ease: "expo.out" }, 0.25);
+      tl.fromTo("#sA", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5, ease: "sine.out" }, 0.55);
+      tl.fromTo("#phone", { autoAlpha: 0, scale: 0.86, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.8, ease: "back.out(1.6)" }, 0.3);
+
+      dots.forEach((d, i) => {
+        tl.fromTo(d.el, { autoAlpha: 0, scale: 0, transformOrigin: "50% 50%" }, { autoAlpha: 0.9, scale: 1, duration: 0.35, ease: "back.out(2)" }, 0.35 + (i % 9) * 0.04);
+        const drifts = i < ORDERED ? 3 : 9; // los que no se ordenan siguen a la deriva hasta el final
+        tl.to(d.el, { x: d.jx, y: d.jy, duration: 0.95, ease: "sine.inOut", yoyo: true, repeat: drifts }, 0.7 + (i % 5) * 0.08);
+      });
+
+      ["#n1", "#n2", "#n3", "#n4"].forEach((s, i) => {
+        tl.fromTo(s, { autoAlpha: 0, y: -18 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "back.out(2.4)" }, 0.6 + i * 0.22);
+      });
+      tl.set("#cam", { autoAlpha: 0 }, 0);
+
+      const RING = 2 * Math.PI * 235, SLASH = Math.hypot(332, 332);
+      tl.fromTo("#banRing", { strokeDasharray: RING, strokeDashoffset: RING }, { strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut" }, 0.9);
+      tl.fromTo("#banSlash", { strokeDasharray: SLASH, strokeDashoffset: SLASH }, { strokeDashoffset: 0, duration: 0.3, ease: "power3.out" }, 1.5);
+      tl.to("#phoneShake", { keyframes: [{ x: -8 }, { x: 8 }, { x: -5 }, { x: 0 }], duration: 0.32, ease: "none" }, 1.8);
+
+      // ===== transición A → B (2.7 → 3.75) =====
+      tl.to(["#ebA", "#tA", "#sA"], { autoAlpha: 0, x: -24, duration: 0.25, ease: "power2.in", stagger: 0.04 }, 2.7);
+      tl.to("#banSlash", { strokeDashoffset: -SLASH, duration: 0.3, ease: "power2.in" }, 2.7);
+      tl.to("#banRing", { strokeDashoffset: -RING, duration: 0.5, ease: "power2.in" }, 2.8);
+      tl.to("#notifs", { autoAlpha: 0, y: 30, duration: 0.3, ease: "power2.in" }, 2.8);
+      tl.to("#phone", { x: -280, duration: 0.75, ease: "power3.inOut" }, 3.0);
+
+      // ===== ESCENA B · función definida (3.0 → 6.3) =====
+      tl.fromTo("#cam", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: "sine.out" }, 3.1);
+      tl.fromTo("#corners", { scale: 1.25, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.5, ease: "power4.out" }, 3.15);
+      tl.fromTo("#flask", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power2.out" }, 3.3);
+      tl.set("#flash", { autoAlpha: 0 }, 0);
+      tl.to("#recDot", { autoAlpha: 0.2, duration: 0.35, ease: "none", yoyo: true, repeat: 7 }, 3.5);
+      tl.fromTo("#ebB", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power2.out" }, 3.25);
+      tl.fromTo("#tB", { autoAlpha: 0, x: 40 }, { autoAlpha: 1, x: 0, duration: 0.75, ease: "expo.out" }, 3.35);
+      tl.fromTo("#sB", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5, ease: "sine.out" }, 3.7);
+
+      // tres capturas: flash en el visor y la foto sale hacia su lugar
+      const phoneCx = 320, phoneCy = 380;
+      const shots = [["#t1", 200], ["#t2", 380], ["#t3", 560]];
+      const liquidLevels = [0, -22, -44];
+      shots.forEach(([id, cy], i) => {
+        const t = 4.0 + i * 0.7;
+        tl.fromTo("#flash", { autoAlpha: 0 }, { autoAlpha: 0.85, duration: 0.06, ease: "none" }, t);
+        tl.to("#flash", { autoAlpha: 0, duration: 0.3, ease: "power2.out" }, t + 0.06);
+        tl.fromTo(id, { autoAlpha: 0, x: phoneCx - 870, y: phoneCy - cy, scale: 0.22, rotation: -8, transformOrigin: "50% 50%" },
+          { autoAlpha: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.3)" }, t + 0.05);
+        if (i > 0) tl.to("#liquid", { y: liquidLevels[i], duration: 0.4, ease: "sine.inOut" }, t - 0.35);
+      });
+      tl.to("#liquid", { fill: "#D4567A", duration: 0.8, ease: "sine.inOut" }, 4.6);
+
+      // ===== transición B → C (6.2 → 6.5) =====
+      tl.to(["#ebB", "#tB", "#sB"], { autoAlpha: 0, y: -16, duration: 0.25, ease: "power2.in", stagger: 0.04 }, 6.2);
+      tl.to(["#t1", "#t2", "#t3"], { autoAlpha: 0, scale: 0.9, duration: 0.25, ease: "power2.in", stagger: 0.05 }, 6.2);
+
+      // ===== ESCENA C · roles, video, aplicaciones → la dispersión disminuye (6.4 → 10) =====
+      tl.fromTo("#ebC", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, ease: "sine.out" }, 6.45);
+      tl.fromTo("#tC", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power4.out" }, 6.5);
+      tl.fromTo("#sC", { autoAlpha: 0, x: -16 }, { autoAlpha: 1, x: 0, duration: 0.5, ease: "power2.out" }, 7.0);
+      ["#c1", "#c2", "#c3", "#c4"].forEach((s, i) => {
+        tl.fromTo(s, { autoAlpha: 0, x: 90 }, { autoAlpha: 1, x: 0, duration: 0.6, ease: "power3.out" }, 6.55 + i * 0.1);
+      });
+
+      // la mayoría de los puntos se ordena en filas; algunos siguen sueltos ("en cierta medida")
+      dots.slice(0, ORDERED).forEach((d, i) => {
+        const tx = 120 + (i % 11) * 104, ty = 680 + Math.floor(i / 11) * 44;
+        tl.to(d.el, { x: tx - d.x, y: ty - d.y, fill: "#9CC3A4", duration: 1.1, ease: "power3.inOut" }, 6.6 + i * 0.02);
+      });
+
+      // ===== cierre del loop: fundido al fondo (9.3 → 9.75) =====
+      tl.to("#content", { autoAlpha: 0, duration: 0.45, ease: "power2.in" }, 9.3);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

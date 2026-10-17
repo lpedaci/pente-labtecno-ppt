@@ -1,0 +1,45 @@
+---
+/**
+ * Diapositiva base: encabezado (antetítulo + título + número), cuerpo, pie y notas del orador.
+ * `bare` omite encabezado y pie (portada y cierre).
+ */
+interface Props {
+  n: number;
+  title: string;
+  theme?: 'light' | 'paper' | 'dark';
+  hex?: boolean;
+  eyebrow?: string;
+  heading?: string;
+  bare?: boolean;
+  bodyClass?: string;
+  notes?: string;
+}
+const { n, title, theme = 'light', hex = false, eyebrow, heading, bare = false, bodyClass = '', notes } = Astro.props;
+const num = String(n).padStart(2, '0');
+---
+<section
+  class:list={['slide', `s-${theme}`, { hex }]}
+  data-title={title}
+  aria-roledescription="diapositiva"
+  aria-label={`${num}: ${title}`}
+>
+  {bare ? <slot /> : (
+    <>
+      <div class="head">
+        <div>
+          {eyebrow && <span class="eyebrow" data-a>{eyebrow}</span>}
+          <h2 data-a style="--i:1" set:html={heading ?? title} />
+        </div>
+        <span class="num" aria-hidden="true">{num}</span>
+      </div>
+      <div class:list={['body', bodyClass]}>
+        <slot />
+      </div>
+      <div class="foot" aria-hidden="true">
+        <span>PrTEd · Grupo 3</span>
+        <span class="fr"><span>Act. 4 · 2026</span><i class="utn"></i></span>
+      </div>
+    </>
+  )}
+  {notes && <aside class="notes" hidden>{notes}</aside>}
+</section>

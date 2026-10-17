@@ -1,0 +1,56 @@
+---
+import Slide from '../components/Slide.astro';
+const { n } = Astro.props;
+const steps = [
+  { lbl: 'Planificación', chip: 'ok', st: 'Completa', w: 1, d: 'Toma como base la propuesta del primer parcial.' },
+  { lbl: 'Diagnóstico', chip: 'ens', st: 'Modo exploratorio', w: .6, d: 'Testimonio del colega en dos conversaciones breves e informales.' },
+  { lbl: 'Implementación', chip: 'pend', st: 'Pendiente', w: 0, d: 'Implementación acompañada en el aula.' },
+  { lbl: 'Evaluación', chip: 'pend', st: 'Pendiente', w: 0, d: 'Aplicación de los instrumentos de evaluación.' },
+];
+---
+<Slide n={n} title="Estado de situación" theme="light" eyebrow="Estado de situación de la implementación"
+  heading="Un ensayo simulado, en fase de diseño y diagnóstico"
+  notes="Como no fue posible aplicar la propuesta en nuestros lugares de trabajo durante la cursada, se desarrolló como un ensayo simulado. La planificación está completa y el diagnóstico se hizo en modo exploratorio. Tras la devolución del primer parcial sumamos el análisis documental del AIC y del PEI y el relevamiento de accesibilidad. El principal ajuste fue incorporar el testimonio, que confirmó que el obstáculo está en la forma de usar la tecnología. Quedan pendientes la implementación, los instrumentos y la elevación formal de la revisión del acuerdo de convivencia.">
+  <div class="track">
+    {steps.map((s, k) => (
+      <div class:list={['step', s.chip]} data-a style={`--i:${k + 2}`}>
+        <span class:list={['chip', s.chip]}>{s.chip !== 'pend' && <span class="dot live"></span>}{s.st}</span>
+        <span class="lbl">{s.lbl}</span>
+        <div class="bar"><i data-a="grow" style={`--i:${k + 3};width:${s.w * 100}%`}></i></div>
+        <p class="xs muted">{s.d}</p>
+      </div>
+    ))}
+  </div>
+  <div class="cols c-55 lower">
+    <div class="stack" style="gap:16px">
+      <p class="sm" data-a style="--i:5">Tras la devolución del primer parcial se sumaron el <strong>análisis del AIC y del PEI</strong> y el <strong>relevamiento de accesibilidad</strong>.</p>
+      <div class="panel rose" data-a style="--i:6">
+        <span class="eyebrow">Principal ajuste del proceso</span>
+        <p class="sm">Incorporar el testimonio confirmó que el obstáculo central está en <strong>la forma de usar la tecnología</strong> y no tanto en la falta de equipos.</p>
+      </div>
+      <p class="sm muted" data-a style="--i:7">Los roles del tecnólogo educativo pasaron de categorías teóricas a <strong>decisiones concretas</strong> de planificación.</p>
+    </div>
+    <div class="panel" data-a style="--i:6">
+      <span class="eyebrow">Pendiente de cara a la finalización</span>
+      <ul class="clean" style="margin-top:14px">
+        <li>La implementación acompañada en el aula</li>
+        <li>La aplicación de los instrumentos de evaluación</li>
+        <li>Elevar la revisión del acuerdo de convivencia para que <strong>regule el uso del celular</strong> en el laboratorio en lugar de prohibirlo</li>
+      </ul>
+    </div>
+  </div>
+</Slide>
+
+<style>
+  .track{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
+  .step{border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--line);min-width:0}
+  .step.pend{background:transparent;border-style:dashed;border-color:#B9D3BD}
+  .step .chip{align-self:flex-start}
+  .step .lbl{font-family:var(--display);font-weight:700;font-size:var(--h3);letter-spacing:-.02em}
+  .bar{height:8px;border-radius:8px;background:#E2ECE2;overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--leaf);border-radius:8px}
+  .step.ens .bar i{background:var(--rose)}
+  .lower{gap:32px}
+  .panel.rose{display:flex;flex-direction:column;gap:8px}
+  :global(body.m-scroll) .track{grid-template-columns:1fr 1fr}
+</style>

@@ -1,0 +1,35 @@
+---
+import Slide from '../components/Slide.astro';
+import { evidence } from './evidence';
+const { n } = Astro.props;
+// rótulos breves para la lista; el tipo completo queda en los datos
+const label = (t: string) => t.replace(' orientado a cuestiones tecnológicas', '');
+---
+<Slide n={n} title="Evidencias recolectadas" theme="paper" eyebrow="Aspectos pedagógicos · evidencias de la fase diagnóstica"
+  heading="Seis evidencias, una misma lectura: <span class='hl'>el obstáculo es de diseño</span>"
+  notes="Seis evidencias de la fase diagnóstica, entre el 6 y el 8 de octubre. La conversación informal y el relevamiento muestran infraestructura competente, pero condicionada por la relación dispositivos / estudiantes, la coordinación entre áreas y turnos, y la falta de accesibilidad física. La caracterización del equipo docente confirma un sólido conocimiento disciplinar y pedagógico, con el tecnopedagógico en desarrollo. El análisis documental muestra que el AIC permite el celular como herramienta pedagógica: la restricción responde a acuerdos del área y a la cultura de seguridad. La profundización del testimonio valida que el obstáculo es de diseño didáctico. Y la bitácora identifica una vacancia institucional: no hay tecnólogo educativo, por lo que la propuesta debe dejar capacidad instalada.">
+  <ol class="ev">
+    {evidence.map((e, k) => (
+      <li data-a style={`--i:${k + 2}`}>
+        <span class="k">{String(k + 1).padStart(2, '0')}</span>
+        <div class="type">
+          <strong>{label(e.type)}</strong>
+          <span class="date">{e.date}</span>
+        </div>
+        <p>{e.short}</p>
+      </li>
+    ))}
+  </ol>
+</Slide>
+
+<style>
+  .ev{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+  .ev li{display:grid;grid-template-columns:56px 400px 1fr;gap:24px;align-items:center;padding:15px 0;border-top:1px solid var(--line)}
+  .ev li:first-child{border-top:2px solid var(--leaf)}
+  .k{font-family:var(--mono);font-size:var(--xs);color:var(--rose-deep);font-weight:600}
+  .type{display:flex;flex-direction:column;gap:4px}
+  .type strong{font-family:var(--display);font-size:var(--sm);font-weight:600;line-height:1.25}
+  .date{font-family:var(--mono);font-size:var(--xs);color:var(--muted)}
+  .ev p{font-size:var(--sm);line-height:1.42}
+  :global(body.m-scroll) .ev li{grid-template-columns:1fr;gap:6px}
+</style>

@@ -1,5 +1,17 @@
+# Dependencias y compilados
+node_modules/
+dist/
+.astro/
+
 # Configuración local del asistente (no forma parte del trabajo)
 .claude/
+
+# Artefactos del proyecto de animación (se regeneran; el video final está en public/media)
+videos/*/.hyperframes/
+videos/*/renders/
+videos/*/.thumbnails/
+videos/*/AGENTS.md
+videos/*/CLAUDE.md
 
 # Archivos del sistema
 Thumbs.db

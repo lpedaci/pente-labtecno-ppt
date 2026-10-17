@@ -1,0 +1,39 @@
+/* Barra de controles, notas del orador, vista de cuadrícula y foto ampliada */
+#bar{position:fixed;left:0;right:0;bottom:0;height:calc(var(--bar-h) + env(safe-area-inset-bottom,0px));padding:0 20px env(safe-area-inset-bottom,0px);display:flex;align-items:center;gap:12px;background:var(--backdrop);color:var(--paper);font-family:var(--mono);font-size:13px;z-index:10}
+body.m-scroll #bar{display:none}
+#bar button{background:transparent;border:1px solid rgba(156,195,164,.3);color:var(--paper);height:40px;min-width:40px;padding:0 12px;border-radius:10px;cursor:pointer;font:inherit;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:background .25s var(--ease),transform .2s var(--ease)}
+#bar button:hover{background:rgba(156,195,164,.14)}
+#bar button:active{transform:scale(.96)}
+#bar button[aria-pressed="true"]{background:var(--leaf);border-color:var(--leaf)}
+#bar button svg{width:18px;height:18px;flex:none}
+#bar button:focus-visible,.thumb:focus-visible,a:focus-visible,.zoom:focus-visible{outline:3px solid var(--rose-light);outline-offset:2px}
+#bar .title{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--sage)}
+#count{font-variant-numeric:tabular-nums;min-width:74px;text-align:center}
+#progress{position:fixed;left:0;bottom:calc(var(--bar-h) + env(safe-area-inset-bottom,0px));height:3px;width:100%;background:var(--rose);transform-origin:left;transform:scaleX(0);transition:transform .45s var(--ease);z-index:11}
+body.m-scroll #progress{display:none}
+.kbd{opacity:.55;font-size:11px}
+@media (max-width:980px){#bar .kbd,#bar .lbl{display:none}}
+
+#notes{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--bar-h) + 14px + env(safe-area-inset-bottom,0px));width:min(860px,calc(100% - 32px));background:var(--note);color:var(--ink);border-radius:16px;padding:18px 22px;box-shadow:0 20px 50px rgba(4,20,14,.45);z-index:12;font-size:17px;line-height:1.55}
+#notes .eyebrow{color:var(--leaf-ink);margin-bottom:6px;display:block}
+
+#grid{position:fixed;inset:0 0 calc(var(--bar-h) + env(safe-area-inset-bottom,0px)) 0;background:var(--backdrop);z-index:9;overflow:auto;padding:28px 24px}
+#grid .wrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px;max-width:1500px;margin:0 auto}
+.thumb{background:none;border:0;padding:0;cursor:pointer;text-align:left;color:var(--sage);font-family:var(--mono);font-size:12px;border-radius:8px}
+.thumb .frame{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:6px;border:2px solid transparent;margin-bottom:8px;transition:transform .3s var(--ease)}
+.thumb:hover .frame{transform:translateY(-2px)}
+.thumb.cur .frame{border-color:var(--rose)}
+.thumb .frame>.slide{font-family:var(--body);position:absolute;inset:auto;left:0;top:0;width:var(--stage-w);height:var(--stage-h);opacity:1;visibility:visible;transform-origin:0 0;transition:none;pointer-events:none}
+
+#lightbox{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:72px clamp(16px,4vw,72px) 32px;border:0;background:transparent;color:var(--paper);font-family:var(--body)}
+#lightbox[open]{display:flex;align-items:center;justify-content:center;animation:lbIn .3s var(--ease) both}
+#lightbox::backdrop{background:rgba(6,24,18,.94)}
+#lightbox figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px;max-width:100%;max-height:100%}
+#lightbox img{display:block;max-width:100%;max-height:calc(100dvh - 170px);width:auto;height:auto;object-fit:contain;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+#lightbox figcaption{font-size:16px;line-height:1.45;text-align:center;color:var(--sage);max-width:70ch}
+#lightbox figcaption .eyebrow{display:block;margin-bottom:4px;font-size:12px;color:var(--rose-light)}
+.lb-close{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));right:calc(16px + env(safe-area-inset-right,0px));width:48px;height:48px;border-radius:50%;border:1px solid rgba(156,195,164,.4);background:rgba(11,42,31,.8);color:var(--paper);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.lb-close svg{width:20px;height:20px}
+.lb-close:hover{background:var(--surface-dark)}
+.lb-close:focus-visible{outline:3px solid var(--rose-light);outline-offset:2px}
+@keyframes lbIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}

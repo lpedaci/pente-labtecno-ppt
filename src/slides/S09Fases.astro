@@ -1,0 +1,63 @@
+---
+import Slide from '../components/Slide.astro';
+import { months, phases } from './phases';
+const { n } = Astro.props;
+---
+<Slide n={n} title="Fases de la implementación" theme="paper" eyebrow="Fases de la implementación · cronograma e intervención del tecnólogo educativo"
+  heading="Seis fases, de marzo a noviembre"
+  notes="Las seis fases están planificadas y no ejecutadas. La única excepción es el diagnóstico: planificado para abril y mayo, se ejecutó en modo ensayo en septiembre y octubre, a partir del testimonio del docente colega y del análisis documental. En cada fila, la intervención del tecnólogo educativo. Desde la fase 1 se deja constancia de que la institución no tiene un tecnólogo educativo asignado y se propone un referente. Los recursos van de la propuesta escrita y el guion de entrevista al laboratorio, los dispositivos móviles regulados, la guía de observación, la bitácora y las rúbricas.">
+  <div class="gantt" role="table" aria-label="Cronograma de las seis fases, de marzo a noviembre">
+    <div role="row" class="hrow">
+      <div role="columnheader" class="mh first">Fase</div>
+      {months.map((m) => <div role="columnheader" class="mh">{m}</div>)}
+    </div>
+    {phases.map((p, k) => (
+      <div role="row" class="prow">
+        <div role="rowheader" class="row-l" data-a style={`--i:${k + 2}`}>
+          <b><span class="pn">{p.n}</span>{p.name}</b>
+          <span><em>TE</em> {p.teShort}</span>
+        </div>
+        <div role="cell" class="track-cell">
+          <span class="sr-only">{p.status}</span>
+          {p.bars.map(([start, len, ens]) => (
+            <i class:list={['b', { e: ens }]} data-a="grow" aria-hidden="true"
+              style={`--i:${k + 3};left:calc(${start} * 100% / 9 + 4px);width:calc(${len} * 100% / 9 - 8px)`}>
+              {!ens && (len > 1 ? 'Planificada' : '')}
+              {ens && 'Ensayo'}
+            </i>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+  <div class="legend" data-a style="--i:9">
+    <span><i style="background:var(--leaf)"></i>Planificada, no ejecutada</span>
+    <span><i style="background:var(--rose)"></i>Ejecutada en modo ensayo</span>
+  </div>
+</Slide>
+
+<style>
+  .gantt{display:flex;flex-direction:column;font-size:var(--sm)}
+  .hrow,.prow{display:grid;grid-template-columns:470px 1fr}
+  .hrow{grid-template-columns:470px repeat(9,1fr)}
+  .mh{font-family:var(--mono);font-size:var(--xs);text-transform:uppercase;letter-spacing:.1em;text-align:center;padding-bottom:10px;border-bottom:1px solid #BCD6C0;color:var(--muted)}
+  .mh.first{text-align:left}
+  .row-l{padding:11px 18px 11px 0;border-bottom:1px solid var(--line-faint)}
+  .row-l b{font-family:var(--display);font-size:calc(var(--sm)*1.08);display:flex;gap:10px;align-items:baseline}
+  .pn{font-family:var(--mono);font-size:var(--xs);color:var(--rose-deep);font-weight:600}
+  .row-l em{font-style:normal;font-family:var(--mono);font-size:11px;font-weight:600;color:var(--rose-deep);margin-right:6px;letter-spacing:.08em}
+  .row-l span:not(.pn){font-size:calc(var(--xs)*1.02);color:var(--muted);line-height:1.35;display:block;margin-top:3px;padding-left:22px}
+  .track-cell{position:relative;border-bottom:1px solid var(--line-faint);background:repeating-linear-gradient(90deg,transparent 0,transparent calc(100%/9 - 1px),#E3EEE3 calc(100%/9 - 1px),#E3EEE3 calc(100%/9))}
+  .b{position:absolute;top:50%;height:32px;margin-top:-16px;border-radius:9px;background:var(--leaf);display:flex;align-items:center;padding:0 12px;color:#fff;font-style:normal;font-family:var(--mono);font-size:var(--xs);white-space:nowrap;overflow:hidden}
+  .b.e{background:var(--rose)}
+  .legend{display:flex;gap:26px;flex-wrap:wrap;margin-top:18px;font-size:var(--xs);font-family:var(--mono);color:var(--muted)}
+  .legend span{display:inline-flex;gap:8px;align-items:center}
+  .legend i{width:24px;height:10px;border-radius:4px;display:inline-block}
+  :global(body.m-scroll) .hrow{grid-template-columns:repeat(9,1fr)}
+  :global(body.m-scroll) .hrow .first{display:none}
+  :global(body.m-scroll) .mh{font-size:10px;letter-spacing:0}
+  :global(body.m-scroll) .prow{grid-template-columns:1fr}
+  :global(body.m-scroll) .row-l{border-bottom:0;padding:14px 0 6px}
+  :global(body.m-scroll) .track-cell{height:38px}
+  :global(body.m-scroll) .b{height:20px;margin-top:-10px;font-size:0;padding:0}
+</style>

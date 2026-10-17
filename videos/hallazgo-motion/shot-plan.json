@@ -1,0 +1,20 @@
+{
+  "category": "kinetic-type",
+  "duration_s": 10,
+  "fps": 30,
+  "canvas": { "w": 1080, "h": 1120, "aspect": "27:28" },
+  "style": "Ilustración vectorial plana sobre verde bosque, coherente con la presentación Laboratorio Ampliado. Tono sobrio, educativo; motion que narra un cambio de estado.",
+  "palette": ["#123A2C", "#1F5C45", "#3E8A62", "#9CC3A4", "#E6F1E5", "#D4567A", "#F08FAA", "#F5D2DC"],
+  "font": "Bricolage Grotesque / Atkinson Hyperlegible / JetBrains Mono (locales)",
+  "beats": [0.3, 1.4, 3.0, 4.0, 4.7, 5.4, 6.4, 9.3],
+  "export": "mp4",
+  "asset_needs": [],
+  "content": {
+    "scenes": [
+      { "id": "antes", "start": 0, "end": 2.9, "text": "Antes · Celular prohibido · Sin protocolo que defina cuándo y dónde usarlo", "emphasis_words": ["prohibido"], "emotion": "tensión", "motion": "señal de prohibición que se dibuja; notificaciones y puntos dispersos (dispersión)" },
+      { "id": "funcion", "start": 2.9, "end": 6.3, "text": "Con decisiones de diseño · Celular con función definida · Toma de imágenes y registro audiovisual", "emphasis_words": ["función definida"], "emotion": "claridad", "motion": "la prohibición se retira; visor de cámara; tres fotos de etapas del experimento salen del celular" },
+      { "id": "resultado", "start": 6.3, "end": 10, "text": "Con roles, video y aplicaciones · La dispersión disminuyó · en cierta medida (caso análogo)", "emphasis_words": ["disminuyó"], "emotion": "resolución prudente", "motion": "chips de estrategias; la mayoría de los puntos se ordena y algunos siguen sueltos; fundido a fondo para el loop" }
+    ],
+    "source_note": "Caso análogo · cuaderno de campo, 8 de octubre de 2026"
+  }
+}

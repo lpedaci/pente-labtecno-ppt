@@ -1,0 +1,48 @@
+---
+import Slide from '../components/Slide.astro';
+const { n } = Astro.props;
+---
+<Slide n={n} title="Referencias y anexos" theme="paper" eyebrow="Referencias · Anexos"
+  heading="Referencias"
+  notes="Referencias bibliográficas y normativas en formato APA, y los anexos: el cuaderno de campo con la entrevista diagnóstica y el primer parcial con la planificación de la intervención. Declaramos el uso de Google NotebookLM y Claude, con validación de todo el contenido por parte del equipo.">
+  <div class="refs">
+    <p>Anijovich, R. y Cappelletti, G. (2017). <i>La evaluación como oportunidad</i>. Paidós.</p>
+    <p>Arabit-García, J., García-Tudela, P. A. y Prendes-Espinosa, M. P. (2021). Uso de tecnologías avanzadas para la educación científica. <i>Revista Iberoamericana de Educación, 87</i>(1), 173-194. <a href="https://doi.org/10.35362/rie8714591">https://doi.org/10.35362/rie8714591</a></p>
+    <p>Argüello, C., Costas, S., Pedaci, L. (2026). <i>Cuaderno de campo</i> – entrevista diagnóstica [Archivo PDF]. <a href="https://drive.google.com/file/d/1zsROcFfSLQH0q24KeLA_DY1kLbkmii1t/view">Google Drive</a></p>
+    <p>Argüello, C., Costas, S., Pedaci, L. (2026). <i>Práctica en Tecnología Educativa, Equipo 03: Primer Parcial</i> [Archivo PDF]. Universidad Tecnológica Nacional. <a href="https://lte.sied.utn.edu.ar/mod/assign/view.php?id=13459">Campus UTN</a></p>
+    <p>Consejo Federal de Educación. (2016). <i>Resolución CFE N.° 311/16: Promoción, acreditación, certificación y titulación de los estudiantes con discapacidad</i>. Ministerio de Educación y Deportes de la Nación.</p>
+    <p>Decreto 351 de 1979. Reglamento de la Ley de Higiene y Seguridad en el Trabajo. <i>Boletín Oficial de la República Argentina</i>.</p>
+    <p>Escuela caso análogo. (2023). Proyecto Educativo Institucional (PEI) [Documento institucional inédito. Datos de la institución anonimizados].</p>
+    <p>Escuela caso análogo. (2025). Acuerdo Institucional de Convivencia [Documento institucional inédito. Datos de la institución anonimizados].</p>
+    <p>Hiatt, J. M. (2006). <i>ADKAR: A model for change in business, government and our community</i>. Prosci Learning Center Publications.</p>
+    <p>Ley N.° 13.688 de 2007. Ley de Educación Provincial. <i>Boletín Oficial de la Provincia de Buenos Aires</i>.</p>
+    <p>Ley N.° 19.587 de 1972. Ley de Higiene y Seguridad en el Trabajo. <i>Boletín Oficial de la República Argentina</i>.</p>
+    <p>Ley N.° 26.058 de 2005. Ley de Educación Técnico Profesional. 7 de septiembre de 2005. <i>Boletín Oficial de la República Argentina</i>.</p>
+    <p>Ley N.° 26.206 de 2006. Ley de Educación Nacional. 14 de diciembre de 2006. <i>Boletín Oficial de la República Argentina</i>.</p>
+    <p>Mishra, P. y Koehler, M. J. (2006). Technological pedagogical content knowledge: A framework for teacher knowledge. <i>Teachers College Record, 108</i>(6), 1017-1054. <a href="https://doi.org/10.1111/j.1467-9620.2006.00684.x">https://doi.org/10.1111/j.1467-9620.2006.00684.x</a></p>
+    <p>Sancho Gil, J. M. (2009). La tecnología educativa en un mundo tecnologizado. En J. de Pablos Pons (Coord.), <i>Tecnología educativa. La formación del profesorado en la era de Internet</i> (pp. 45-67). Aljibe.</p>
+    <p>Schmidt, D. A., Baran, E., Thompson, A. D., Mishra, P., Koehler, M. J. y Shin, T. S. (2009). Technological pedagogical content knowledge (TPACK): The development and validation of assessment instrument for preservice teachers. <i>Journal of Research on Technology in Education, 42</i>(2), 123-149. <a href="https://doi.org/10.1080/15391523.2009.10782544">https://doi.org/10.1080/15391523.2009.10782544</a></p>
+    <p>Suárez, D. (2004). La documentación narrativa de experiencias escolares. En <i>Manual de capacitación sobre registro y sistematización de experiencias pedagógicas (Módulo 1)</i>. Ministerio de Educación, Ciencia y Tecnología.</p>
+    <p>Universidad Tecnológica Nacional [UTN]. (2026a). <i>Unidad 2: Diseño y planificación de la práctica profesional</i> [Material de cátedra]. Práctica en Tecnología Educativa, Licenciatura en Tecnología Educativa.</p>
+    <p>Universidad Tecnológica Nacional [UTN]. (2026b). <i>Unidad 3: Implementación en campo y documentación pedagógica</i> [Material de cátedra]. Práctica en Tecnología Educativa, Licenciatura en Tecnología Educativa.</p>
+  </div>
+  <div class="annex" data-a style="--i:3">
+    <span class="eyebrow">Anexos</span>
+    <a href="https://drive.google.com/file/d/1zsROcFfSLQH0q24KeLA_DY1kLbkmii1t/view"><b>I</b>Cuaderno de campo</a>
+    <a href="https://lte.sied.utn.edu.ar/mod/assign/view.php?id=13459"><b>II</b>Primer parcial del Grupo 03, con la planificación de la intervención</a>
+    <span><b>III</b>Borradores de los instrumentos de evaluación (diapositiva anterior)</span>
+  </div>
+  <p class="ia" data-a style="--i:4"><span class="eyebrow">Declaración de uso de IA</span>Herramientas: Google NotebookLM y Claude (Anthropic), para consultoría bibliográfica, organización de borradores, corrección de estilos narrativos y adecuación de ejemplos. Todas las ideas, argumentos y la redacción final fueron revisados, adaptados y validados por las integrantes del grupo.</p>
+</Slide>
+
+<style>
+  .refs{columns:2;column-gap:48px}
+  .refs p{font-size:calc(var(--xs)*.98);line-height:1.38;padding-left:2em;text-indent:-2em;margin-bottom:7px;break-inside:avoid}
+  .refs a{word-break:break-all}
+  .annex{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;margin-top:14px;padding-top:14px;border-top:2px solid var(--leaf);font-size:var(--xs)}
+  .annex a,.annex span:not(.eyebrow){display:inline-flex;gap:10px;align-items:center}
+  .annex b{font-family:var(--mono);color:var(--rose-deep)}
+  .ia{margin-top:12px;font-size:calc(var(--xs)*.95);line-height:1.45;color:var(--muted)}
+  .ia .eyebrow{margin-right:12px}
+  :global(body.m-scroll) .refs{columns:1}
+</style>

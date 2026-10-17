@@ -1,0 +1,92 @@
+---
+import '@fontsource-variable/bricolage-grotesque/index.css';
+import '@fontsource/atkinson-hyperlegible/400.css';
+import '@fontsource/atkinson-hyperlegible/400-italic.css';
+import '@fontsource/atkinson-hyperlegible/700.css';
+import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource/jetbrains-mono/600.css';
+import '../styles/tokens.css';
+import '../styles/logo-utn.css';
+import '../styles/deck.css';
+import '../styles/controls.css';
+import Icons from '../components/Icons.astro';
+
+interface Props { title: string; description: string; total: number }
+const { title, description, total } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<!doctype html>
+<html lang="es" style={`--hex:url("${base}hex-pattern.svg")`}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#123A2C" />
+  <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+  <link rel="icon" href={`${base}favicon-32.png`} sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:title" content="De la prohibición del celular al laboratorio ampliado" />
+  <meta property="og:description" content={description} />
+  {Astro.site && <meta property="og:url" content={new URL(base, Astro.site).href} />}
+  {Astro.site && <meta property="og:image" content={new URL(`${base}og-card.jpg`, Astro.site).href} />}
+  {Astro.site && <meta property="og:image:alt" content="Portada de la presentación: un matraz Erlenmeyer y un celular en un trípode grabándolo, junto al título De la prohibición del celular al laboratorio ampliado." />}
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body class="preload m-deck">
+  <a class="skip" href="#stage">Ir a la presentación</a>
+  <Icons />
+
+  <main id="viewport">
+    <div id="stage" tabindex="-1" aria-roledescription="presentación" aria-label={title}>
+      <slot />
+    </div>
+  </main>
+
+  <p id="live" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+
+  <div id="notes" hidden role="region" aria-label="Notas del orador">
+    <span class="eyebrow">Notas del orador</span>
+    <div id="notesText"></div>
+  </div>
+
+  <div id="grid" hidden role="region" aria-label="Todas las diapositivas"><div class="wrap" id="gridWrap"></div></div>
+
+  <dialog id="lightbox" aria-label="Foto ampliada">
+    <button class="lb-close" id="lbClose" type="button" aria-label="Cerrar foto">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <figure><img id="lbImg" alt="" /><figcaption id="lbCap"></figcaption></figure>
+  </dialog>
+
+  <div id="progress" aria-hidden="true"></div>
+  <nav id="bar" aria-label="Controles de la presentación">
+    <button id="prev" type="button" aria-label="Diapositiva anterior">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <span id="count">01 / {String(total).padStart(2, '0')}</span>
+    <button id="next" type="button" aria-label="Diapositiva siguiente">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <span class="title" id="slideTitle"></span>
+    <button id="btnGrid" type="button" aria-pressed="false" aria-label="Vista de cuadrícula" title="Vista de cuadrícula (G)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+      <span class="kbd">G</span>
+    </button>
+    <button id="btnNotes" type="button" aria-pressed="false" title="Notas del orador (N)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 11h7M9 15h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span class="lbl">Notas</span> <span class="kbd">N</span>
+    </button>
+    <button id="btnFs" type="button" aria-label="Pantalla completa" title="Pantalla completa (F)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="kbd">F</span>
+    </button>
+  </nav>
+
+  <script>
+    import '../scripts/deck.ts';
+  </script>
+</body>
+</html>

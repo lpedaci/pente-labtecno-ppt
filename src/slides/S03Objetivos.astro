@@ -1,0 +1,42 @@
+---
+import Slide from '../components/Slide.astro';
+const { n } = Astro.props;
+const oes = [
+  { id: 'OE1', when: 'Primer cuatrimestre', verb: 'Caracterizar', text: 'el conocimiento tecnopedagógico del contenido del equipo docente de Cs. Naturales y las condiciones institucionales de uso del laboratorio, con el fin de construir una base que oriente el diseño de la propuesta.' },
+  { id: 'OE2', when: 'Julio y agosto', verb: 'Codiseñar', text: 'con el equipo docente de Cs. Naturales del ciclo superior dos secuencias de indagación que asignen al celular funciones definidas de registro, dentro de un protocolo compatible con la seguridad del espacio.' },
+  { id: 'OE3', when: 'Septiembre y octubre', verb: 'Acompañar', text: 'su implementación con observación situada, bitácora y reuniones entre pares.' },
+];
+---
+<Slide n={n} title="Objetivos" theme="paper" eyebrow="Introducción · objetivos"
+  heading="Qué se propone la intervención"
+  bodyClass="cols c-46"
+  notes="El objetivo general es fortalecer la integración de tecnologías con una visión pedagógica en Ciencias Naturales del ciclo superior. Los tres objetivos específicos fueron ajustados tras la devolución de la cátedra y siguen una secuencia temporal: caracterizar, codiseñar y acompañar.">
+  <div class="panel deep general" data-a style="--i:2">
+    <span class="eyebrow">Objetivo general</span>
+    <p>Fortalecer la integración de tecnologías con una visión pedagógica en la enseñanza de Ciencias Naturales del ciclo superior, mediante un <span class="hl">dispositivo de acompañamiento situado</span> que articule el equipamiento del laboratorio y los dispositivos móviles de los estudiantes con prácticas de indagación científica.</p>
+  </div>
+  <ol class="oes">
+    {oes.map((o, k) => (
+      <li data-a style={`--i:${k + 3}`}>
+        <span class="id">{o.id}</span>
+        <div>
+          <span class="chip plan"><span class="dot"></span>{o.when}</span>
+          <p class="sm"><strong>{o.verb}</strong> {o.text}</p>
+        </div>
+      </li>
+    ))}
+    <li class="foot-note" data-a style="--i:6"><span class="xs muted">Objetivos específicos ajustados tras la devolución de la cátedra.</span></li>
+  </ol>
+</Slide>
+
+<style>
+  .general{display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+  .general p{font-family:var(--display);font-size:calc(var(--fs)*1.18);line-height:1.32;letter-spacing:-.01em}
+  .general .hl{color:var(--rose-light)}
+  .oes{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+  .oes li{display:grid;grid-template-columns:88px 1fr;gap:20px;padding:20px 0;border-top:1px solid var(--line)}
+  .oes li:first-child{border-top:0;padding-top:0}
+  .oes .id{font-family:var(--display);font-weight:800;font-size:calc(var(--h3)*1.25);color:var(--rose);letter-spacing:-.03em}
+  .oes .chip{margin-bottom:10px}
+  .oes .foot-note{display:block;border-top:0;padding-top:4px}
+</style>

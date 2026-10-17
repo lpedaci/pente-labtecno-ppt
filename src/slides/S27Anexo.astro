@@ -1,0 +1,64 @@
+---
+import Slide from '../components/Slide.astro';
+const { n } = Astro.props;
+const tpack = [
+  ['TK', 'Resolver problemas técnicos básicos del celular y de las computadoras'],
+  ['CK', 'Conocimiento suficiente de los contenidos que enseña'],
+  ['PK', 'Adaptar la enseñanza a lo que los estudiantes comprenden'],
+  ['PCK', 'Estrategias eficaces para guiar la indagación científica'],
+  ['TCK', 'Aplicaciones o simuladores para representar o medir fenómenos'],
+  ['TPK', 'Tecnologías que mejoren la participación, no solo la presentación'],
+  ['TPACK', 'Diseñar una actividad que combine contenido, indagación y celular regulado'],
+];
+const adkar = [
+  ['Conciencia', 'Atribuye la dispersión solo a la conducta del curso', 'La explica como un problema de diseño y lo comunica'],
+  ['Deseo', 'Rechaza revisar la restricción del celular', 'Propone por iniciativa propia nuevas funciones'],
+  ['Conocimiento', 'Desconoce estrategias de uso regulado', 'Diseña secuencias con funciones, roles y protocolo'],
+  ['Habilidad', 'No implementa la secuencia', 'Implementa de manera autónoma y ajusta'],
+  ['Refuerzo', 'No hay registro ni acuerdos', 'El protocolo se incorpora como acuerdo áulico'],
+];
+---
+<Slide n={n} title="Anexo III: instrumentos" theme="paper" eyebrow="Anexo III · borradores de los instrumentos de evaluación"
+  heading="Cuestionario TPACK y rúbrica ADKAR"
+  bodyClass="cols c-46 anx"
+  notes="El cuestionario TPACK está adaptado de Schmidt y otros (2009): siete ítems, uno por dimensión, con una escala de 1, totalmente en desacuerdo, a 5, totalmente de acuerdo; se aplica al inicio, en la fase 2, y al cierre, en la fase 6. La rúbrica ADKAR la completa el equipo de tecnólogas al cierre de las fases 3, 4 y 6, en tres niveles: inicial, en proceso y logrado. La guía de observación registra cinco indicadores como presente, parcial o ausente: función asignada al celular, roles por estación o tarea, respeto del protocolo de seguridad, participación activa y vínculo del registro con la consigna. El grupo focal se organiza en cuatro preguntas: qué cambió cuando el celular tuvo una función definida, qué obstáculos hubo para sostener el protocolo, qué condiciones institucionales harían falta para continuar y qué parte de las secuencias reutilizarían o modificarían.">
+  <div class="block" data-a style="--i:2">
+    <p class="cap"><strong>Cuestionario TPACK</strong> · adaptado de Schmidt et al. (2009) · escala 1 a 5 · fases 2 y 6</p>
+    <ol class="tq">
+      {tpack.map(([d, t]) => <li><b>{d}</b><span>{t}</span></li>)}
+    </ol>
+  </div>
+  <div class="block second" data-a style="--i:3">
+    <p class="cap"><strong>Rúbrica ADKAR</strong> · cierre de las fases 3, 4 y 6 · de inicial a logrado</p>
+    <ol class="rub">
+      {adkar.map(([d, a, c]) => (
+        <li>
+          <b>{d}</b>
+          <span class="from"><span class="sr-only">Inicial: </span>{a}</span>
+          <svg class="arr" viewBox="0 0 24 12" aria-hidden="true"><path d="M2 6h18M15 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="to"><span class="sr-only">Logrado: </span>{c}</span>
+        </li>
+      ))}
+    </ol>
+    <p class="also">También se prevén una <strong>guía de observación</strong> (cinco indicadores: presente, parcial o ausente) y un <strong>guion de grupo focal</strong> con cuatro preguntas orientadoras.</p>
+  </div>
+</Slide>
+
+<style>
+  :global(.anx){column-gap:56px}
+  .block{display:flex;flex-direction:column;gap:12px}
+  .second{padding-left:56px;border-left:1px solid var(--line)}
+  .cap{font-size:var(--xs);color:var(--muted);line-height:1.4}
+  .cap strong{font-family:var(--display);font-size:var(--sm);color:var(--ink)}
+  .tq,.rub{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+  .tq li{display:grid;grid-template-columns:78px 1fr;gap:14px;align-items:baseline;padding:11px 0;border-top:1px solid var(--line);font-size:calc(var(--sm)*.95);line-height:1.38}
+  .tq b,.rub b{font-family:var(--mono);font-size:var(--xs);color:var(--rose-deep)}
+  .rub li{display:grid;grid-template-columns:130px 1fr 24px 1fr;gap:14px;align-items:center;padding:12px 0;border-top:1px solid var(--line);font-size:calc(var(--sm)*.9);line-height:1.35}
+  .from{color:var(--muted)}
+  .to{background:#E3F0E4;border-radius:8px;padding:6px 10px}
+  .arr{width:24px;height:12px;color:var(--leaf)}
+  .also{margin-top:8px;font-size:var(--xs);line-height:1.45;color:var(--muted);padding-top:12px;border-top:2px solid var(--leaf)}
+  :global(body.m-scroll) .second{padding-left:0;border-left:0;padding-top:24px;border-top:1px solid var(--line)}
+  :global(body.m-scroll) .rub li{grid-template-columns:1fr}
+  :global(body.m-scroll) .arr{transform:rotate(90deg)}
+</style>

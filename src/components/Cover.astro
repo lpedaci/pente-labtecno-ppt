@@ -1,0 +1,152 @@
+---
+/** Portada de la presentación. La usan la diapositiva 1 y el cierre, que repite la portada. */
+interface Props { uid: string }
+const { uid } = Astro.props;
+const clipId = `flaskClip-${uid}`;
+const miniClipId = `flaskClipMini-${uid}`;
+// Burbujas de ebullición: viven dentro del líquido y suben hasta su superficie (y = 400 en coordenadas del líquido).
+let seed = 42;
+const rnd = () => ((seed = (seed * 9301 + 49297) % 233280) / 233280);
+const bubbles = Array.from({ length: 40 }, () => {
+  const cy = 425 + rnd() * 400;
+  const rise = -(cy - 404);
+  return {
+    cx: (150 + rnd() * 260).toFixed(1),
+    cy: cy.toFixed(1),
+    r: (2.5 + rnd() * 7).toFixed(1),
+    style: `--rise:${rise.toFixed(0)}px;animation-duration:${(0.9 + -rise / 260).toFixed(2)}s;animation-delay:-${(rnd() * 2.5).toFixed(2)}s`,
+  };
+});
+---
+<div class="cover">
+  <div class="cover-top">
+    <div class="stack" style="gap:12px">
+      <span class="eyebrow" data-a style="--i:0">UTN · Licenciatura en Tecnología Educativa · Prácticas en Tecnología Educativa</span>
+      <span class="eyebrow" data-a style="--i:1;color:var(--rose-light)">Actividad Obligatoria 4 · Asincrónica</span>
+    </div>
+    <i class="utn big-utn" role="img" aria-label="Logo de la UTN" data-a style="--i:0"></i>
+  </div>
+  <div class="left">
+    <div>
+      <h1 data-a style="--i:2">De la prohibición del celular al <span class="hl">laboratorio ampliado</span></h1>
+      <p class="sub" data-a style="--i:3">Acompañamiento tecnopedagógico para la enseñanza de Ciencias Naturales en una escuela secundaria técnica</p>
+    </div>
+    <dl class="team" data-a style="--i:4">
+      <dt>Grupo N.° 3</dt><dd>Clara Argüello · Silvia Costas · Lourdes Pedaci</dd>
+      <dt>Titular</dt><dd>Dr. Dario Rodriguez</dd>
+      <dt>Adjuntos</dt><dd>Lic. Gastón Brito · Lic. Cintia Cliso</dd>
+      <dt>Año</dt><dd>2026</dd>
+    </dl>
+  </div>
+  <svg class="art" viewBox="0 0 600 640" role="img" aria-label="Ilustración: un matraz Erlenmeyer en agitación mientras un celular montado en un trípode registra la experiencia">
+    <circle cx="300" cy="330" r="270" fill="#1F5C45" data-a="pop" style="--i:1"/>
+    <circle cx="300" cy="330" r="270" fill="none" stroke="#9CC3A4" stroke-opacity=".3" stroke-dasharray="4 10"/>
+    <defs>
+      <clipPath id={clipId}><path d="M240 130H320V280L440 520Q452 548 424 548H136Q108 548 120 520L240 280Z"/></clipPath>
+      <clipPath id={miniClipId}><path d="M240 130H320V280L440 520Q452 548 424 548H136Q108 548 120 520L240 280Z"/></clipPath>
+    </defs>
+    <!-- matraz grande: la reacción sube casi hasta el borde, cambia de color y vuelve -->
+    <g data-a style="--i:2"><g class="swirl">
+        <g clip-path={`url(#${clipId})`}>
+          <g class="liq">
+            <rect class="liq-a" x="80" y="400" width="400" height="460" fill="#F6D2A6"/>
+            <path class="wave liq-b" d="M60 400 q30 -14 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 V860 H60Z" fill="#F1BD7F"/>
+            {bubbles.map((b) => <circle class="boil" cx={b.cx} cy={b.cy} r={b.r} style={b.style} />)}
+          </g>
+        </g>
+        <path d="M240 130H320V280L440 520Q452 548 424 548H136Q108 548 120 520L240 280Z" fill="none" stroke="#E6F1E5" stroke-width="6" stroke-linejoin="round"/>
+        <rect x="228" y="116" width="104" height="18" rx="6" fill="#E6F1E5"/>
+        <g class="steam" aria-hidden="true">
+          <path class="puff p1" d="M262 104c-10-14 10-22 0-38" />
+          <path class="puff p2" d="M282 100c-10-16 12-24 0-44" />
+          <path class="puff p3" d="M302 104c-10-14 10-22 0-38" />
+        </g>
+        <path d="M250 330h22M250 370h14M250 410h22" stroke="#E6F1E5" stroke-width="3" stroke-opacity=".6"/>
+    </g></g>
+    <g transform="translate(382 196)"><g data-a style="--i:4">
+      <g stroke="#9CC3A4" stroke-width="9" stroke-linecap="round" fill="none"><path d="M85 340L22 444M85 340L148 444M85 340V448"/></g>
+      <rect x="58" y="318" width="54" height="26" rx="6" fill="#9CC3A4"/>
+      <rect width="170" height="320" rx="26" fill="#1C1C1E" stroke="#C7CCC9" stroke-width="5"/>
+      <rect x="14" y="40" width="142" height="230" rx="10" fill="#2C2C2E"/>
+      <!-- el celular registra la misma reacción: réplica a escala del matraz -->
+      <g transform="translate(-15.9 35.2) scale(0.36)"><g class="swirl-mini">
+        <g clip-path={`url(#${miniClipId})`}>
+          <g class="liq">
+            <rect class="liq-a" x="80" y="400" width="400" height="460" fill="#F6D2A6"/>
+            <path class="wave liq-b" d="M60 400 q30 -14 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 V860 H60Z" fill="#F1BD7F"/>
+            {bubbles.map((b) => <circle class="boil" cx={b.cx} cy={b.cy} r={b.r} style={b.style} />)}
+          </g>
+        </g>
+        <path d="M240 130H320V280L440 520Q452 548 424 548H136Q108 548 120 520L240 280Z" fill="none" stroke="#E6F1E5" stroke-width="6" stroke-linejoin="round"/>
+        <rect x="228" y="116" width="104" height="18" rx="6" fill="#E6F1E5"/>
+        <path d="M250 330h22M250 370h14M250 410h22" stroke="#E6F1E5" stroke-width="3" stroke-opacity=".6"/>
+      </g></g>
+      <path d="M14 140 L120 40 H156 L14 190Z" fill="#fff" opacity=".05"/>
+      <path d="M30 70v-16h16M140 70v-16h-16M30 240v16h16M140 240v16h-16" fill="none" stroke="#F08FAA" stroke-width="4"/>
+      <circle class="rec" cx="38" cy="26" r="7" fill="#D4567A"/>
+      <text class="rec-time" x="52" y="31" fill="#E6F1E5" font-family="JetBrains Mono, monospace" font-size="14">REC 00:00</text>
+      <circle cx="85" cy="292" r="11" fill="none" stroke="#E6F1E5" stroke-width="3"/>
+    </g></g>
+  </svg>
+</div>
+
+<script>
+  // El reloj REC avanza mientras la diapositiva está a la vista y vuelve a 00:00 al salir.
+  document.querySelectorAll<HTMLElement>('.cover').forEach((cover) => {
+    const label = cover.querySelector<SVGTextElement>('.rec-time');
+    const slide = cover.closest<HTMLElement>('.slide');
+    if (!label || !slide) return;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+    let secs = 0;
+    let timer: number | undefined;
+    const paint = () => {
+      const m = String(Math.floor(secs / 60)).padStart(2, '0');
+      const s = String(secs % 60).padStart(2, '0');
+      label.textContent = `REC ${m}:${s}`;
+    };
+    const visible = () => slide.classList.contains(document.body.classList.contains('m-scroll') ? 'in-view' : 'is-active');
+    const sync = () => {
+      if (visible() && !reduce.matches) {
+        if (timer === undefined) timer = window.setInterval(() => { secs++; paint(); }, 1000);
+      } else {
+        window.clearInterval(timer);
+        timer = undefined;
+        secs = 0;
+        paint();
+      }
+    };
+    new MutationObserver(sync).observe(slide, { attributes: true, attributeFilter: ['class'] });
+    sync();
+  });
+</script>
+
+<style>
+  /* reacción química: ciclo de 9 s compartido por el matraz grande y su registro en el celular */
+  .boil{fill:#F5FAF3;fill-opacity:.85;transform-box:fill-box;transform-origin:center;animation:boil 1.6s ease-in infinite}
+  @keyframes boil{0%{transform:translateY(0) scale(.4);opacity:0}12%{opacity:1}80%{transform:translateY(calc(var(--rise) * .9)) scale(1);opacity:1}100%{transform:translateY(var(--rise)) scale(1.35);opacity:0}}
+  .steam{fill:none;stroke:#E6F1E5;stroke-width:5;stroke-linecap:round;opacity:0;animation:steam-cycle 9s ease-in-out infinite}
+  .puff{animation:puff 1.8s ease-out infinite;transform-box:fill-box;transform-origin:bottom center}
+  .puff.p2{animation-delay:.6s}
+  .puff.p3{animation-delay:1.2s}
+  @keyframes steam-cycle{0%,42%{opacity:0}55%,70%{opacity:.75}82%,100%{opacity:0}}
+  @keyframes puff{0%{transform:translateY(8px) scaleY(.6);opacity:0}30%{opacity:1}100%{transform:translateY(-26px) scaleY(1.15);opacity:0}}
+  .liq{animation:react-level 9s cubic-bezier(.45,0,.55,1) infinite}
+  .liq-a{animation:react-a 9s ease-in-out infinite}
+  .liq .liq-b{animation:wave 4s linear infinite,react-b 9s ease-in-out infinite}
+  @keyframes react-level{0%,10%{transform:translateY(0)}55%,68%{transform:translateY(-252px)}95%,100%{transform:translateY(0)}}
+  @keyframes react-a{0%,10%{fill:#F6D2A6}34%{fill:#F7C2D0}58%,68%{fill:#C6E4F5}95%,100%{fill:#F6D2A6}}
+  @keyframes react-b{0%,10%{fill:#F1BD7F}34%{fill:#E07A98}58%,68%{fill:#4F9FD0}95%,100%{fill:#F1BD7F}}
+  .cover{display:grid;grid-template-columns:1.1fr .9fr;grid-template-rows:auto 1fr;gap:28px 40px;height:100%}
+  .cover-top{grid-column:1 / -1;display:flex;justify-content:space-between;align-items:flex-start}
+  .big-utn{width:30px;height:46px;color:var(--paper);opacity:.85;flex:none}
+  .left{grid-row:2;display:flex;flex-direction:column;justify-content:space-between;min-width:0;padding-bottom:64px}
+  h1{color:var(--paper)}
+  .sub{font-size:calc(var(--fs)*1.05);color:var(--sage);max-width:32ch;margin-top:26px}
+  .team{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;font-size:var(--sm);margin:0}
+  .team dt{font-family:var(--mono);font-size:var(--xs);text-transform:uppercase;letter-spacing:.12em;color:var(--sage);padding-top:4px}
+  .team dd{margin:0;color:var(--paper)}
+  .art{grid-row:2;grid-column:2;width:100%;height:100%;max-height:700px;min-height:0;overflow:visible}
+  :global(body.m-scroll) .cover{grid-template-columns:1fr;height:auto}
+  :global(body.m-scroll) .art{grid-column:1;grid-row:auto;max-height:300px}
+  :global(body.m-scroll) .left{grid-row:auto;gap:28px;padding-bottom:0}
+</style>

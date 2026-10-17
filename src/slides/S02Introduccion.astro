@@ -1,0 +1,37 @@
+---
+import Slide from '../components/Slide.astro';
+const { n } = Astro.props;
+---
+<Slide n={n} title="Introducción" theme="light" eyebrow="Introducción · situación problemática"
+  heading="El problema no es la carencia de recursos"
+  bodyClass="cols c-55"
+  notes="La propuesta se sitúa en una escuela secundaria técnica estatal con laboratorios bien equipados. El problema no es la falta de recursos ni la conducta del estudiantado, sino la ausencia de una estrategia didáctica que dé sentido pedagógico a la tecnología disponible. Para generar una base empírica recurrimos a un caso análogo: la experiencia de un colega de Lourdes Pedaci en el laboratorio de química de una escuela técnica privada subvencionada.">
+  <div class="stack" style="gap:28px">
+    <p data-a style="--i:2">Escuela secundaria técnica de gestión estatal, en una zona urbana densamente poblada, con <em class="term">laboratorios de ciencias para el ciclo superior</em> y buena infraestructura tecnológica.</p>
+    <p data-a style="--i:3">El problema no es la carencia de recursos ni la conducta del estudiantado, sino la <strong>ausencia de una estrategia didáctica que otorgue sentido pedagógico</strong> a la tecnología disponible. Ante la dispersión del curso, la institución respondió <strong>prohibiendo el uso del celular</strong>.</p>
+    <blockquote class="quote" data-a style="--i:4">
+      <p>Uno de los principales obstáculos para desarrollar el potencial educativo de las TIC es “la organización y la cultura tradicionales de la escuela”, y no la disponibilidad de artefactos.</p>
+      <cite>Sancho Gil (2009, p. 64)</cite>
+    </blockquote>
+  </div>
+  <div class="stack">
+    <div class="panel deep case" data-a style="--i:3">
+      <span class="eyebrow">Base empírica · caso análogo</span>
+      <h3>Un problema similar en el laboratorio de química</h3>
+      <p class="sm muted">La experiencia de un colega de la integrante Pedaci, en una escuela técnica privada subvencionada.</p>
+      <ul class="clean">
+        <li>El testimonio del colega</li>
+        <li>Los documentos institucionales (AIC y PEI)</li>
+      </ul>
+      <p class="sm last">Permitieron <span class="hl">contrastar el escenario con una práctica real</span>, además de plantear mejoras.</p>
+    </div>
+  </div>
+</Slide>
+
+<style>
+  .case{display:flex;flex-direction:column;gap:18px;height:100%}
+  .case h3{color:var(--paper)}
+  .case .hl{color:var(--rose-light)}
+  blockquote{margin:0}
+  .last{margin-top:auto;padding-top:18px;border-top:1px solid rgba(156,195,164,.25)}
+</style>

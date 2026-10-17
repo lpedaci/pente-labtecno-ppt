@@ -1,0 +1,58 @@
+---
+import Slide from '../components/Slide.astro';
+const { n } = Astro.props;
+---
+<Slide n={n} title="Cultura institucional" theme="paper" eyebrow="Marco político e institucional · III"
+  heading="Cultura de seguridad consolidada, tecnología <span class='hl'>sin profundizar</span>"
+  bodyClass="cols c-55"
+  notes="En el caso relevado conviven una cultura de seguridad consolidada y una incorporación de tecnología todavía sin profundizar, sin un tecnólogo educativo asignado. El PEI ofrece una apertura al proponer dejar de lado rígidas normas. Leída desde ADKAR, hay conciencia del problema, pero el deseo de cambio está condicionado por la prioridad de la seguridad. Por eso, en la fase 3, la devolución del diagnóstico debe presentar el uso regulado del celular como compatible con esa cultura y no como su opuesto.">
+  <div class="stack" style="gap:26px">
+    <div class="cols c2 duo" data-a style="--i:2">
+      <div class="panel solid">
+        <span class="eyebrow">Consolidada</span>
+        <h3>Cultura de seguridad</h3>
+      </div>
+      <div class="panel dashed">
+        <span class="eyebrow">Sin profundizar</span>
+        <h3>Incorporación de tecnología</h3>
+        <p class="xs muted">Sin un tecnólogo educativo asignado que acompañe esa adopción</p>
+      </div>
+    </div>
+    <blockquote class="quote" data-a style="--i:3">
+      <p>El PEI propone una gestión que permita “dejar de lado rígidas normas que nos apartan de una resolución innovadora”</p>
+      <cite>Escuela caso análogo (2023, p. 21)</cite>
+    </blockquote>
+  </div>
+  <div class="panel adk" data-a style="--i:4">
+    <span class="eyebrow">Lectura desde ADKAR · Hiatt (2006)</span>
+    <ol>
+      <li class="on"><b>A</b><div><strong>Conciencia</strong><span>del problema: presente</span></div></li>
+      <li class="half"><b>D</b><div><strong>Deseo</strong><span>de cambio: todavía condicionado por la prioridad de la seguridad</span></div></li>
+      <li><b>K</b><div><strong>Conocimiento</strong></div></li>
+      <li><b>A</b><div><strong>Habilidad</strong></div></li>
+      <li><b>R</b><div><strong>Refuerzo</strong></div></li>
+    </ol>
+    <p class="sm impl">La devolución del diagnóstico <span class="chip ens">fase 3</span> debe presentar el uso regulado del celular <strong>compatible con esa cultura</strong> y no como su opuesto.</p>
+  </div>
+</Slide>
+
+<style>
+  blockquote{margin:0}
+  .duo{gap:16px}
+  .duo .panel{display:flex;flex-direction:column;gap:10px}
+  .duo .solid{box-shadow:0 18px 40px -24px rgba(18,58,44,.35)}
+  .duo .solid .eyebrow{color:var(--leaf-ink)}
+  .duo .dashed{background:transparent!important;border:1.5px dashed rgba(212,86,122,.6)!important}
+  .duo .dashed .eyebrow{color:var(--rose-deep)}
+  .adk{display:flex;flex-direction:column;gap:18px;background:var(--blush)!important;border-color:transparent!important}
+  .adk .eyebrow{color:var(--rose-deep)}
+  .adk ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+  .adk li{display:grid;grid-template-columns:46px 1fr;gap:16px;align-items:center;opacity:.55}
+  .adk li b{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:#fff;border:1.5px solid rgba(142,35,71,.35);font-family:var(--display);font-size:22px;color:var(--rose-deep)}
+  .adk li div{display:flex;flex-direction:column;gap:2px;font-size:var(--sm)}
+  .adk li span{font-size:var(--xs);color:#6B3A4C;line-height:1.35}
+  .adk li.on,.adk li.half{opacity:1}
+  .adk li.on b{background:var(--leaf);border-color:var(--leaf);color:#fff}
+  .adk li.half b{background:linear-gradient(90deg,var(--rose) 50%,#fff 50%);border-color:var(--rose);color:var(--rose-deep)}
+  .impl{margin-top:auto;padding-top:16px;border-top:1px solid rgba(142,35,71,.2)}
+</style>

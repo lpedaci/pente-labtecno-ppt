@@ -1,0 +1,46 @@
+---
+import Slide from '../components/Slide.astro';
+const { n } = Astro.props;
+const rows = [
+  { t: 'Cuestionario TPACK', when: 'Abril-mayo y noviembre', crit: 'Mejora en TPK y TPACK entre la aplicación inicial y la final', who: 'Docentes de Cs. Naturales' },
+  { t: 'Rúbrica ADKAR', when: 'Cierre de las fases 3, 4 y 6', crit: 'Avance de al menos un nivel por dimensión', who: 'Directivos, jefe de departamento y docentes' },
+  { t: 'Guía de observación', when: 'Septiembre-octubre', crit: 'Al menos tres de cuatro docentes implementan las dos secuencias', who: 'Equipo de tecnólogas' },
+  { t: 'Producciones de los estudiantes', when: 'Fase 5', crit: 'Registro completo por etapa y pertinente a la consigna', who: 'Estudiantes, por equipos' },
+  { t: 'Grupo focal', when: 'Noviembre', crit: 'La propuesta se incorpora al ciclo lectivo siguiente', who: 'Docentes participantes' },
+  { t: 'Bitácora del equipo', when: 'Todas las fases', crit: 'Registro continuo y reflexivo', who: 'Equipo de tecnólogas' },
+];
+---
+<Slide n={n} title="Instrumentos de evaluación" theme="light" eyebrow="Instrumentos de evaluación previstos"
+  heading="Cada instrumento, vinculado a un objetivo y a una etapa ADKAR"
+  notes="La evaluación acompaña el proceso y requiere definir indicadores, qué se quiere observar; criterios, cómo se juzgará; e instrumentos. Como señala Anijovich, la búsqueda de evidencias debería ser coherente y pertinente respecto del diseño y del desarrollo de la enseñanza. Indicadores principales: autopercepción en las siete dimensiones TPACK con escala de 1 a 5; las cinco dimensiones ADKAR en tres niveles; celular con función asignada, roles por estación, protocolo de seguridad y participación activa; registro fotográfico y video de cada etapa; utilidad percibida, obstáculos y condiciones institucionales.">
+  <p class="lead" data-a style="--i:2">Indicadores (qué observar), criterios (cómo juzgarlo) e instrumentos <cite>(UTN, 2026b)</cite>: la búsqueda de evidencias “debería ser coherente y pertinente respecto del diseño y del desarrollo de la enseñanza” <cite>(Anijovich, 2017, como se citó en UTN, 2026b)</cite>.</p>
+  <div class="ins">
+    <div class="h" aria-hidden="true">Instrumento</div>
+    <div class="h" aria-hidden="true">Momento</div>
+    <div class="h" aria-hidden="true">Criterio de logro</div>
+    <div class="h" aria-hidden="true">Informantes</div>
+    {rows.map((r, k) => (
+      <>
+        <div class="t" data-a style={`--i:${k + 3}`}>{r.t}</div>
+        <div class="when" data-a style={`--i:${k + 3}`}><span class="sr-only">Momento: </span>{r.when}</div>
+        <div class="crit" data-a style={`--i:${k + 3}`}><span class="sr-only">Criterio: </span>{r.crit}</div>
+        <div class="who" data-a style={`--i:${k + 3}`}><span class="sr-only">Informantes: </span>{r.who}</div>
+      </>
+    ))}
+  </div>
+</Slide>
+
+<style>
+  .lead{font-size:var(--xs);line-height:1.45;color:var(--muted);margin:-4px 0 16px;max-width:110ch}
+  .ins{display:grid;grid-template-columns:1fr .8fr 1.5fr 1fr;font-size:var(--sm);line-height:1.38}
+  .ins>div{padding:13px 16px;border-bottom:1px solid var(--line-soft);min-width:0}
+  .h{font-family:var(--mono);font-size:var(--xs)!important;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);border-bottom:2px solid var(--leaf)!important;padding-top:0!important}
+  .t{font-family:var(--display);font-weight:600}
+  .when{font-family:var(--mono);font-size:var(--xs);color:var(--rose-deep);display:flex;align-items:center}
+  .crit{background:#F1F8F0}
+  .who{font-size:var(--xs);color:var(--pine);display:flex;align-items:center}
+  :global(body.m-scroll) .ins{grid-template-columns:1fr}
+  :global(body.m-scroll) .ins .h{display:none}
+  :global(body.m-scroll) .ins>div{border-bottom:0;padding:3px 0}
+  :global(body.m-scroll) .ins .t{padding-top:16px}
+</style>

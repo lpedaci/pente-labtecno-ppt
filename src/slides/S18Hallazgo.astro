@@ -1,0 +1,121 @@
+---
+import Slide from '../components/Slide.astro';
+const { n } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const strategies = [
+  { icon: 'i-cam', t: 'Celular con función definida', d: 'Toma de imágenes y registro audiovisual' },
+  { icon: 'i-roles', t: 'Roles', d: 'Por pileta o por asignatura / trabajo a realizar' },
+  { icon: 'i-sim', t: 'Aplicaciones', d: 'GeoGebra, software ofimático e IA para producciones concretas' },
+  { icon: 'i-video', t: 'Video del proceso', d: 'El proceso de trabajo como evidencia' },
+  { icon: 'i-panel', t: 'Mensaje fijado en Microsoft Teams', d: 'Acceso a los materiales; el colega propone evolucionar hacia un repositorio más completo' },
+];
+---
+<Slide n={n} title="Hallazgo central" theme="paper" eyebrow="Aspectos pedagógicos · profundización del testimonio"
+  heading="Aquello que se prohíbe puede convertirse en una <span class='hl'>herramienta valiosa</span>"
+  bodyClass="hallazgo"
+  notes="La animación recorre el hallazgo: antes, el celular prohibido, sin protocolo que defina cuándo y dónde usarlo. Con decisiones de diseño, el celular pasa a tener una función definida: toma de imágenes y registro audiovisual de las etapas. Con roles, video del proceso, aplicaciones y el mensaje fijado en Teams, la dispersión disminuyó en cierta medida. Es una mejora parcial del caso análogo, no un resultado de nuestra intervención, que no llegó a implementarse. Cuaderno de campo, 8 de octubre de 2026.">
+  <figure class="mg" data-a style="--i:2">
+    <video class="mg-video" muted loop playsinline preload="metadata" poster={`${base}media/hallazgo-poster.jpg`}
+      aria-describedby="hallazgo-alt" tabindex="-1">
+      <source src={`${base}media/hallazgo.mp4`} type="video/mp4" />
+    </video>
+    <button class="mg-toggle" type="button" aria-pressed="false" aria-label="Pausar animación">
+      <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z" fill="currentColor"/></svg>
+    </button>
+  </figure>
+
+  <!-- Alternativa en texto: la leen los lectores de pantalla y se muestra en la lectura vertical (celular) -->
+  <div class="alt" id="hallazgo-alt">
+    <div class="shift">
+      <div class="state off">
+        <span class="eyebrow">Antes</span>
+        <p class="big">Celular prohibido</p>
+        <p class="sm muted">Sin protocolo que defina cuándo y dónde usarlo</p>
+      </div>
+      <div class="state on">
+        <span class="eyebrow">Con decisiones de diseño</span>
+        <p class="big">Celular con función definida</p>
+        <p class="sm">La dispersión <strong>disminuyó en cierta medida</strong></p>
+      </div>
+      <p class="xs muted">Caso análogo · cuaderno de campo, 8 de octubre de 2026</p>
+    </div>
+    <ul class="strat">
+      {strategies.map((s) => (
+        <li>
+          <svg class="ico" aria-hidden="true"><use href={`#${s.icon}`}/></svg>
+          <div><strong>{s.t}</strong><span>{s.d}</span></div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Slide>
+
+<script>
+  // Reproduce el loop solo mientras la diapositiva está a la vista; respeta "reducir movimiento" y la pausa manual.
+  const fig = document.querySelector<HTMLElement>('figure.mg');
+  const video = fig?.querySelector<HTMLVideoElement>('video');
+  const btn = fig?.querySelector<HTMLButtonElement>('.mg-toggle');
+  const slide = fig?.closest<HTMLElement>('.slide');
+  if (fig && video && btn && slide) {
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+    let userPaused = reduce.matches;
+    const visible = () => slide.classList.contains(document.body.classList.contains('m-scroll') ? 'in-view' : 'is-active');
+    const label = () => {
+      btn.setAttribute('aria-pressed', String(userPaused));
+      btn.setAttribute('aria-label', userPaused ? 'Reproducir animación' : 'Pausar animación');
+      fig.classList.toggle('paused', userPaused);
+    };
+    const sync = (restart = false) => {
+      if (visible() && !userPaused) {
+        if (restart) video.currentTime = 0;
+        video.play().catch(() => {});
+      } else video.pause();
+    };
+    let wasVisible = visible();
+    new MutationObserver(() => {
+      const v = visible();
+      sync(v && !wasVisible);
+      wasVisible = v;
+    }).observe(slide, { attributes: true, attributeFilter: ['class'] });
+    btn.addEventListener('click', () => { userPaused = !userPaused; label(); sync(); });
+    reduce.addEventListener('change', () => { userPaused = reduce.matches; label(); sync(); });
+    label();
+    sync(true);
+  }
+</script>
+
+<style>
+  :global(.hallazgo){display:flex;flex-direction:column;justify-content:center}
+  .mg{position:relative;margin:0;width:100%;aspect-ratio:1920/792;max-height:100%;border-radius:16px;overflow:hidden;background:#123A2C;
+    box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 24px 50px -18px rgba(18,58,44,.45),0 2px 6px rgba(18,58,44,.12)}
+  .mg-video{display:block;width:100%;height:100%;object-fit:contain}
+  .mg-toggle{position:absolute;right:16px;bottom:16px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(156,195,164,.45);
+    background:rgba(11,42,31,.78);color:var(--paper);display:grid;place-items:center;cursor:pointer;opacity:.75;transition:opacity .25s var(--ease),transform .2s var(--ease)}
+  .mg:hover .mg-toggle,.mg-toggle:focus-visible{opacity:1}
+  .mg-toggle:active{transform:scale(.95)}
+  .mg-toggle:focus-visible{outline:3px solid var(--rose-light);outline-offset:2px}
+  .mg-toggle svg{width:20px;height:20px;grid-area:1/1}
+  .i-play{display:none}
+  .mg.paused .i-play{display:block}
+  .mg.paused .i-pause{display:none}
+
+  /* alternativa en texto: oculta a la vista en modo diapositiva, visible en lectura vertical */
+  .alt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  :global(body.m-scroll) .alt{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal;display:flex;flex-direction:column;gap:20px;margin-top:20px}
+  .shift{display:flex;flex-direction:column;gap:12px}
+  .state{border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+  .state .big{font-size:calc(var(--h3)*1.2);line-height:1.05}
+  .off{border:1.5px dashed rgba(212,86,122,.55)}
+  .off .big{color:var(--rose-deep);text-decoration:line-through;text-decoration-thickness:2px}
+  .off .eyebrow{color:var(--rose-deep)}
+  .on{background:#fff;border:1px solid var(--line);color:var(--ink)}
+  .on .eyebrow{color:var(--leaf-ink)}
+  .on .big{color:var(--pine)}
+  .strat{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+  .strat li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:center;padding:12px 0;border-top:1px solid var(--line);color:var(--leaf)}
+  .strat .ico{width:34px;height:34px}
+  .strat div{display:flex;flex-direction:column;gap:3px}
+  .strat strong{font-family:var(--display);font-size:var(--sm);color:var(--ink);font-weight:600}
+  .strat span{font-size:calc(var(--sm)*.92);color:var(--muted);line-height:1.4}
+</style>

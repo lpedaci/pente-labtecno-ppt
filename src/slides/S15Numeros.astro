@@ -1,0 +1,51 @@
+---
+import Slide from '../components/Slide.astro';
+const { n } = Astro.props;
+// 35 estudiantes: los primeros 9 tendrían equipo propio; el resto queda sin computadora
+const dots = Array.from({ length: 35 }, (_, k) => ({ x: (k % 7) * 50 + 22, y: Math.floor(k / 7) * 58 + 26, on: k < 9 }));
+---
+<Slide n={n} title="Diagnóstico en números" theme="light" eyebrow="Diagnóstico · relevamiento de infraestructura"
+  heading="Nueve computadoras para cursos de 20 a 35"
+  bodyClass="cols c-55"
+  notes="La proporción de equipos por estudiante es el dato que reorganiza la planificación: nueve computadoras para un curso promedio de veinte a treinta y cinco alumnos. Por eso el celular regulado no compite con el laboratorio, lo complementa. A eso se suma la coordinación de espacios entre modalidades y turnos, y una barrera física: el laboratorio principal está en un tercer piso sin ascensor.">
+  <div class="ratio" data-a style="--i:2">
+    <div class="pcs" aria-hidden="true">
+      {Array.from({ length: 9 }, (_, k) => <svg data-a="pop" style={`--i:${2 + Math.floor(k / 3)}`}><use href="#pc"/></svg>)}
+    </div>
+    <svg viewBox="0 0 352 290" role="img" aria-label="Treinta y cinco puntos representan a los estudiantes de un curso: solo nueve coinciden con una computadora disponible">
+      {dots.map((d, k) => (
+        <circle cx={d.x} cy={d.y} r="17" fill={d.on ? 'var(--leaf)' : 'var(--rose)'} fill-opacity={d.on ? 1 : .85}
+          data-a="pop" style={`--i:${3 + Math.floor(k / 5)}`} />
+      ))}
+    </svg>
+    <div class="legend">
+      <span><i style="background:var(--leaf)"></i>con equipo</span>
+      <span><i style="background:var(--rose)"></i>sin equipo (curso de 35)</span>
+    </div>
+  </div>
+  <div class="kpis">
+    <div class="kpi" data-a style="--i:3"><span class="big">9</span><p class="sm">equipos con internet en el aula del laboratorio principal</p></div>
+    <div class="kpi" data-a style="--i:4"><span class="big r">20–35</span><p class="sm">estudiantes por curso; el segundo laboratorio tiene islas de trabajo para un límite de 35</p></div>
+    <div class="kpi" data-a style="--i:5"><span class="big floor">3.<sup>er</sup><span class="unit">piso</span></span><p class="sm">Sin ascensor ni medios de elevación; mesas fijas y con altura estandarizada</p></div>
+    <p class="xs muted" data-a style="--i:6">Proyector y televisor propios y equipamiento de seguridad completo. La limitación no es la carencia de recursos, sino su <strong>disponibilidad temporal</strong> y la <strong>estrategia didáctica de uso</strong>.</p>
+  </div>
+</Slide>
+
+<style>
+  .ratio{display:flex;flex-direction:column;gap:18px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 32px}
+  .pcs{display:grid;grid-template-columns:repeat(9,1fr);gap:8px}
+  .pcs svg{width:100%;aspect-ratio:40/34;height:auto}
+  .ratio>svg{width:100%;height:auto;max-height:420px}
+  .legend{display:flex;gap:22px;font-family:var(--mono);font-size:var(--xs);color:var(--muted)}
+  .legend span{display:inline-flex;gap:8px;align-items:center}
+  .legend i{width:12px;height:12px;border-radius:50%}
+  .kpis{display:flex;flex-direction:column;gap:20px}
+  .kpi{display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center;padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .kpi .big{font-size:84px;color:var(--leaf)}
+  .kpi .big.r{color:var(--rose);font-size:70px}
+  .kpi .floor{white-space:nowrap}
+  .kpi .unit{font-size:36px;letter-spacing:-.02em;margin-left:8px}
+  .kpi sup{font-size:.45em}
+  :global(body.m-scroll) .kpi{grid-template-columns:1fr;gap:6px}
+  :global(body.m-scroll) .kpi .big{font-size:56px}
+</style>
