@@ -23,7 +23,7 @@ El trabajo se plantea como **ensayo simulado**: la planificación está completa
 
 ## Contenido
 
-La exposición dura 15 minutos y recorre 16 diapositivas. El resto queda como material de consulta después del cierre.
+La exposición dura 15 minutos y recorre 18 diapositivas. Después del cierre queda el material de consulta.
 
 **Exposición**
 
@@ -33,33 +33,30 @@ La exposición dura 15 minutos y recorre 16 diapositivas. El resto queda como ma
 | 02 | Introducción: el problema no es la carencia de recursos | Punto de partida |
 | 03 | Objetivos general y específicos | Punto de partida |
 | 04 | Metodología: investigación acción participativa, TPACK y ADKAR | Punto de partida |
-| 05 | Los espacios del laboratorio (registro fotográfico) | Caso análogo |
-| 06 | Diagnóstico en números | Caso análogo |
-| 07 | Bitácora de campo | Caso análogo |
-| 08 | Hallazgo central (motion graphic) | Caso análogo |
-| 09 | Sistematización y análisis | Análisis |
-| 10 | Fases de la implementación e intervención del tecnólogo educativo | Propuesta |
-| 11 | Roles y responsabilidades | Propuesta |
-| 12 | Próximos pasos y repositorio institucional | Aplicación |
-| 13 | Cuestionario TPACK y rúbrica ADKAR (Anexo III) | Aplicación |
-| 14 | Plataformas posibles para el repositorio (maquetas de ejemplo) | Aplicación |
-| 15 | Reflexión final | Cierre |
-| 16 | Cierre | Cierre |
+| 05 | Marco normativo | Punto de partida |
+| 06 | Los espacios del laboratorio (registro fotográfico) | Caso análogo |
+| 07 | Diagnóstico en números | Caso análogo |
+| 08 | Accesibilidad del laboratorio | Caso análogo |
+| 09 | Bitácora de campo | Caso análogo |
+| 10 | Hallazgo central (motion graphic) | Caso análogo |
+| 11 | Sistematización y análisis | Análisis |
+| 12 | Fases de la implementación e intervención del tecnólogo educativo | Propuesta |
+| 13 | Roles y responsabilidades | Propuesta |
+| 14 | Próximos pasos y repositorio institucional | Aplicación |
+| 15 | Cuestionario TPACK y rúbrica ADKAR (Anexo III) | Aplicación |
+| 16 | Plataformas posibles para el repositorio (maquetas de ejemplo) | Aplicación |
+| 17 | Reflexión final | Cierre |
+| 18 | Cierre | Cierre |
 
 **Material de consulta**
 
 | N.° | Diapositiva |
 |---|---|
-| 17 | Separador con enlaces |
-| 18 | Marco político e institucional |
-| 19 | Marco normativo |
-| 20 | Cultura institucional |
-| 21 | Estado de situación |
-| 22 | Evidencias recolectadas |
-| 23 | Accesibilidad del laboratorio |
-| 24 | Evaluación formativa (gráfico animado) |
-| 25 | Instrumentos de evaluación |
-| 26 | Referencias, anexos y declaración de uso de IA |
+| 19 | Separador con enlaces |
+| 20 | PEI y cultura institucional |
+| 21 | Evaluación formativa (gráfico animado) |
+| 22 | Instrumentos de evaluación |
+| 23 | Referencias, anexos y declaración de uso de IA |
 
 ## Cómo verla
 
@@ -74,7 +71,7 @@ La exposición dura 15 minutos y recorre 16 diapositivas. El resto queda como ma
 | `N` | Notas del orador |
 | `F` | Pantalla completa |
 
-Cada diapositiva tiene su propio enlace (`#s1` a `#s26`).
+Cada diapositiva tiene su propio enlace (`#s1` a `#s23`).
 
 **En celular** pasa a lectura vertical; las animaciones y el video se acompañan de su versión en texto.
 

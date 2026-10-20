@@ -4,16 +4,13 @@ import S01 from '../slides/S01Portada.astro';
 import S02 from '../slides/S02Introduccion.astro';
 import S03 from '../slides/S03Objetivos.astro';
 import S04 from '../slides/S04Metodologia.astro';
-import S05 from '../slides/S05Marco.astro';
 import S06 from '../slides/S06Normativo.astro';
 import S07 from '../slides/S07Cultura.astro';
-import S08 from '../slides/S08Estado.astro';
 import S09 from '../slides/S09Fases.astro';
 import S11 from '../slides/S11Roles.astro';
 import S12 from '../slides/S12Bitacora.astro';
 import S14 from '../slides/S14Espacios.astro';
 import S15 from '../slides/S15Numeros.astro';
-import S16 from '../slides/S16Evidencias.astro';
 import S18 from '../slides/S18Hallazgo.astro';
 import S19 from '../slides/S19Accesibilidad.astro';
 import S20 from '../slides/S20EvalFormativa.astro';
@@ -29,20 +26,15 @@ import S90 from '../slides/S90Consulta.astro';
 
 // Recorrido de la exposición (15 minutos): problema, caso análogo, análisis, propuesta y aplicación.
 const talk = [
-  S01, S02, S03, S04,          // punto de partida
-  S14, S15, S12, S18, S22,     // el caso análogo: diagnóstico, hallazgo y análisis
-  S09, S11,                    // la propuesta
-  S23, S27, S23b,              // aplicación: próximos pasos, cuestionarios y plataformas
-  S24, S30,                    // reflexión y cierre
+  S01, S02, S03, S04, S06,          // punto de partida: problema, objetivos, metodología y marco normativo
+  S14, S15, S19, S12, S18, S22,     // el caso análogo: espacios, números, accesibilidad, bitácora, hallazgo y análisis
+  S09, S11,                         // la propuesta
+  S23, S27, S23b,                   // aplicación: próximos pasos, cuestionarios y plataformas
+  S24, S30,                         // reflexión y cierre
 ];
 // Material de consulta: no se expone, queda para responder preguntas.
 const backup = [
-  { S: S05, title: 'Marco político e institucional' },
-  { S: S06, title: 'Marco normativo' },
-  { S: S07, title: 'Cultura institucional' },
-  { S: S08, title: 'Estado de situación' },
-  { S: S16, title: 'Evidencias recolectadas' },
-  { S: S19, title: 'Accesibilidad del laboratorio' },
+  { S: S07, title: 'PEI y cultura institucional' },
   { S: S20, title: 'Evaluación formativa' },
   { S: S21, title: 'Instrumentos de evaluación' },
   { S: S29, title: 'Referencias y anexos' },

@@ -8,7 +8,7 @@ const adkar = [
 <Slide n={n} title="Metodología y marcos" theme="paper" eyebrow="Introducción · metodología"
   heading="Investigación acción participativa, con dos modelos"
   bodyClass="cols c2"
-  notes="Enfoque cualitativo con datos cuantitativos complementarios, en un diseño de investigación acción participativa donde el equipo docente es coautor. TPACK funciona como marco de diseño y de análisis; ADKAR, para entender la disposición institucional y ordenar el acompañamiento del cambio. La implementación no se concretó en campo, por eso el trabajo se plantea de manera simulada. El vínculo con el referente institucional se definió como codiseño y no como capacitación externa.">
+  notes="El diagnóstico, leído desde TPACK, muestra un conocimiento disciplinar y pedagógico sólido, con el conocimiento tecnopedagógico en desarrollo. Enfoque cualitativo con datos cuantitativos complementarios, en un diseño de investigación acción participativa donde el equipo docente es coautor. TPACK funciona como marco de diseño y de análisis; ADKAR, para entender la disposición institucional y ordenar el acompañamiento del cambio. La implementación no se concretó en campo, por eso el trabajo se plantea de manera simulada. El vínculo con el referente institucional se definió como codiseño y no como capacitación externa.">
   <div class="stack" style="gap:22px">
     <dl class="facts">
       <div data-a style="--i:2"><dt>Enfoque</dt><dd>Cualitativo, con datos cuantitativos complementarios</dd></div>
@@ -31,6 +31,7 @@ const adkar = [
         <span class="eyebrow">Marco de diseño y de análisis</span>
         <h3>TPACK</h3>
         <p class="sm muted">Mishra y Koehler (2006)</p>
+        <p class="xs dx"><strong>Diagnóstico:</strong> CK y PK sólidos; TPK en desarrollo</p>
       </div>
     </div>
     <div class="panel model stacked adk" data-a style="--i:4">
@@ -52,12 +53,13 @@ const adkar = [
   .facts div:first-child{border-top:0;padding-top:0}
   .facts dt{font-family:var(--mono);font-size:var(--xs);text-transform:uppercase;letter-spacing:.12em;color:var(--leaf-ink);padding-top:6px}
   .facts dd{margin:0;font-size:var(--fs);line-height:1.4}
-  .models{display:grid;grid-template-rows:1fr 1fr;gap:22px}
+  .models{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:1fr 1fr;gap:22px}
   .model{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:center}
   .model .eyebrow{display:block;line-height:1.5}
   .model h3{font-size:calc(var(--h3)*1.5);font-weight:800;color:var(--ink);margin:22px 0 14px;line-height:1}
   .tpack{background:#fff;border:1px solid var(--line);box-shadow:0 18px 40px -24px rgba(18,58,44,.35)}
   .tpack .eyebrow{color:var(--leaf-ink)}
+  .dx{margin-top:12px;padding-top:10px;border-top:1px solid var(--line);color:var(--ink)}
   .venn{width:100%;height:auto}
   .venn text{font-family:var(--display)}
   .adk{background:var(--blush)!important;border-color:transparent!important}
@@ -73,4 +75,8 @@ const adkar = [
   :global(body.m-scroll) .facts div{grid-template-columns:1fr;gap:4px}
   :global(body.m-scroll) .models{grid-template-rows:none}
   :global(body.m-scroll) .venn{max-width:200px}
+  :global(body.m-scroll) .adkar{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
+  :global(body.m-scroll) .adkar b{width:40px;height:40px;font-size:17px}
+  :global(body.m-scroll) .adkar span{font-size:9.5px;letter-spacing:0}
+  :global(body.m-scroll) .adkar::before{top:20px}
 </style>

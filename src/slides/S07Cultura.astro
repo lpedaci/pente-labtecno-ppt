@@ -2,25 +2,25 @@
 import Slide from '../components/Slide.astro';
 const { n } = Astro.props;
 ---
-<Slide n={n} title="Cultura institucional" theme="paper" eyebrow="Marco político e institucional · III"
+<Slide n={n} title="PEI y cultura institucional" theme="paper" eyebrow="Marco político e institucional · PEI y cultura"
   heading="Cultura de seguridad consolidada, tecnología <span class='hl'>sin profundizar</span>"
   bodyClass="cols c-55"
-  notes="En el caso relevado conviven una cultura de seguridad consolidada y una incorporación de tecnología todavía sin profundizar, sin un tecnólogo educativo asignado. El PEI ofrece una apertura al proponer dejar de lado rígidas normas. Leída desde ADKAR, hay conciencia del problema, pero el deseo de cambio está condicionado por la prioridad de la seguridad. Por eso, en la fase 3, la devolución del diagnóstico debe presentar el uso regulado del celular como compatible con esa cultura y no como su opuesto.">
+  notes="El PEI se propone estar a la vanguardia de las nuevas tecnologías: la propuesta se alinea porque no incorpora equipamiento nuevo, sino que da sentido pedagógico a lo que ya existe, mientras que la prohibición del celular queda en tensión con esa orientación. En el caso relevado conviven una cultura de seguridad consolidada y una incorporación de tecnología todavía sin profundizar, sin un tecnólogo educativo asignado. El PEI ofrece una apertura al proponer dejar de lado rígidas normas. Leída desde ADKAR, hay conciencia del problema, pero el deseo de cambio está condicionado por la prioridad de la seguridad. Por eso, en la fase 3, la devolución del diagnóstico debe presentar el uso regulado del celular como compatible con esa cultura y no como su opuesto.">
   <div class="stack" style="gap:26px">
-    <div class="cols c2 duo" data-a style="--i:2">
-      <div class="panel solid">
-        <span class="eyebrow">Consolidada</span>
-        <h3>Cultura de seguridad</h3>
-      </div>
-      <div class="panel dashed">
-        <span class="eyebrow">Sin profundizar</span>
-        <h3>Incorporación de tecnología</h3>
-        <p class="xs muted">Sin un tecnólogo educativo asignado que acompañe esa adopción</p>
-      </div>
+    <div class="pei" data-a style="--i:2">
+      <span class="eyebrow">PEI · alineación con objetivos estratégicos</span>
+      <blockquote class="quote">
+        <p>“Revisar continuamente los procesos educativos, buscando estar siempre en la vanguardia de las nuevas tecnologías, valorando la creatividad y la innovación, renovando espacios de conectividad”</p>
+        <cite>(Escuela caso análogo, 2023, p. 18)</cite>
+      </blockquote>
+      <ul class="pair">
+        <li><span class="chip ok">Se alinea</span>La propuesta no incorpora equipamiento nuevo: aplica un sentido pedagógico al que ya existe.</li>
+        <li><span class="chip ens">En tensión</span>La prohibición del celular en el laboratorio.</li>
+      </ul>
     </div>
     <blockquote class="quote" data-a style="--i:3">
       <p>El PEI propone una gestión que permita “dejar de lado rígidas normas que nos apartan de una resolución innovadora”</p>
-      <cite>Escuela caso análogo (2023, p. 21)</cite>
+      <cite>(Escuela caso análogo, 2023, p. 21)</cite>
     </blockquote>
   </div>
   <div class="panel adk" data-a style="--i:4">
@@ -38,6 +38,10 @@ const { n } = Astro.props;
 
 <style>
   blockquote{margin:0}
+  .pei{display:flex;flex-direction:column;gap:14px}
+  .pair{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+  .pair li{display:flex;gap:12px;align-items:baseline;font-size:var(--sm);line-height:1.4}
+  .pair .chip{flex:none}
   .duo{gap:16px}
   .duo .panel{display:flex;flex-direction:column;gap:10px}
   .duo .solid{box-shadow:0 18px 40px -24px rgba(18,58,44,.35)}
