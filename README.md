@@ -23,33 +23,43 @@ El trabajo se plantea como **ensayo simulado**: la planificación está completa
 
 ## Contenido
 
+La exposición dura 15 minutos y recorre 16 diapositivas. El resto queda como material de consulta después del cierre.
+
+**Exposición**
+
+| N.° | Diapositiva | Bloque |
+|---|---|---|
+| 01 | Portada | Punto de partida |
+| 02 | Introducción: el problema no es la carencia de recursos | Punto de partida |
+| 03 | Objetivos general y específicos | Punto de partida |
+| 04 | Metodología: investigación acción participativa, TPACK y ADKAR | Punto de partida |
+| 05 | Los espacios del laboratorio (registro fotográfico) | Caso análogo |
+| 06 | Diagnóstico en números | Caso análogo |
+| 07 | Bitácora de campo | Caso análogo |
+| 08 | Hallazgo central (motion graphic) | Caso análogo |
+| 09 | Sistematización y análisis | Análisis |
+| 10 | Fases de la implementación e intervención del tecnólogo educativo | Propuesta |
+| 11 | Roles y responsabilidades | Propuesta |
+| 12 | Próximos pasos y repositorio institucional | Aplicación |
+| 13 | Cuestionario TPACK y rúbrica ADKAR (Anexo III) | Aplicación |
+| 14 | Plataformas posibles para el repositorio (maquetas de ejemplo) | Aplicación |
+| 15 | Reflexión final | Cierre |
+| 16 | Cierre | Cierre |
+
+**Material de consulta**
+
 | N.° | Diapositiva |
 |---|---|
-| 01 | Portada |
-| 02 | Introducción: el problema no es la carencia de recursos |
-| 03 | Objetivos general y específicos |
-| 04 | Metodología: investigación acción participativa, TPACK y ADKAR |
-| 05 | Marco político e institucional |
-| 06 | Marco normativo |
-| 07 | Cultura institucional |
-| 08 | Estado de situación |
-| 09 | Fases de la implementación e intervención del tecnólogo educativo |
-| 10 | Roles y responsabilidades |
-| 11 | Bitácora de campo |
-| 12 | Los espacios del laboratorio (registro fotográfico) |
-| 13 | Diagnóstico en números |
-| 14 | Evidencias recolectadas |
-| 15 | Hallazgo central (motion graphic) |
-| 16 | Accesibilidad del laboratorio |
-| 17 | Evaluación formativa (gráfico animado) |
-| 18 | Instrumentos de evaluación |
-| 19 | Sistematización y análisis |
-| 20 | Próximos pasos y repositorio institucional |
-| 21 | Plataformas posibles para el repositorio (maquetas de ejemplo) |
-| 22 | Reflexión final |
-| 23 | Anexo III: cuestionario TPACK y rúbrica ADKAR |
-| 24 | Referencias, anexos y declaración de uso de IA |
-| 25 | Cierre |
+| 17 | Separador con enlaces |
+| 18 | Marco político e institucional |
+| 19 | Marco normativo |
+| 20 | Cultura institucional |
+| 21 | Estado de situación |
+| 22 | Evidencias recolectadas |
+| 23 | Accesibilidad del laboratorio |
+| 24 | Evaluación formativa (gráfico animado) |
+| 25 | Instrumentos de evaluación |
+| 26 | Referencias, anexos y declaración de uso de IA |
 
 ## Cómo verla
 
@@ -64,7 +74,7 @@ El trabajo se plantea como **ensayo simulado**: la planificación está completa
 | `N` | Notas del orador |
 | `F` | Pantalla completa |
 
-Cada diapositiva tiene su propio enlace (`#s1` a `#s25`).
+Cada diapositiva tiene su propio enlace (`#s1` a `#s26`).
 
 **En celular** pasa a lectura vertical; las animaciones y el video se acompañan de su versión en texto.
 

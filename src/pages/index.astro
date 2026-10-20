@@ -25,14 +25,38 @@ import S24 from '../slides/S24Reflexiones.astro';
 import S27 from '../slides/S27Anexo.astro';
 import S29 from '../slides/S29Referencias.astro';
 import S30 from '../slides/S30Cierre.astro';
+import S90 from '../slides/S90Consulta.astro';
 
-// El orden sigue al documento; la numeración se calcula sola.
-const slides = [S01, S02, S03, S04, S05, S06, S07, S08, S09, S11, S12, S14, S15, S16, S18, S19, S20, S21, S22, S23, S23b, S24, S27, S29, S30];
+// Recorrido de la exposición (15 minutos): problema, caso análogo, análisis, propuesta y aplicación.
+const talk = [
+  S01, S02, S03, S04,          // punto de partida
+  S14, S15, S12, S18, S22,     // el caso análogo: diagnóstico, hallazgo y análisis
+  S09, S11,                    // la propuesta
+  S23, S27, S23b,              // aplicación: próximos pasos, cuestionarios y plataformas
+  S24, S30,                    // reflexión y cierre
+];
+// Material de consulta: no se expone, queda para responder preguntas.
+const backup = [
+  { S: S05, title: 'Marco político e institucional' },
+  { S: S06, title: 'Marco normativo' },
+  { S: S07, title: 'Cultura institucional' },
+  { S: S08, title: 'Estado de situación' },
+  { S: S16, title: 'Evidencias recolectadas' },
+  { S: S19, title: 'Accesibilidad del laboratorio' },
+  { S: S20, title: 'Evaluación formativa' },
+  { S: S21, title: 'Instrumentos de evaluación' },
+  { S: S29, title: 'Referencias y anexos' },
+];
+const first = talk.length + 2; // la numeración del material empieza después del separador
+const items = backup.map((b, k) => ({ n: first + k, title: b.title }));
+const total = talk.length + 1 + backup.length;
 ---
 <Deck
   title="Laboratorio Ampliado · Actividad 4"
   description="Sistematización de la intervención tecnopedagógica: de la prohibición del celular al laboratorio ampliado en una escuela secundaria técnica. UTN, Prácticas en Tecnología Educativa, Grupo 3, 2026."
-  total={slides.length}
+  total={total}
 >
-  {slides.map((S, i) => <S n={i + 1} />)}
+  {talk.map((S, i) => <S n={i + 1} />)}
+  <S90 n={talk.length + 1} items={items} />
+  {backup.map((b, k) => <b.S n={first + k} />)}
 </Deck>
