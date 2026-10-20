@@ -44,10 +44,12 @@ El trabajo se plantea como **ensayo simulado**: la planificación está completa
 | 17 | Evaluación formativa (gráfico animado) |
 | 18 | Instrumentos de evaluación |
 | 19 | Sistematización y análisis |
-| 20 | Reflexión final |
-| 21 | Anexo III: cuestionario TPACK y rúbrica ADKAR |
-| 22 | Referencias, anexos y declaración de uso de IA |
-| 23 | Cierre |
+| 20 | Próximos pasos y repositorio institucional |
+| 21 | Plataformas posibles para el repositorio (maquetas de ejemplo) |
+| 22 | Reflexión final |
+| 23 | Anexo III: cuestionario TPACK y rúbrica ADKAR |
+| 24 | Referencias, anexos y declaración de uso de IA |
+| 25 | Cierre |
 
 ## Cómo verla
 
@@ -62,7 +64,7 @@ El trabajo se plantea como **ensayo simulado**: la planificación está completa
 | `N` | Notas del orador |
 | `F` | Pantalla completa |
 
-Cada diapositiva tiene su propio enlace (`#s1` a `#s23`).
+Cada diapositiva tiene su propio enlace (`#s1` a `#s25`).
 
 **En celular** pasa a lectura vertical; las animaciones y el video se acompañan de su versión en texto.
 

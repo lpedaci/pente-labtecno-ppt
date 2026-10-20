@@ -1,0 +1,183 @@
+---
+import Slide from '../components/Slide.astro';
+const { n } = Astro.props;
+---
+<Slide n={n} title="Plataformas posibles para el repositorio" theme="light" eyebrow="Repositorio institucional · ejemplos ilustrativos"
+  heading="Cuatro plataformas posibles, un mismo orden: <span class='hl'>año, secuencia, recurso</span>"
+  bodyClass="plat-body"
+  notes="Estas son maquetas de ejemplo, no capturas reales: muestran cómo se vería el mismo repositorio, organizado por año, por secuencia y por tipo de recurso, en cada una de las cuatro opciones. En todas, el mensaje fijado en Microsoft Teams sigue siendo la puerta de acceso. La elección se hace con el equipo docente a partir del diagnóstico, y el criterio prioritario es que los docentes puedan actualizarlo sin depender del tecnólogo educativo. Las producciones con imágenes de estudiantes quedan en el entorno del curso, y al cierre la gestión pasa al regente de área.">
+  <div class="grid">
+    <!-- 1 · Microsoft Teams: canal del área con el mensaje fijado -->
+    <figure class="pf" data-a style="--i:2">
+      <div class="mock teams" aria-hidden="true">
+        <div class="t-rail"><i class="on"></i><i></i><i></i><i></i></div>
+        <div class="t-side">
+          <b>Equipos</b>
+          <span class="t-team">Cs. Naturales · Ciclo superior</span>
+          <span class="t-ch on">General</span>
+          <span class="t-ch">Laboratorio de química</span>
+          <span class="t-ch">4.° año</span>
+          <span class="t-ch">5.° año</span>
+        </div>
+        <div class="t-main">
+          <div class="t-head"><b>General</b><span class="t-tab on">Publicaciones</span><span class="t-tab">Archivos</span><span class="t-tab">Repositorio</span></div>
+          <div class="t-pin">
+            <span class="t-pinlbl"><svg viewBox="0 0 16 16"><path d="M10 2l4 4-2 1-2 3 1 3-1 1-3-3-4 4-1-1 4-4-3-3 1-1 3 1 3-2z" fill="currentColor"/></svg>Fijado</span>
+            <strong>Acceso al repositorio del laboratorio</strong>
+            <div class="t-files">
+              <span><i class="fd"></i>4.° año</span><span><i class="fd"></i>5.° año</span><span><i class="fd"></i>6.° año</span>
+              <span><i class="vd"></i>Videotutoriales</span><span><i class="dc"></i>Protocolo de uso del celular</span>
+            </div>
+          </div>
+          <div class="t-msg"><i></i><span></span></div>
+        </div>
+      </div>
+      <figcaption><b>Canal de Teams</b>Lo que ya existe: el mensaje fijado ordena el acceso por carpetas.</figcaption>
+    </figure>
+
+    <!-- 2 · Sitio en GitHub Pages -->
+    <figure class="pf" data-a style="--i:3">
+      <div class="mock web" aria-hidden="true">
+        <div class="w-bar"><i></i><i></i><i></i><span class="w-url">escuela-tecnica.github.io/laboratorio</span></div>
+        <div class="w-page">
+          <div class="w-top"><b>Repositorio del laboratorio</b><nav><span class="on">4.° año</span><span>5.° año</span><span>6.° año</span></nav></div>
+          <div class="w-cards">
+            <div><small>Secuencia 1</small><b>Guía de indagación</b><span class="w-tag">PDF</span></div>
+            <div><small>Secuencia 1</small><b>Videotutorial</b><span class="w-tag v">Video</span></div>
+            <div><small>Secuencia 2</small><b>Protocolo de uso</b><span class="w-tag">PDF</span></div>
+            <div><small>Secuencia 2</small><b>Rúbrica del registro</b><span class="w-tag">PDF</span></div>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>Sitio en GitHub Pages</b>Un sitio web publicado, con menú por año y fichas por secuencia.</figcaption>
+    </figure>
+
+    <!-- 3 · Padlet: muro con columnas -->
+    <figure class="pf" data-a style="--i:4">
+      <div class="mock padlet" aria-hidden="true">
+        <div class="p-head"><i></i><b>Laboratorio de química · 5.° año</b><span>Secuencia 1</span></div>
+        <div class="p-cols">
+          <div class="p-col"><h6>Guías</h6><div class="p-card"><b>Guía de indagación</b><span></span></div><div class="p-card"><b>Protocolo de uso</b><span></span></div></div>
+          <div class="p-col"><h6>Videotutoriales</h6><div class="p-card img v"><b>Registro de etapas</b></div><div class="p-card"><b>Editar el video</b><span></span></div></div>
+          <div class="p-col"><h6>Producciones</h6><div class="p-card img"><b>Equipo 1</b></div><div class="p-card"><b>Equipo 2</b><span></span></div></div>
+        </div>
+      </div>
+      <figcaption><b>Muro de Padlet</b>Columnas por tipo de recurso, una pared por año o por secuencia.</figcaption>
+    </figure>
+
+    <!-- 4 · Canva: diseño en el editor -->
+    <figure class="pf" data-a style="--i:5">
+      <div class="mock canva" aria-hidden="true">
+        <div class="c-top"><span class="c-logo"></span><span>Archivo</span><span>Redimensionar</span><span class="c-share">Compartir</span></div>
+        <div class="c-body">
+          <div class="c-side"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="c-panel"><span></span><span></span><span></span><span></span></div>
+          <div class="c-canvas">
+            <div class="c-page">
+              <b>Repositorio del laboratorio</b>
+              <small>Cs. Naturales · ciclo superior</small>
+              <div class="c-btns"><span>4.° año</span><span>5.° año</span><span>6.° año</span></div>
+              <div class="c-btns alt"><span>Secuencias</span><span>Videotutoriales</span><span>Protocolo</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>Diseño en Canva</b>Un panel visual con botones que enlazan a cada año y recurso.</figcaption>
+    </figure>
+  </div>
+  <p class="crit" data-a style="--i:6"><span class="eyebrow">Criterio prioritario</span>que los docentes puedan actualizarlo sin depender del tecnólogo educativo. <span class="muted">Maquetas de ejemplo, no capturas reales.</span></p>
+</Slide>
+
+<style>
+  :global(.plat-body){display:flex;flex-direction:column;gap:14px}
+  .grid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px 22px}
+  .pf{margin:0;display:grid;grid-template-columns:1.35fr 1fr;gap:16px;align-items:center;min-height:0}
+  .pf figcaption{font-size:calc(var(--xs)*1.05);line-height:1.4;color:var(--muted)}
+  .pf figcaption b{display:block;font-family:var(--display);font-size:var(--sm);color:var(--ink);margin-bottom:4px}
+  .mock{height:100%;min-height:0;border-radius:12px;overflow:hidden;box-shadow:0 14px 30px -18px rgba(18,58,44,.55),0 0 0 1px rgba(18,58,44,.12);font-family:"Segoe UI",system-ui,sans-serif;font-size:11px;line-height:1.3;color:#242424;display:flex;background:#fff}
+  .crit{font-size:var(--sm);display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+  .crit .eyebrow{color:var(--rose-deep)}
+  .crit .muted{font-size:var(--xs)}
+
+  /* Teams */
+  .teams{background:#F5F5F5}
+  .t-rail{width:34px;background:#EBEBEB;display:flex;flex-direction:column;align-items:center;gap:10px;padding-top:12px}
+  .t-rail i{width:16px;height:16px;border-radius:4px;background:#C8C8C8}
+  .t-rail i.on{background:#5B5FC7}
+  .t-side{width:132px;background:#F0F0F0;padding:10px 8px;display:flex;flex-direction:column;gap:5px;border-right:1px solid #E0E0E0}
+  .t-side b{font-size:12px}
+  .t-team{font-weight:600;font-size:10.5px;margin-top:4px}
+  .t-ch{padding:3px 6px;border-radius:4px;font-size:10.5px;color:#424242}
+  .t-ch.on{background:#fff;font-weight:600}
+  .t-main{flex:1;display:flex;flex-direction:column;background:#fff;min-width:0}
+  .t-head{display:flex;gap:12px;align-items:center;padding:8px 12px;border-bottom:1px solid #E6E6E6}
+  .t-head b{font-size:12px}
+  .t-tab{font-size:10.5px;color:#616161;padding-bottom:2px}
+  .t-tab.on{color:#5B5FC7;border-bottom:2px solid #5B5FC7;font-weight:600}
+  .t-pin{margin:10px 12px 0;border:1px solid #E0E0E0;border-left:3px solid #5B5FC7;border-radius:6px;padding:8px 10px;display:flex;flex-direction:column;gap:6px}
+  .t-pinlbl{display:inline-flex;gap:4px;align-items:center;color:#5B5FC7;font-size:10px;font-weight:600}
+  .t-pinlbl svg{width:10px;height:10px}
+  .t-pin strong{font-size:11.5px}
+  .t-files{display:flex;flex-wrap:wrap;gap:5px}
+  .t-files span{display:inline-flex;gap:4px;align-items:center;background:#F5F5F5;border-radius:4px;padding:3px 6px;font-size:10px}
+  .t-files i{width:9px;height:8px;border-radius:2px;background:#F2B94B}
+  .t-files i.vd{background:#E8486C}
+  .t-files i.dc{background:#3A7BD5}
+  .t-msg{display:flex;gap:8px;margin:10px 12px;align-items:center}
+  .t-msg i{width:18px;height:18px;border-radius:50%;background:#C7C9EE}
+  .t-msg span{height:8px;flex:1;border-radius:4px;background:#EDEDED}
+
+  /* GitHub Pages */
+  .web{flex-direction:column}
+  .w-bar{height:26px;background:#E9ECEF;display:flex;align-items:center;gap:5px;padding:0 10px;flex:none}
+  .w-bar i{width:8px;height:8px;border-radius:50%;background:#C9CDD2}
+  .w-url{margin-left:10px;flex:1;background:#fff;border-radius:10px;padding:2px 10px;font-size:10px;color:#57606A}
+  .w-page{flex:1;padding:10px 14px;display:flex;flex-direction:column;gap:10px;min-height:0}
+  .w-top{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #3E8A62;padding-bottom:6px}
+  .w-top b{font-size:13px;color:#123A2C}
+  .w-top nav{display:flex;gap:6px}
+  .w-top nav span{font-size:10px;padding:2px 8px;border-radius:10px;background:#EEF4EF;color:#1F5C45}
+  .w-top nav span.on{background:#1F5C45;color:#fff}
+  .w-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .w-cards div{border:1px solid #D0D7DE;border-radius:8px;padding:6px 8px;display:flex;flex-direction:column;gap:2px;position:relative}
+  .w-cards small{font-size:9.5px;color:#57606A}
+  .w-cards b{font-size:11px}
+  .w-tag{position:absolute;right:6px;top:6px;font-size:9px;padding:1px 6px;border-radius:8px;background:#DDF4FF;color:#0969DA}
+  .w-tag.v{background:#FFEBE9;color:#CF222E}
+
+  /* Padlet */
+  .padlet{flex-direction:column;background:linear-gradient(135deg,#F9E1C8,#F4C6D7)}
+  .p-head{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(255,255,255,.55);flex:none}
+  .p-head i{width:18px;height:18px;border-radius:50%;background:#FF6B8A}
+  .p-head b{font-size:12px;flex:1}
+  .p-head span{font-size:10px;background:#fff;border-radius:8px;padding:2px 8px}
+  .p-cols{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:8px 10px;min-height:0}
+  .p-col h6{margin:0 0 6px;font-size:10.5px;font-weight:700}
+  .p-card{background:#fff;border-radius:8px;padding:6px 7px;margin-bottom:6px;box-shadow:0 1px 3px rgba(0,0,0,.12);display:flex;flex-direction:column;gap:4px}
+  .p-card b{font-size:10px}
+  .p-card span{height:6px;border-radius:3px;background:#ECECEC}
+  .p-card.img{padding-top:34px;background:linear-gradient(#9CC3A4 0 30px,#fff 30px)}
+  .p-card.img.v{background:linear-gradient(#F1BD7F 0 30px,#fff 30px)}
+
+  /* Canva */
+  .canva{flex-direction:column;background:#EBECF0}
+  .c-top{height:28px;flex:none;display:flex;align-items:center;gap:12px;padding:0 10px;background:linear-gradient(90deg,#00C4CC,#5A32FA);color:#fff;font-size:10px}
+  .c-logo{width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.9)}
+  .c-share{margin-left:auto;background:#fff;color:#5A32FA;border-radius:5px;padding:2px 8px;font-weight:600}
+  .c-body{flex:1;display:flex;min-height:0}
+  .c-side{width:30px;background:#fff;display:flex;flex-direction:column;align-items:center;gap:9px;padding-top:10px;border-right:1px solid #E1E2E6}
+  .c-side i{width:14px;height:14px;border-radius:4px;background:#D9DBE2}
+  .c-panel{width:70px;background:#fff;padding:8px 6px;display:grid;grid-template-columns:1fr 1fr;gap:5px;align-content:start}
+  .c-panel span{aspect-ratio:1;border-radius:4px;background:#F1F2F5}
+  .c-canvas{flex:1;display:grid;place-items:center;padding:10px}
+  .c-page{width:100%;max-width:230px;background:#F5FAF3;border-radius:4px;box-shadow:0 2px 6px rgba(0,0,0,.15);padding:10px 12px;display:flex;flex-direction:column;gap:5px}
+  .c-page b{font-size:12.5px;color:#123A2C}
+  .c-page small{font-size:9.5px;color:#4A6B5A}
+  .c-btns{display:flex;gap:5px;flex-wrap:wrap}
+  .c-btns span{font-size:9.5px;padding:3px 8px;border-radius:12px;background:#1F5C45;color:#fff}
+  .c-btns.alt span{background:#F5D2DC;color:#8E2347}
+
+  :global(body.m-scroll) .grid{grid-template-columns:1fr;grid-template-rows:none}
+  :global(body.m-scroll) .pf{grid-template-columns:1fr}
+  :global(body.m-scroll) .mock{height:200px}
+</style>
