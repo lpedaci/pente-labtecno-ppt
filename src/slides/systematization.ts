@@ -26,11 +26,11 @@ export const systematization = [
   },
   {
     findingShort: 'Mejora parcial en el caso análogo: la dispersión disminuyó en cierta medida.',
-    futureShort: 'Repositorio con videotutoriales (web propia o Padlet) y prueba piloto con los indicadores previstos.',
+    futureShort: 'Incorporar roles, video de proceso y <strong>producciones editadas por los estudiantes</strong> en las secuencias, evolucionar el mensaje fijado en Teams hacia un <strong>repositorio cuya plataforma se defina según el diagnóstico</strong>, y <strong>medición en la prueba piloto</strong>.',
     aspect: 'Resultados y mejoras observadas',
     finding: 'Si bien la propuesta no se implementó, el caso análogo muestra una mejora parcial: al asignar al celular funciones definidas, distribuir roles y usar aplicaciones para producciones concretas, la dispersión disminuyó en cierta medida.',
     evidence: 'Cuaderno de campo, Anexo I (P4 y P8). Fragmentos de bitácora',
-    future: 'Incorporar roles y video de proceso en las secuencias, evolucionar el mensaje fijado en Microsoft Teams hacia un repositorio más robusto (por ejemplo, una web propia y publicada en internet o un muro colaborativo como Padlet), que funcione como panel de acceso con videotutoriales, y medir en una prueba piloto con los indicadores previstos.',
+    future: 'Incorporar roles, video de proceso y producciones editadas por los estudiantes en las secuencias, evolucionar el mensaje fijado en Teams hacia un repositorio cuya plataforma se defina según el diagnóstico, y medición en la prueba piloto.',
   },
   {
     findingShort: 'El AIC regula el celular sin prohibirlo; no hay tecnólogo educativo asignado ni accesibilidad física.',

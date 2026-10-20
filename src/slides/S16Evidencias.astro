@@ -16,7 +16,7 @@ const label = (t: string) => t.replace(' orientado a cuestiones tecnológicas', 
           <strong>{label(e.type)}</strong>
           <span class="date">{e.date}</span>
         </div>
-        <p>{e.short}</p>
+        <p set:html={e.short} />
       </li>
     ))}
   </ol>
@@ -24,7 +24,7 @@ const label = (t: string) => t.replace(' orientado a cuestiones tecnológicas', 
 
 <style>
   .ev{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-  .ev li{display:grid;grid-template-columns:56px 400px 1fr;gap:24px;align-items:center;padding:15px 0;border-top:1px solid var(--line)}
+  .ev li{display:grid;grid-template-columns:56px 400px 1fr;gap:24px;align-items:center;padding:13px 0;border-top:1px solid var(--line)}
   .ev li:first-child{border-top:2px solid var(--leaf)}
   .k{font-family:var(--mono);font-size:var(--xs);color:var(--rose-deep);font-weight:600}
   .type{display:flex;flex-direction:column;gap:4px}

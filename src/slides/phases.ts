@@ -48,9 +48,9 @@ export const phases: Phase[] = [
   },
   {
     n: 4, name: 'Codiseño',
-    teShort: 'Coordina los talleres de codiseño (ABP y DUA) y organiza el repositorio',
+    teShort: 'Coordina los talleres de codiseño (ABP y DUA) y la versión inicial del repositorio',
     goal: 'Codiseñar con el equipo docente secuencias de indagación con uso regulado de dispositivos (OE2)',
-    activities: 'Dos talleres de codiseño y elaboración del repositorio institucional',
+    activities: 'Dos talleres de codiseño y versión inicial del repositorio institucional',
     resources: ['Laboratorio', 'Aplicaciones', 'Simuladores libres', 'Repositorio'],
     status: 'Planificada, no ejecutada (julio y agosto)',
     te: 'Coordina los talleres y diseña con los docentes las secuencias bajo ABP y DUA. Organiza el repositorio.',

@@ -13,13 +13,13 @@ export const evidence = [
     read: 'La limitación no es la carencia de recursos, sino su disponibilidad temporal y la estrategia didáctica de uso. Tampoco hay accesibilidad física para estudiantes con movilidad reducida.',
   },
   {
-    short: 'Conocimiento disciplinar (CK) y pedagógico (PK) sólidos; el tecnopedagógico (TPK, TPACK), en desarrollo.',
+    short: 'Confirma un sólido conocimiento disciplinar (CK) y pedagógico (PK), con un conocimiento tecnopedagógico (TPK) en desarrollo (Mishra y Koehler, 2006).',
     type: 'Caracterización del equipo docente', date: '6 de octubre de 2026',
     desc: 'Profesionales con formaciones diversas (ingenieros químicos, licenciados, técnicos y profesores) a cargo de las asignaturas del área.',
     read: 'Confirma un sólido conocimiento disciplinar (CK) y pedagógico (PK), pero un conocimiento tecnopedagógico (TPK) del contenido (TPACK) en desarrollo, como reconoce el propio entrevistado (Mishra y Koehler, 2006).',
   },
   {
-    short: 'El AIC permite el celular como herramienta pedagógica: la restricción en el laboratorio responde a la cultura de seguridad, no a la norma.',
+    short: 'El <strong>AIC permite el celular</strong> como herramienta pedagógica según indicación docente y prevé acuerdos áulicos. La restricción en el laboratorio responde a la <strong>cultura de seguridad</strong>, no a la norma institucional.',
     type: 'Análisis documental', date: 'Octubre de 2026',
     desc: 'Revisión del Acuerdo Institucional de Convivencia (2025) y del Proyecto Educativo Institucional (2023) de la escuela del caso análogo.',
     read: 'El AIC permite el celular como herramienta pedagógica según indicación docente y prevé acuerdos áulicos (pp. 20 y 25). El PEI promueve la innovación tecnológica (p. 18). La restricción en el laboratorio responde a acuerdos del área y a la cultura de seguridad, no a la norma institucional.',
