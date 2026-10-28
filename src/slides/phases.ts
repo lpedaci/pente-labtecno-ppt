@@ -18,7 +18,7 @@ export interface Phase {
 export const phases: Phase[] = [
   {
     n: 1, name: 'Acuerdo institucional',
-    teShort: 'Presenta la propuesta, negocia horas y aval, y propone un referente',
+    teShort: 'Presenta la propuesta y negocia horas y aval',
     goal: 'Obtener el aval institucional y definir las horas de trabajo',
     activities: 'Presentación de la propuesta al equipo directivo y al jefe de departamento. Firma del acuerdo de trabajo',
     resources: ['Propuesta escrita', 'Agenda de reunión'],
@@ -28,7 +28,7 @@ export const phases: Phase[] = [
   },
   {
     n: 2, name: 'Diagnóstico',
-    teShort: 'Aplica entrevista, cuestionario TPACK y relevamiento; analiza AIC y PEI',
+    teShort: 'Entrevista, cuestionario TPACK y relevamiento',
     goal: 'Construir la base del conocimiento tecnopedagógico docente y de las condiciones de uso del laboratorio (OE1)',
     activities: 'Entrevista diagnóstica (en modo exploratorio, actualmente nutrida del testimonio de docente colega), relevamiento de infraestructura y análisis documental',
     resources: ['Guion de entrevista', 'Cuaderno de campo', 'Cuestionario TPACK'],
@@ -38,7 +38,7 @@ export const phases: Phase[] = [
   },
   {
     n: 3, name: 'Devolución y sensibilización',
-    teShort: 'Devuelve el diagnóstico y trabaja conciencia y deseo (ADKAR)',
+    teShort: 'Devuelve el diagnóstico: conciencia y deseo',
     goal: 'Trabajar las etapas de conciencia y deseo del modelo ADKAR',
     activities: 'Jornada de devolución del diagnóstico y construcción compartida de la agenda de trabajo',
     resources: ['Informe de diagnóstico', 'Espacio institucional'],
@@ -48,7 +48,7 @@ export const phases: Phase[] = [
   },
   {
     n: 4, name: 'Codiseño',
-    teShort: 'Coordina los talleres de codiseño (ABP y DUA) y la versión inicial del repositorio',
+    teShort: 'Codiseño y versión inicial del repositorio',
     goal: 'Codiseñar con el equipo docente secuencias de indagación con uso regulado de dispositivos (OE2)',
     activities: 'Dos talleres de codiseño y versión inicial del repositorio institucional',
     resources: ['Laboratorio', 'Aplicaciones', 'Simuladores libres', 'Repositorio'],
@@ -58,7 +58,7 @@ export const phases: Phase[] = [
   },
   {
     n: 5, name: 'Implementación acompañada',
-    teShort: 'Acompaña en el laboratorio, observa con la guía y registra en bitácora',
+    teShort: 'Acompaña, observa con la guía y registra',
     goal: 'Acompañar la implementación de las secuencias codiseñadas, mediante observación situada y bitácora (OE3)',
     activities: 'Puesta en aula de dos secuencias por curso, con acompañamiento en el laboratorio y registro de observación. Reunión de intercambio entre pares',
     resources: ['Laboratorio', 'Dispositivos móviles regulados', 'Guía de observación', 'Bitácora'],
@@ -68,7 +68,7 @@ export const phases: Phase[] = [
   },
   {
     n: 6, name: 'Evaluación y cierre',
-    teShort: 'Aplica los instrumentos y redacta el informe final con la propuesta de institucionalización',
+    teShort: 'Aplica instrumentos y redacta el informe final',
     goal: 'Valorar el impacto de la intervención sobre las prácticas de enseñanza',
     activities: 'Cuestionario TPACK posterior, rúbrica ADKAR, grupo focal e informe final',
     resources: ['Instrumentos de evaluación', 'Rúbricas'],

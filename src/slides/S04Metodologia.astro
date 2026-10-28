@@ -8,13 +8,13 @@ const adkar = [
 <Slide n={n} title="Metodología y marcos" theme="paper" eyebrow="Introducción · metodología"
   heading="Investigación acción participativa, con dos modelos"
   bodyClass="cols c2"
-  notes="El diagnóstico, leído desde TPACK, muestra un conocimiento disciplinar y pedagógico sólido, con el conocimiento tecnopedagógico en desarrollo. Enfoque cualitativo con datos cuantitativos complementarios, en un diseño de investigación acción participativa donde el equipo docente es coautor. TPACK funciona como marco de diseño y de análisis; ADKAR, para entender la disposición institucional y ordenar el acompañamiento del cambio. La implementación no se concretó en campo, por eso el trabajo se plantea de manera simulada. El vínculo con el referente institucional se definió como codiseño y no como capacitación externa.">
+  notes="Enfoque cualitativo con datos cuantitativos complementarios. El vínculo con el referente institucional es de codiseño, no de capacitación externa. El diagnóstico, leído desde TPACK, muestra un conocimiento disciplinar y pedagógico sólido, con el conocimiento tecnopedagógico en desarrollo. Enfoque cualitativo con datos cuantitativos complementarios, en un diseño de investigación acción participativa donde el equipo docente es coautor. TPACK funciona como marco de diseño y de análisis; ADKAR, para entender la disposición institucional y ordenar el acompañamiento del cambio. La implementación no se concretó en campo, por eso el trabajo se plantea de manera simulada. El vínculo con el referente institucional se definió como codiseño y no como capacitación externa.">
   <div class="stack" style="gap:22px">
     <dl class="facts">
-      <div data-a style="--i:2"><dt>Enfoque</dt><dd>Cualitativo, con datos cuantitativos complementarios</dd></div>
-      <div data-a style="--i:3"><dt>Diseño</dt><dd>Investigación acción participativa: el equipo docente es <span class="hl">coautor de la propuesta</span></dd></div>
-      <div data-a style="--i:4"><dt>Vínculo</dt><dd>Codiseño con el referente institucional, no capacitación externa</dd></div>
-      <div data-a style="--i:5"><dt>Modalidad</dt><dd>La implementación no se concretó en campo: el trabajo se plantea de manera <strong>simulada</strong></dd></div>
+      <div data-a style="--i:2"><dt>Enfoque</dt><dd>Cualitativo, con datos cuantitativos</dd></div>
+      <div data-a style="--i:3"><dt>Diseño</dt><dd>Investigación acción participativa: docentes <span class="hl">coautores</span></dd></div>
+      <div data-a style="--i:4"><dt>Vínculo</dt><dd>Codiseño, no capacitación externa</dd></div>
+      <div data-a style="--i:5"><dt>Modalidad</dt><dd>Ensayo <strong>simulado</strong>: no se implementó en campo</dd></div>
     </dl>
   </div>
   <div class="models">
@@ -28,7 +28,7 @@ const adkar = [
         <text x="104" y="172" fill="#FFFFFF" font-size="18" font-weight="800">T</text>
       </svg>
       <div>
-        <span class="eyebrow">Marco de diseño y de análisis</span>
+        <span class="eyebrow">Diseño y análisis</span>
         <h3>TPACK</h3>
         <p class="sm muted">Mishra y Koehler (2006)</p>
         <p class="xs dx"><strong>Diagnóstico:</strong> CK y PK sólidos; TPK en desarrollo</p>
@@ -39,7 +39,7 @@ const adkar = [
         {adkar.map(([l, w], k) => <li style={`--k:${k}`}><b>{l}</b><span>{w}</span></li>)}
       </ol>
       <div>
-        <span class="eyebrow">Disposición institucional y acompañamiento del cambio</span>
+        <span class="eyebrow">Disposición al cambio</span>
         <h3>ADKAR</h3>
         <p class="sm muted">Hiatt (2006)</p>
       </div>
@@ -49,7 +49,7 @@ const adkar = [
 
 <style>
   .facts{margin:0;display:flex;flex-direction:column}
-  .facts div{display:grid;grid-template-columns:170px 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--line)}
+  .facts div{display:grid;grid-template-columns:170px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line)}
   .facts div:first-child{border-top:0;padding-top:0}
   .facts dt{font-family:var(--mono);font-size:var(--xs);text-transform:uppercase;letter-spacing:.12em;color:var(--leaf-ink);padding-top:6px}
   .facts dd{margin:0;font-size:var(--fs);line-height:1.4}

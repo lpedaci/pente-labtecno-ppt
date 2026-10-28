@@ -2,15 +2,13 @@
 import Slide from '../components/Slide.astro';
 const { n } = Astro.props;
 const notes = [
-  { tag: 'Acceso', chip: 'plan', text: '<strong>Nueve estaciones</strong> para grupos de 20 a 35 estudiantes, en laboratorios que comparten también 4.° año y el ciclo básico.' },
   { tag: 'Sin tecnólogo educativo', chip: 'plan', text: 'Las consultas iban, informalmente, a los docentes de Informática: cada uno resolvía <strong>a su modo</strong>.' },
-  { tag: 'Cultura de seguridad', chip: 'plan', text: 'El celular no se emplea si no hay un protocolo que defina <strong>cuándo y dónde usarlo</strong>.' },
   { tag: 'Aprendimos', chip: 'ens', text: 'Con una <strong>función específica</strong> (fotos de cada etapa, grabar procesos) y roles por estación, disminuye la distracción.' },
 ];
 ---
 <Slide n={n} title="Bitácora de campo" theme="light" eyebrow="Aspectos pedagógicos · bitácora (Anexo I)"
   heading="El desafío está en el diseño de la experiencia, <span class='hl'>no en la falta de medios</span>"
-  bodyClass="cols c-55"
+  bodyClass="cols c-64"
   notes="Los fragmentos de la bitácora sistematizan el testimonio de un colega docente de la modalidad Técnico Químico. Nueve estaciones de trabajo con internet resultan insuficientes para grupos de veinte a treinta y cinco, y los laboratorios se comparten con cuarto año y el ciclo básico, lo que amplía el impacto potencial de la propuesta. El colega reconoce un conocimiento disciplinar sólido y una dificultad con la vuelta pedagógica de la tecnología. No hay tecnólogo educativo asignado. La cultura de seguridad explica la restricción del celular. Comprobamos que el amplio equipamiento no garantiza por sí solo la participación activa, y aprendimos que, cuando el celular tiene una función específica, disminuye la distracción.">
   <div class="panel deep quotes" data-a style="--i:2">
     <span class="eyebrow">Entrevistado</span>
@@ -37,13 +35,14 @@ const notes = [
   .quotes{display:flex;flex-direction:column;gap:22px}
   blockquote{margin:0;display:flex;flex-direction:column;gap:10px}
   blockquote+blockquote{padding-top:22px;border-top:1px solid rgba(156,195,164,.25)}
-  .quotes p{font-family:var(--display);font-size:calc(var(--fs)*1.05);line-height:1.34}
+  .quotes p{font-family:var(--body);font-style:italic;font-size:calc(var(--sm)*1.02);line-height:1.45}
   .quotes .hl{color:var(--rose-light)}
   .quotes cite{color:var(--sage)}
-  .frags{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .frags{display:flex;flex-direction:column;gap:18px;justify-content:center}
   .note{background:var(--note);border:1px solid var(--line);border-radius:4px 16px 16px 4px;padding:22px 22px 22px 32px;position:relative;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
   .note::before{content:"";position:absolute;left:12px;top:0;bottom:0;width:2px;background:var(--blush)}
   .note p{font-size:var(--sm);line-height:1.45}
+  .note{padding:24px 26px 24px 34px}
   .note.key{background:var(--blush);border-color:transparent}
   .note.key::before{background:var(--rose)}
   :global(body.m-scroll) .frags{grid-template-columns:1fr}

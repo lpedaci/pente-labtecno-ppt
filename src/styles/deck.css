@@ -10,8 +10,8 @@ img{max-width:100%}
 .skip:focus{top:16px}
 
 /* Escala tipográfica por modo */
-body.m-deck{--h1:84px;--h2:56px;--h3:29px;--fs:25px;--sm:20px;--xs:15px;--gap:40px;--pad:60px 96px 30px}
-body.m-scroll{--h1:34px;--h2:27px;--h3:19px;--fs:16.5px;--sm:15px;--xs:12px;--gap:18px;--pad:40px 16px 36px}
+body.m-deck{--h1:78px;--h2:50px;--h3:30px;--fs:28px;--sm:23px;--xs:19px;--gap:40px;--pad:60px 96px 30px}
+body.m-scroll{--h1:32px;--h2:25px;--h3:19px;--fs:17px;--sm:16px;--xs:13.5px;--gap:18px;--pad:40px 16px 36px}
 
 #viewport{position:fixed;inset:0 0 var(--bar-h) 0;overflow:hidden}
 #stage{position:absolute;left:50%;top:50%;width:var(--stage-w);height:var(--stage-h);transform-origin:center center;border-radius:6px;overflow:hidden;box-shadow:0 30px 80px rgba(4,20,14,.55)}
@@ -33,21 +33,21 @@ body.m-scroll .slide{position:relative;opacity:1;visibility:visible;transform:no
 .hex{background-image:var(--hex);background-size:56px 97px}
 
 /* Tipografía */
-h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.025em}
-h1{font-size:var(--h1);line-height:.98;font-weight:800}
-h2{font-size:var(--h2);line-height:1.02;font-weight:800}
-h3{font-size:var(--h3);line-height:1.15;font-weight:600}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.02em}
+h1{font-size:var(--h1);line-height:1.04;font-weight:800}
+h2{font-size:var(--h2);line-height:1.1;font-weight:700}
+h3{font-size:var(--h3);line-height:1.2;font-weight:700}
 p{margin:0;font-size:var(--fs);line-height:1.45;text-wrap:pretty}
 .sm{font-size:var(--sm);line-height:1.45}
 .xs{font-size:var(--xs);line-height:1.4}
-.eyebrow{font-family:var(--mono);font-size:var(--xs);text-transform:uppercase;letter-spacing:.14em;font-weight:600}
+.eyebrow{font-family:var(--mono);font-size:calc(var(--xs)*.9);text-transform:uppercase;letter-spacing:.09em;font-weight:700}
 .s-dark .eyebrow{color:var(--sage)}
 .s-light .eyebrow,.s-paper .eyebrow{color:var(--leaf-ink)}
 .hl{color:var(--rose)}
 .s-dark .hl{color:var(--rose-light)}
 em.term{font-style:normal;background:linear-gradient(transparent 62%,var(--blush) 62%);padding:0 .1em}
 .s-dark em.term{background:linear-gradient(transparent 62%,rgba(212,86,122,.45) 62%)}
-cite{font-style:normal;font-family:var(--mono);font-size:.74em;opacity:.85;letter-spacing:.02em}
+cite{font-style:normal;font-family:var(--body);font-size:calc(var(--xs)*.95);opacity:.85}
 strong{font-weight:700}
 a{color:inherit;text-decoration-color:var(--rose);text-underline-offset:3px}
 
@@ -81,10 +81,10 @@ body.m-scroll .cols{grid-template-columns:1fr!important}
 .panel.rose .eyebrow{color:var(--rose-deep)}
 
 .quote{position:relative;padding-left:calc(var(--gap)*.75);border-left:4px solid var(--rose)}
-.quote p{font-family:var(--display);font-weight:400;font-size:calc(var(--fs)*1.2);line-height:1.3;letter-spacing:-.01em}
+.quote p{font-family:var(--body);font-style:italic;font-weight:500;font-size:calc(var(--fs)*1.08);line-height:1.4}
 .quote cite{display:block;margin-top:12px}
 
-.chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:var(--xs);padding:6px 12px;border-radius:999px;letter-spacing:.03em;line-height:1.3;max-width:100%}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:var(--xs);padding:6px 12px;border-radius:999px;font-weight:600;line-height:1.3;max-width:100%}
 .chip.plan{background:#DCEBDD;color:var(--pine)}
 .chip.ens{background:var(--blush);color:var(--rose-deep)}
 .chip.ok{background:var(--leaf);color:#fff}
@@ -98,9 +98,23 @@ ul.clean li{font-size:var(--sm);line-height:1.42;padding-left:26px;position:rela
 ul.clean li::before{content:"";position:absolute;left:0;top:.62em;width:12px;height:2px;background:var(--leaf)}
 .s-dark ul.clean li::before{background:var(--rose-light)}
 
-.big{font-family:var(--display);font-weight:800;line-height:.9;letter-spacing:-.04em}
+.big{font-family:var(--display);font-weight:800;line-height:.95;letter-spacing:-.03em}
 .ico{width:44px;height:44px;flex:none}
 body.m-scroll .ico{width:32px;height:32px}
+
+/* Tarjetas: elevación suave, sombra teñida con la paleta */
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 28px;box-shadow:0 18px 40px -28px rgba(18,58,44,.45);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.card:hover{transform:translateY(-3px);box-shadow:0 26px 48px -26px rgba(18,58,44,.5)}
+.card.deep{background:var(--forest);color:var(--paper);border-color:transparent}
+.card.deep .eyebrow{color:var(--rose-light)}
+.card.deep .muted{color:var(--sage)}
+.card.rose{background:var(--blush);border-color:transparent}
+.card.rose .eyebrow{color:var(--rose-deep)}
+.card.accent{border-top:5px solid var(--rose)}
+.badge{display:grid;place-items:center;width:56px;height:56px;border-radius:16px;background:var(--mint);color:var(--leaf-ink);flex:none}
+.badge .ico{width:34px;height:34px}
+.card.deep .badge{background:rgba(156,195,164,.16);color:var(--mint)}
+.lead{font-family:var(--display);font-weight:600;font-size:calc(var(--fs)*1.15);line-height:1.3;letter-spacing:-.01em}
 
 /* Tablas con grilla */
 .tbl{display:grid;gap:0;font-size:calc(var(--sm)*.88);line-height:1.38}

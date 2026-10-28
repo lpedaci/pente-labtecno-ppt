@@ -5,32 +5,30 @@ const { n } = Astro.props;
 ---
 <Slide n={n} title="Sistematización y análisis" theme="paper" eyebrow="Sistematización y análisis"
   heading="Lo que aprendimos y hacia dónde proyectarlo"
-  notes="La planificación resultó coherente; su aplicación precisa condiciones institucionales verificadas, por eso la proyección es una prueba piloto acotada, con un curso y un docente. En recursos, el límite es la proporción de equipos por estudiante y la coordinación de espacios entre modalidades y turnos. La participación estudiantil relatada muestra desinterés sostenido, que mejora en cierta medida con roles y funciones definidas para el celular. Aunque la propuesta no se implementó, el caso análogo muestra una mejora parcial. Se proyecta incorporar producciones editadas por los estudiantes, evolucionar el mensaje fijado en Teams hacia un repositorio cuya plataforma se defina según el diagnóstico, elevar un protocolo de uso por momentos y zonas como acuerdo áulico, proponer un referente tecnopedagógico y registrar la barrera de accesibilidad ante el equipo directivo.">
-  <div class="sys">
-    <div class="h" aria-hidden="true">Aspecto</div>
-    <div class="h" aria-hidden="true">Hallazgo</div>
-    <div class="h pj" aria-hidden="true">Proyección</div>
+  notes="Evidencias que respaldan cada aspecto: el primer parcial y la entrevista diagnóstica; el relevamiento de infraestructura; las bitácoras y el cuaderno de campo; el Anexo I; el AIC y el PEI. La planificación resultó coherente; su aplicación precisa condiciones institucionales verificadas, por eso la proyección es una prueba piloto acotada, con un curso y un docente. En recursos, el límite es la proporción de equipos por estudiante y la coordinación de espacios entre modalidades y turnos. La participación estudiantil relatada muestra desinterés sostenido, que mejora en cierta medida con roles y funciones definidas para el celular. Aunque la propuesta no se implementó, el caso análogo muestra una mejora parcial. Se proyecta incorporar producciones editadas por los estudiantes, evolucionar el mensaje fijado en Teams hacia un repositorio cuya plataforma se defina según el diagnóstico, elevar un protocolo de uso por momentos y zonas como acuerdo áulico, proponer un referente tecnopedagógico y registrar la barrera de accesibilidad ante el equipo directivo.">
+  <ol class="sys">
     {systematization.map((r, k) => (
-      <>
-        <div class="t" data-a style={`--i:${k + 2}`}>{r.aspect}<span class="src"><span class="sr-only">Evidencias: </span>{r.evidence}</span></div>
-        <div class="f" data-a style={`--i:${k + 2}`}><span class="sr-only">Hallazgo: </span>{r.findingShort}</div>
-        <div class="p" data-a style={`--i:${k + 2}`}><span class="sr-only">Proyección: </span><Fragment set:html={r.futureShort} /></div>
-      </>
+      <li class="row" data-a style={`--i:${k + 2}`}>
+        <span class="t">{r.aspect.replace(' y normativas', '')}</span>
+        <span class="f"><span class="sr-only">Hallazgo: </span>{r.findingShort}</span>
+        <svg class="arr" viewBox="0 0 24 12" aria-hidden="true"><path d="M2 6h18M15 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="p"><span class="sr-only">Proyección: </span><Fragment set:html={r.futureShort} /></span>
+      </li>
     ))}
-  </div>
+  </ol>
 </Slide>
 
 <style>
-  .sys{display:grid;grid-template-columns:320px 1fr 1fr;font-size:calc(var(--sm)*.95);line-height:1.4}
-  .sys>div{padding:14px 20px;border-bottom:1px solid var(--line-soft);min-width:0}
-  .h{font-family:var(--mono);font-size:var(--xs);text-transform:uppercase;letter-spacing:.1em;color:var(--muted);border-bottom:2px solid var(--leaf)!important;padding-top:0!important}
-  .h.pj{color:var(--rose-deep);border-bottom-color:var(--rose)!important}
-  .t{font-family:var(--display);font-weight:600}
-  .src{display:block;margin-top:6px;font-family:var(--mono);font-weight:400;font-size:12.5px;color:var(--leaf-ink);line-height:1.4}
-  .p{background:#FBEFF3}
-  :global(body.m-scroll) .sys{grid-template-columns:1fr}
-  :global(body.m-scroll) .sys .h{display:none}
-  :global(body.m-scroll) .sys>div{border-bottom:0;padding:4px 0}
-  :global(body.m-scroll) .sys .t{padding-top:18px}
-  :global(body.m-scroll) .sys .p{padding:8px 12px;border-radius:8px}
+  .sys{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+  .sys li{display:grid;grid-template-columns:250px .95fr 26px 1.65fr;gap:18px;align-items:center}
+  .hdr{font-family:var(--mono);font-size:calc(var(--xs)*.9);text-transform:uppercase;letter-spacing:.09em;font-weight:700;color:var(--muted);padding:0 20px 6px;border-bottom:2px solid var(--leaf)}
+  .hdr .pj{color:var(--rose-deep)}
+  .row{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 20px;font-size:calc(var(--sm)*.95);line-height:1.36;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .row:hover{transform:translateX(4px);box-shadow:0 16px 30px -24px rgba(18,58,44,.5)}
+  .t{font-family:var(--display);font-weight:700}
+  .arr{width:26px;height:14px;color:var(--rose)}
+  .p{background:#FBEFF3;border-radius:10px;padding:8px 12px}
+  :global(body.m-scroll) .sys li{grid-template-columns:1fr;gap:6px}
+  :global(body.m-scroll) .hdr{display:none}
+  :global(body.m-scroll) .arr{transform:rotate(90deg)}
 </style>

@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=1920, height=792" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <style>
-      @font-face { font-family: "Bricolage Grotesque"; src: url("fonts/bricolage.woff2") format("woff2"); font-weight: 200 800; font-display: block; }
-      @font-face { font-family: "Atkinson Hyperlegible"; src: url("fonts/atkinson-400.woff2") format("woff2"); font-weight: 400; font-display: block; }
-      @font-face { font-family: "Atkinson Hyperlegible"; src: url("fonts/atkinson-700.woff2") format("woff2"); font-weight: 700; font-display: block; }
-      @font-face { font-family: "JetBrains Mono"; src: url("fonts/jbmono-600.woff2") format("woff2"); font-weight: 600; font-display: block; }
+      @font-face { font-family: "Montserrat"; src: url("fonts/montserrat.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+      @font-face { font-family: "Open Sans"; src: url("fonts/open-sans.woff2") format("woff2"); font-weight: 300 800; font-display: block; }
 
       :root {
         --forest: #123a2c;
@@ -22,7 +20,7 @@
       }
       * { margin: 0; padding: 0; box-sizing: border-box; }
       html, body { width: 1920px; height: 792px; overflow: hidden; background: var(--forest); }
-      #root { width: 100%; height: 100%; position: relative; font-family: "Atkinson Hyperlegible", sans-serif; color: var(--paper); }
+      #root { width: 100%; height: 100%; position: relative; font-family: "Open Sans", sans-serif; color: var(--paper); }
 
       .scene { position: absolute; inset: 0; }
       .bg { position: absolute; inset: 0; background: var(--forest); overflow: hidden; }
@@ -34,17 +32,17 @@
       .left { width: 640px; flex: none; display: flex; flex-direction: column; justify-content: center; padding: 56px 0 48px 80px; }
       .heads { display: grid; }
       .head { grid-area: 1 / 1; display: flex; flex-direction: column; gap: 18px; }
-      .eyebrow { font-family: "JetBrains Mono", monospace; font-weight: 600; font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose-light); }
+      .eyebrow { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--rose-light); }
       .head.b .eyebrow, .head.c .eyebrow { color: var(--sage); }
-      .title { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 84px; line-height: 0.98; letter-spacing: -0.03em; color: var(--paper); }
+      .title { font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 76px; line-height: 1.05; letter-spacing: -0.02em; color: var(--paper); }
       .title .hl { color: var(--rose-light); }
       .title .ok { color: var(--mint); }
       .sub { font-size: 34px; line-height: 1.3; color: var(--sage); }
       .source { margin-top: 56px; padding-top: 18px; border-top: 1px solid rgba(156, 195, 164, 0.25);
-        font-family: "JetBrains Mono", monospace; font-weight: 600; font-size: 20px; letter-spacing: 0.06em; line-height: 1.5; color: var(--sage); opacity: 0.85; }
+        font-family: "Montserrat", monospace; font-weight: 600; font-size: 20px; letter-spacing: 0.06em; line-height: 1.5; color: var(--sage); opacity: 0.85; }
       .art { display: block; width: 1280px; height: 792px; flex: none; overflow: visible; }
-      .art text { font-family: "Atkinson Hyperlegible", sans-serif; }
-      .mono { font-family: "JetBrains Mono", monospace !important; font-weight: 600; }
+      .art text { font-family: "Open Sans", sans-serif; }
+      .mono { font-family: "Montserrat", monospace !important; font-weight: 600; }
     </style>
   </head>
   <body>

@@ -5,33 +5,35 @@ const { n } = Astro.props;
 <Slide n={n} title="Introducción" theme="light" eyebrow="Introducción · situación problemática"
   heading="El problema no es la carencia de recursos"
   bodyClass="cols c-55"
-  notes="La propuesta se sitúa en una escuela secundaria técnica estatal con laboratorios bien equipados. El problema no es la falta de recursos ni la conducta del estudiantado, sino la ausencia de una estrategia didáctica que dé sentido pedagógico a la tecnología disponible. Para generar una base empírica recurrimos a un caso análogo: la experiencia de un colega de Lourdes Pedaci en el laboratorio de química de una escuela técnica privada subvencionada.">
-  <div class="stack" style="gap:28px">
-    <p data-a style="--i:2">Escuela secundaria técnica de gestión estatal, en una zona urbana densamente poblada, con <em class="term">laboratorios de ciencias para el ciclo superior</em> y buena infraestructura tecnológica.</p>
-    <p data-a style="--i:3">El problema no es la carencia de recursos ni la conducta del estudiantado, sino la <strong>ausencia de una estrategia didáctica que otorgue sentido pedagógico</strong> a la tecnología disponible. Ante la dispersión del curso, la institución respondió <strong>prohibiendo el uso del celular</strong>.</p>
+  notes="La propuesta se sitúa en una escuela secundaria técnica de gestión estatal, en una zona urbana densamente poblada, con laboratorios de ciencias para el ciclo superior y buena infraestructura tecnológica. Ante la dispersión del curso, la institución respondió prohibiendo el celular. El problema no es la carencia de recursos ni la conducta del estudiantado, sino la ausencia de una estrategia didáctica que otorgue sentido pedagógico a la tecnología disponible. Como advierte Sancho Gil, uno de los principales obstáculos es la organización y la cultura tradicionales de la escuela. Para generar una base empírica recurrimos a un caso análogo: la experiencia de un colega de Lourdes Pedaci en el laboratorio de química de una escuela técnica privada subvencionada. Su testimonio y los documentos institucionales permitieron contrastar el escenario con una práctica real.">
+  <div class="stack" style="gap:28px;justify-content:center">
+    <p class="lead" data-a style="--i:2">Una escuela técnica con <em class="term">laboratorios bien equipados</em> que, ante la dispersión del curso, <strong>prohibió el celular</strong>.</p>
+    <div class="card accent" data-a style="--i:3">
+      <span class="eyebrow">El problema</span>
+      <p class="sm" style="margin-top:10px">La <strong>ausencia de una estrategia didáctica</strong> que otorgue sentido pedagógico a la tecnología disponible.</p>
+    </div>
     <blockquote class="quote" data-a style="--i:4">
-      <p>Uno de los principales obstáculos para desarrollar el potencial educativo de las TIC es “la organización y la cultura tradicionales de la escuela”, y no la disponibilidad de artefactos.</p>
-      <cite>Sancho Gil (2009, p. 64)</cite>
+      <p>El principal obstáculo de las TIC: “la organización y la cultura tradicionales de la escuela”</p>
+      <cite>(Sancho Gil, 2009, p. 64)</cite>
     </blockquote>
   </div>
-  <div class="stack">
-    <div class="panel deep case" data-a style="--i:3">
-      <span class="eyebrow">Base empírica · caso análogo</span>
-      <h3>Un problema similar en el laboratorio de química</h3>
-      <p class="sm muted">La experiencia de un colega de la integrante Pedaci, en una escuela técnica privada subvencionada.</p>
-      <ul class="clean">
-        <li>El testimonio del colega</li>
-        <li>Los documentos institucionales (AIC y PEI)</li>
-      </ul>
-      <p class="sm last">Permitieron <span class="hl">contrastar el escenario con una práctica real</span>, además de plantear mejoras.</p>
-    </div>
+  <div class="card deep case" data-a style="--i:3">
+    <span class="eyebrow">Base empírica · caso análogo</span>
+    <h3>Laboratorio de química de una escuela técnica privada subvencionada</h3>
+    <ul class="src">
+      <li><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-advice"/></svg></span>Testimonio de un docente colega</li>
+      <li><span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg></span>Documentos institucionales: AIC y PEI</li>
+    </ul>
+    <p class="sm last">Para <span class="hl">contrastar la planificación con una práctica real</span>.</p>
   </div>
 </Slide>
 
 <style>
-  .case{display:flex;flex-direction:column;gap:18px;height:100%}
-  .case h3{color:var(--paper)}
-  .case .hl{color:var(--rose-light)}
   blockquote{margin:0}
+  .case{display:flex;flex-direction:column;gap:22px}
+  .case h3{color:var(--paper);font-size:calc(var(--h3)*1.05)}
+  .case .hl{color:var(--rose-light)}
+  .src{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+  .src li{display:flex;gap:16px;align-items:center;font-size:var(--sm)}
   .last{margin-top:auto;padding-top:18px;border-top:1px solid rgba(156,195,164,.25)}
 </style>

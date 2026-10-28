@@ -3,19 +3,19 @@ import Slide from '../components/Slide.astro';
 const { n } = Astro.props;
 const roles = [
   { tone: 't-leaf', icon: 'i-design', who: 'Argüello', role: 'Diseñadora de experiencias de aprendizaje',
-    fn: 'Diseño de las dos secuencias de indagación asistida por tecnología, bajo ABP y Diseño Universal para el Aprendizaje',
+    fn: 'Diseña las dos secuencias de indagación asistida por tecnología, bajo ABP y DUA.',
     with: 'Con el equipo docente de Ciencias Naturales',
     obs: 'Articula la coherencia entre contenido, estrategia y tecnología (TPACK)' },
   { tone: 't-rose', icon: 'i-advice', who: 'Pedaci', role: 'Asesora tecnopedagógica',
-    fn: 'Encuadre con los modelos TPACK, ADKAR, lectura de la cultura institucional y acompañamiento del cambio',
+    fn: 'Encuadre con TPACK y ADKAR, lectura de la cultura institucional y acompañamiento del cambio.',
     with: 'Con el equipo directivo y el jefe de departamento',
     obs: 'Trabaja las etapas de conciencia y deseo en la devolución del diagnóstico' },
   { tone: 't-rose', icon: 'i-res', who: 'Pedaci', role: 'Gestor de recursos tecnológicos',
-    fn: 'Articulación del equipamiento del laboratorio, los dispositivos móviles y el software. Acompaña la elaboración del repositorio institucional y transfiere su gestión al regente de área.',
+    fn: 'Articula el laboratorio, los celulares y el software. Acompaña la elaboración del repositorio institucional y transfiere su gestión al regente de área.',
     with: 'Con el encargado de medios y el área de Ciencias Naturales',
     obs: 'Contempla la relación dispositivos / estudiantes y la organización de los espacios' },
   { tone: 't-amber', icon: 'i-inv', who: 'Costas', role: 'Investigación, actualización y desarrollo',
-    fn: 'Relevamiento de antecedentes y marco teórico, sistematización de la documentación',
+    fn: 'Antecedentes, marco teórico y sistematización de la documentación.',
     with: 'Equipo completo',
     obs: 'Sostiene la revisión bibliográfica y la escritura académica' },
 ];
@@ -51,6 +51,6 @@ const roles = [
   h3{color:var(--ink);margin-top:2px}
   .role>p:not(.meta){font-size:var(--sm)}
   .meta{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:calc(var(--xs)*1.1);line-height:1.4;color:var(--muted)}
-  .meta span{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--tone-ink);margin-right:10px}
+  .meta span{font-family:var(--mono);font-size:calc(var(--xs)*.8);font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tone-ink);margin-right:10px}
   :global(body.m-scroll) .grid{grid-template-columns:1fr}
 </style>

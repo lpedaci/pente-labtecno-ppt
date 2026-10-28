@@ -2,13 +2,13 @@
 import Slide from '../components/Slide.astro';
 const { n } = Astro.props;
 const tpack = [
-  ['TK', 'Resolver problemas técnicos básicos del celular y de las computadoras'],
-  ['CK', 'Conocimiento suficiente de los contenidos que enseña'],
-  ['PK', 'Adaptar la enseñanza a lo que los estudiantes comprenden'],
-  ['PCK', 'Estrategias eficaces para guiar la indagación científica'],
-  ['TCK', 'Aplicaciones o simuladores para representar o medir fenómenos'],
-  ['TPK', 'Tecnologías que mejoren la participación, no solo la presentación'],
-  ['TPACK', 'Diseñar una actividad que combine contenido, indagación y celular regulado'],
+  ['TK', 'Resolver problemas técnicos básicos'],
+  ['CK', 'Dominio de los contenidos que enseña'],
+  ['PK', 'Adaptar la enseñanza a lo que se comprende'],
+  ['PCK', 'Estrategias para guiar la indagación'],
+  ['TCK', 'Simuladores para representar o medir fenómenos'],
+  ['TPK', 'Tecnologías que mejoren la participación'],
+  ['TPACK', 'Actividad con contenido, indagación y celular regulado'],
 ];
 const adkar = [
   ['Conciencia', 'Atribuye la dispersión solo a la conducta del curso', 'La explica como un problema de diseño y lo comunica'],
@@ -21,7 +21,7 @@ const adkar = [
 <Slide n={n} title="Anexo III: instrumentos" theme="paper" eyebrow="Diagnóstico y evaluación · Anexo III"
   heading="Cuestionario TPACK y rúbrica ADKAR"
   bodyClass="cols c-46 anx"
-  notes="El cuestionario TPACK está adaptado de Schmidt y otros (2009): siete ítems, uno por dimensión, con una escala de 1, totalmente en desacuerdo, a 5, totalmente de acuerdo; se aplica al inicio, en la fase 2, y al cierre, en la fase 6. La rúbrica ADKAR la completa el equipo de tecnólogas al cierre de las fases 3, 4 y 6, en tres niveles: inicial, en proceso y logrado. La guía de observación registra cinco indicadores como presente, parcial o ausente: función asignada al celular, roles por estación o tarea, respeto del protocolo de seguridad, participación activa y vínculo del registro con la consigna. El grupo focal se organiza en cuatro preguntas: qué cambió cuando el celular tuvo una función definida, qué obstáculos hubo para sostener el protocolo, qué condiciones institucionales harían falta para continuar y qué parte de las secuencias reutilizarían o modificarían.">
+  notes="Los ítems completos del cuestionario están en el Anexo III del informe. El cuestionario TPACK está adaptado de Schmidt y otros (2009): siete ítems, uno por dimensión, con una escala de 1, totalmente en desacuerdo, a 5, totalmente de acuerdo; se aplica al inicio, en la fase 2, y al cierre, en la fase 6. La rúbrica ADKAR la completa el equipo de tecnólogas al cierre de las fases 3, 4 y 6, en tres niveles: inicial, en proceso y logrado. La guía de observación registra cinco indicadores como presente, parcial o ausente: función asignada al celular, roles por estación o tarea, respeto del protocolo de seguridad, participación activa y vínculo del registro con la consigna. El grupo focal se organiza en cuatro preguntas: qué cambió cuando el celular tuvo una función definida, qué obstáculos hubo para sostener el protocolo, qué condiciones institucionales harían falta para continuar y qué parte de las secuencias reutilizarían o modificarían.">
   <div class="block" data-a style="--i:2">
     <p class="cap"><strong>Cuestionario TPACK</strong> · adaptado de Schmidt et al. (2009) · escala 1 a 5 · fases 2 y 6</p>
     <ol class="tq">
@@ -40,7 +40,6 @@ const adkar = [
         </li>
       ))}
     </ol>
-    <p class="also">También se prevén una <strong>guía de observación</strong> (cinco indicadores: presente, parcial o ausente) y un <strong>guion de grupo focal</strong> con cuatro preguntas orientadoras.</p>
   </div>
 </Slide>
 

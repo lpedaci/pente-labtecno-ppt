@@ -2,41 +2,49 @@
 import Slide from '../components/Slide.astro';
 const { n } = Astro.props;
 const oes = [
-  { id: 'OE1', when: 'Primer cuatrimestre', verb: 'Caracterizar', text: 'el conocimiento tecnopedagógico del contenido del equipo docente de Cs. Naturales y las condiciones institucionales de uso del laboratorio, con el fin de construir una base que oriente el diseño de la propuesta.' },
-  { id: 'OE2', when: 'Julio y agosto', verb: 'Codiseñar', text: 'con el equipo docente de Cs. Naturales del ciclo superior dos secuencias de indagación que asignen al celular funciones definidas de registro, dentro de un protocolo compatible con la seguridad del espacio.' },
-  { id: 'OE3', when: 'Septiembre y octubre', verb: 'Acompañar', text: 'su implementación con observación situada, bitácora y reuniones entre pares.' },
+  { id: 'OE1', when: 'Primer cuatrimestre', verb: 'Caracterizar', text: 'el conocimiento tecnopedagógico docente y las condiciones de uso del laboratorio.' },
+  { id: 'OE2', when: 'Julio y agosto', verb: 'Codiseñar', text: 'dos secuencias de indagación con funciones de registro para el celular, dentro de un protocolo de seguridad.' },
+  { id: 'OE3', when: 'Septiembre y octubre', verb: 'Acompañar', text: 'la implementación con observación situada, bitácora y reuniones entre pares.' },
 ];
 ---
 <Slide n={n} title="Objetivos" theme="paper" eyebrow="Introducción · objetivos"
   heading="Qué se propone la intervención"
-  bodyClass="cols c-46"
-  notes="El objetivo general es fortalecer la integración de tecnologías con una visión pedagógica en Ciencias Naturales del ciclo superior. Los tres objetivos específicos fueron ajustados tras la devolución de la cátedra y siguen una secuencia temporal: caracterizar, codiseñar y acompañar.">
-  <div class="panel deep general" data-a style="--i:2">
+  bodyClass="obj"
+  notes="Objetivo general: fortalecer la integración de tecnologías con una visión pedagógica en la enseñanza de Ciencias Naturales del ciclo superior, mediante un dispositivo de acompañamiento situado que articule el equipamiento del laboratorio y los dispositivos móviles de los estudiantes con prácticas de indagación científica. Los objetivos específicos, ajustados tras la devolución de la cátedra, siguen una secuencia temporal. OE1: caracterizar, durante el primer cuatrimestre, el conocimiento tecnopedagógico del contenido del equipo docente y las condiciones institucionales de uso del laboratorio. OE2: codiseñar, entre julio y agosto, dos secuencias de indagación que asignen al celular funciones definidas de registro, dentro de un protocolo compatible con la seguridad del espacio. OE3: acompañar su implementación, entre septiembre y octubre, con observación situada, bitácora y reuniones entre pares.">
+  <div class="card deep general" data-a style="--i:2">
     <span class="eyebrow">Objetivo general</span>
-    <p>Fortalecer la integración de tecnologías con una visión pedagógica en la enseñanza de Ciencias Naturales del ciclo superior, mediante un <span class="hl">dispositivo de acompañamiento situado</span> que articule el equipamiento del laboratorio y los dispositivos móviles de los estudiantes con prácticas de indagación científica.</p>
+    <p class="lead">Fortalecer la integración pedagógica de la tecnología en Ciencias Naturales con un <span class="hl">dispositivo de acompañamiento situado</span> que articule el laboratorio y los celulares con la indagación científica.</p>
   </div>
-  <ol class="oes">
+  <ol class="line" aria-label="Objetivos específicos">
+    <li class="rail" aria-hidden="true"><i data-a="grow" style="--i:3"></i></li>
     {oes.map((o, k) => (
-      <li data-a style={`--i:${k + 3}`}>
+      <li class="oe" data-a style={`--i:${k + 4}`}>
+        <span class="dot" aria-hidden="true"></span>
+        <span class="chip plan">{o.when}</span>
         <span class="id">{o.id}</span>
-        <div>
-          <span class="chip plan"><span class="dot"></span>{o.when}</span>
-          <p class="sm"><strong>{o.verb}</strong> {o.text}</p>
-        </div>
+        <p><strong>{o.verb}</strong> {o.text}</p>
       </li>
     ))}
-    <li class="foot-note" data-a style="--i:6"><span class="xs muted">Objetivos específicos ajustados tras la devolución de la cátedra.</span></li>
   </ol>
 </Slide>
 
 <style>
-  .general{display:flex;flex-direction:column;justify-content:space-between;gap:24px}
-  .general p{font-family:var(--display);font-size:calc(var(--fs)*1.18);line-height:1.32;letter-spacing:-.01em}
+  :global(.obj){display:flex;flex-direction:column;gap:44px;justify-content:center}
+  .general{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:center}
+  .general .lead{color:var(--paper)}
   .general .hl{color:var(--rose-light)}
-  .oes{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-  .oes li{display:grid;grid-template-columns:88px 1fr;gap:20px;padding:20px 0;border-top:1px solid var(--line)}
-  .oes li:first-child{border-top:0;padding-top:0}
-  .oes .id{font-family:var(--display);font-weight:800;font-size:calc(var(--h3)*1.25);color:var(--rose);letter-spacing:-.03em}
-  .oes .chip{margin-bottom:10px}
-  .oes .foot-note{display:block;border-top:0;padding-top:4px}
+  .line{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:36px;position:relative;flex:1;align-content:start}
+  .rail{position:absolute;left:0;right:0;top:9px;height:3px}
+  .rail i{display:block;height:100%;border-radius:2px;background:linear-gradient(90deg,var(--leaf),var(--rose))}
+  .oe{position:relative;display:flex;flex-direction:column;gap:14px;padding-top:34px}
+  .oe .dot{position:absolute;top:0;left:0;width:21px;height:21px;border-radius:50%;background:var(--paper);border:4px solid var(--leaf)}
+  .oe:nth-of-type(3) .dot{border-color:#8E9A6A}
+  .oe:nth-of-type(4) .dot{border-color:var(--rose)}
+  .oe .chip{align-self:flex-start}
+  .oe p{line-height:1.42}
+  .id{font-family:var(--display);font-weight:800;font-size:calc(var(--h3)*1.6);color:var(--rose);letter-spacing:-.02em;line-height:1}
+  :global(body.m-scroll) .general{grid-template-columns:1fr;gap:10px}
+  :global(body.m-scroll) .line{grid-template-columns:1fr;gap:22px}
+  :global(body.m-scroll) .rail{display:none}
+  :global(body.m-scroll) .oe{padding-top:0;padding-left:34px}
 </style>

@@ -7,55 +7,50 @@ const { n } = Astro.props;
   bodyClass="cols c-55"
   notes="A nivel nacional, la Ley de Educación Nacional y la Ley de Educación Técnico Profesional legitiman una enseñanza basada en la indagación con tecnología; la Ley 13.688 organiza el sistema bonaerense. El AIC del caso no prohíbe el celular: lo habilita como herramienta pedagógica según indicación docente y pide acuerdos áulicos. Cuando la restricción persiste en un laboratorio, su fundamento es la seguridad. La propuesta no busca eliminar esas normas, sino traducirlas en un protocolo por momentos y zonas.">
   <div class="levels">
-    <div class="lvl" data-a style="--i:2">
-      <span class="eyebrow">Nacional</span>
-      <p class="sm"><strong>Leyes 26.206</strong> (2006) y <strong>26.058</strong> (2005): legitiman la enseñanza basada en la indagación con tecnología.</p>
-    </div>
-    <div class="lvl" data-a style="--i:3">
-      <span class="eyebrow">Jurisdiccional</span>
-      <p class="sm"><strong>Ley 13.688</strong> (2007): organiza el sistema educativo bonaerense.</p>
-    </div>
-    <div class="lvl" data-a style="--i:4">
-      <span class="eyebrow">Institucional · AIC</span>
-      <p class="sm">Habilita el celular como “herramienta pedagógica, didáctica y de innovación tecnológica, según indicación del docente a cargo” <cite>(p. 20)</cite> y prevé <strong>acuerdos áulicos</strong> cada año <cite>(p. 25)</cite>.</p>
-    </div>
-    <div class="lvl" data-a style="--i:5">
-      <span class="eyebrow">Seguridad en el laboratorio</span>
-      <p class="sm"><strong>Ley 19.587</strong> (1972) y <strong>Decreto 351</strong> (1979): ambientes con riesgo químico. El reglamento exige guardapolvo, antiparras y guantes <cite>(Anexo I, P5)</cite>.</p>
-    </div>
+    <article class="card lvl" data-a style="--i:2">
+      <span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-inv"/></svg></span>
+      <div>
+        <span class="eyebrow">Nacional y provincial</span>
+        <p class="sm">Leyes <strong>26.206</strong>, <strong>26.058</strong> y <strong>13.688</strong>: legitiman la indagación con tecnología.</p>
+      </div>
+    </article>
+    <article class="card lvl" data-a style="--i:3">
+      <span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg></span>
+      <div>
+        <span class="eyebrow">Institucional · AIC</span>
+        <p class="sm">Habilita el celular como “herramienta pedagógica, didáctica y de innovación tecnológica, según indicación del docente a cargo” <cite>(Escuela caso análogo, 2025, p. 20)</cite>.</p>
+      </div>
+    </article>
+    <article class="card lvl" data-a style="--i:4">
+      <span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-stairs"/></svg></span>
+      <div>
+        <span class="eyebrow">Seguridad</span>
+        <p class="sm"><strong>Ley 19.587</strong> y <strong>Decreto 351</strong>: el fundamento de la restricción en el laboratorio.</p>
+      </div>
+    </article>
   </div>
-  <div class="stack" style="gap:20px">
-    <div class="panel deep proto" data-a style="--i:4">
-      <span class="eyebrow">La propuesta</span>
-      <p>No busca eliminar esas normas, sino <span class="hl">traducirlas en un protocolo</span> que establezca en qué <strong>momentos</strong> y <strong>zonas</strong> puede usarse el celular (por ejemplo, registro fotográfico), que pueda incorporarse como <strong>acuerdo áulico</strong>.</p>
-      <svg viewBox="0 0 320 120" class="zones" aria-hidden="true">
-        <rect x="4" y="10" width="148" height="100" rx="12" fill="#D4567A" fill-opacity=".22" stroke="#F08FAA" stroke-dasharray="5 6"/>
-        <rect x="168" y="10" width="148" height="100" rx="12" fill="#3E8A62" fill-opacity=".3" stroke="#9CC3A4"/>
-        <circle cx="78" cy="48" r="22" fill="none" stroke="#F5D2DC" stroke-width="3"/>
-        <path d="M78 34v14l9 6" fill="none" stroke="#F5D2DC" stroke-width="3" stroke-linecap="round"/>
-        <text x="78" y="96" text-anchor="middle" fill="#F5D2DC" font-size="13" font-family="JetBrains Mono, monospace">MOMENTOS</text>
-        <use href="#i-cam" x="218" y="22" width="48" height="48" style="color:#E6F1E5"/>
-        <text x="242" y="96" text-anchor="middle" fill="#E6F1E5" font-size="13" font-family="JetBrains Mono, monospace">ZONAS</text>
-      </svg>
-    </div>
-    <div class="panel" data-a style="--i:5">
-      <p class="sm">La normativa sobre discapacidad obliga a considerar la <strong>accesibilidad</strong>, que se desarrolla en el apartado <em class="term">Accesibilidad del laboratorio</em>.</p>
-    </div>
+  <div class="card deep proto" data-a style="--i:4">
+    <span class="eyebrow">La propuesta</span>
+    <p class="lead">No eliminar las normas, sino <span class="hl">traducirlas en un protocolo</span>: en qué <strong>momentos</strong> y <strong>zonas</strong> se usa el celular, como <strong>acuerdo áulico</strong>.</p>
+    <svg viewBox="0 0 320 120" class="zones" aria-hidden="true">
+      <rect x="4" y="10" width="148" height="100" rx="12" fill="#D4567A" fill-opacity=".22" stroke="#F08FAA" stroke-dasharray="5 6"/>
+      <rect x="168" y="10" width="148" height="100" rx="12" fill="#3E8A62" fill-opacity=".3" stroke="#9CC3A4"/>
+      <g class="clock"><circle cx="78" cy="48" r="22" fill="none" stroke="#F5D2DC" stroke-width="3"/><path class="hand" d="M78 48V34" stroke="#F5D2DC" stroke-width="3" stroke-linecap="round"/><path d="M78 48l9 6" stroke="#F5D2DC" stroke-width="3" stroke-linecap="round"/></g>
+      <text x="78" y="96" text-anchor="middle" fill="#F5D2DC" font-size="14" font-family="Montserrat Variable, Montserrat, sans-serif" font-weight="700">MOMENTOS</text>
+      <use href="#i-cam" x="218" y="22" width="48" height="48" style="color:#E6F1E5"/>
+      <text x="242" y="96" text-anchor="middle" fill="#E6F1E5" font-size="14" font-family="Montserrat Variable, Montserrat, sans-serif" font-weight="700">ZONAS</text>
+    </svg>
   </div>
 </Slide>
 
 <style>
-  .levels{display:flex;flex-direction:column}
-  .lvl{display:grid;grid-template-columns:190px 1fr;gap:6px 22px;padding:16px 0;border-top:1px solid var(--line)}
-  .lvl:first-child{border-top:0;padding-top:0}
-  .lvl .eyebrow{grid-row:span 2;padding-top:4px}
-  .lvl p{font-size:var(--sm)}
-  .lvl p+p{grid-column:2}
-  .proto{display:flex;flex-direction:column;gap:14px}
-  .proto p{font-size:calc(var(--fs)*.94)}
+  .levels{display:flex;flex-direction:column;gap:16px;justify-content:center}
+  .lvl{display:flex;gap:20px;align-items:center;padding:20px 24px}
+  .lvl .eyebrow{display:block;margin-bottom:6px}
+  .proto{display:flex;flex-direction:column;gap:22px;justify-content:center}
+  .proto .lead{color:var(--paper)}
   .proto .hl{color:var(--rose-light)}
-  .zones{width:100%;height:auto;max-height:118px}
-  :global(body.m-scroll) .lvl{grid-template-columns:1fr}
-  :global(body.m-scroll) .lvl .eyebrow{grid-row:auto}
-  :global(body.m-scroll) .lvl p+p{grid-column:1}
+  .zones{width:100%;height:auto;max-height:170px}
+  .hand{transform-origin:78px 48px;transform-box:view-box;animation:tick 4s steps(8) infinite}
+  @keyframes tick{to{transform:rotate(360deg)}}
 </style>

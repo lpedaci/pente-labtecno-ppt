@@ -6,24 +6,21 @@ const voices = [
     name: 'Lourdes Pedaci', role: 'Asesora tecnopedagógica · Gestor de recursos tecnológicos',
     key: 'No se trata principalmente de <em>elegir herramientas</em>, sino de <strong>entender cómo funciona la institución</strong> y acompañar a las personas en el cambio.',
     points: [
-      'Fortaleció sus competencias para diagnosticar y analizar, contrastando la planificación con una experiencia real.',
-      'Asegurar el aval, las horas y la revisión de las normas de convivencia forma parte del diseño.',
+      'Asegurar el aval, las horas y la revisión de las normas forma parte del diseño.',
     ],
   },
   {
     name: 'Clara Argüello', role: 'Diseñadora de experiencias de aprendizaje',
     key: '<strong>Diagnosticar antes de diseñar</strong>: partir de la problemática y no de la tecnología disponible.',
     points: [
-      'El trabajo no es aislado: los roles se complementan para analizar y pensar la intervención.',
-      'El testimonio del docente colega amplió el diagnóstico con situaciones concretas.',
+      'Los roles se complementan: el trabajo no es aislado.',
     ],
   },
   {
     name: 'Silvia Costas', role: 'Investigación, actualización y desarrollo',
     key: 'El rol implica <strong>interpretar las culturas institucionales</strong> y acompañar el cambio pedagógico.',
     points: [
-      'La indagación guiada, la exploración y la asignación de roles atraviesan todas las etapas educativas.',
-      'Desde el Nivel Inicial: el celular regulado como registro audiovisual y bitácora pedagógica.',
+      'El celular regulado, como registro audiovisual y bitácora pedagógica.',
     ],
   },
 ];
@@ -56,17 +53,18 @@ const voices = [
 <style>
   :global(.refl){display:flex;flex-direction:column;gap:18px}
   .voices{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;flex:1}
-  .voices>li{flex:1;display:grid;grid-template-columns:300px 1.25fr 1fr;gap:36px;align-items:center;padding:18px 0;border-top:1px solid var(--line)}
-  .voices>li:first-child{border-top:0;padding-top:4px}
+  .voices>li{flex:1;display:grid;grid-template-columns:290px 1.35fr 1fr;gap:32px;align-items:center;padding:18px 28px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 16px 34px -28px rgba(18,58,44,.45);transition:transform .35s var(--ease)}
+  .voices>li:hover{transform:translateX(4px)}
+  .voices{gap:10px}
   .who{display:flex;flex-direction:column;gap:4px}
   .num{font-family:var(--mono);font-size:var(--xs);color:var(--rose-deep);font-weight:600}
   .who h3{font-size:calc(var(--h3)*.95);font-weight:700}
-  .role{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--leaf-ink);line-height:1.4}
+  .role{font-family:var(--mono);font-size:calc(var(--xs)*.8);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--leaf-ink);line-height:1.4}
   .key{font-family:var(--display);font-size:calc(var(--fs)*1.02);line-height:1.3;letter-spacing:-.01em}
   .key :global(em){font-style:normal;text-decoration:line-through;text-decoration-color:var(--rose);text-decoration-thickness:2px;color:var(--muted)}
   .key :global(strong){font-weight:700;background:linear-gradient(transparent 62%,var(--blush) 62%)}
   .pts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-  .pts li{position:relative;padding-left:20px;font-size:calc(var(--xs)*1.08);line-height:1.42;color:var(--muted)}
+  .pts li{position:relative;padding-left:20px;font-size:var(--sm);line-height:1.42;color:var(--muted)}
   .pts li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:2px;background:var(--leaf)}
   .close{display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:baseline;background:var(--forest);color:var(--paper);border-radius:16px;padding:20px 28px;font-family:var(--display);font-size:calc(var(--sm)*1.05);line-height:1.35}
   .close .eyebrow{color:var(--rose-light)}
