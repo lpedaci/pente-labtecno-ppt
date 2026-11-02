@@ -19,11 +19,13 @@ El trabajo se plantea como **ensayo simulado**: la planificación está completa
 | Etiqueta | Qué contiene |
 |---|---|
 | `PenTe-ppt-v1` | Primera versión: presentación en HTML, CSS y JavaScript estáticos |
-| `PenTe-ppt-v2` | Versión actual: reconstruida en Astro a partir del documento final de la actividad, con motion graphics y animaciones |
+| `PenTe-ppt-v2` | Versión actual: reconstruida en Astro a partir del documento final de la actividad, con motion graphics y gráficos animados |
 
 ## Contenido
 
-La exposición dura 15 minutos y recorre 19 diapositivas.
+La exposición dura 15 minutos y recorre 18 diapositivas. Después del cierre queda el material de consulta.
+
+**Exposición**
 
 | N.° | Diapositiva | Bloque |
 |---|---|---|
@@ -44,8 +46,17 @@ La exposición dura 15 minutos y recorre 19 diapositivas.
 | 15 | Cuestionario TPACK y rúbrica ADKAR (Anexo III) | Aplicación |
 | 16 | Plataformas posibles para el repositorio (maquetas de ejemplo) | Aplicación |
 | 17 | Reflexión final | Cierre |
-| 18 | Referencias, anexos y declaración de uso de IA | Cierre |
-| 19 | Cierre | Cierre |
+| 18 | Cierre | Cierre |
+
+**Material de consulta**
+
+| N.° | Diapositiva |
+|---|---|
+| 19 | Separador con enlaces |
+| 20 | PEI y cultura institucional |
+| 21 | Evaluación formativa (gráfico animado) |
+| 22 | Instrumentos de evaluación |
+| 23 | Referencias, anexos y declaración de uso de IA |
 
 ## Cómo verla
 
@@ -60,7 +71,7 @@ La exposición dura 15 minutos y recorre 19 diapositivas.
 | `N` | Notas del orador |
 | `F` | Pantalla completa |
 
-Cada diapositiva tiene su propio enlace (`#s1` a `#s19`).
+Cada diapositiva tiene su propio enlace (`#s1` a `#s23`).
 
 **En celular** pasa a lectura vertical; las animaciones y el video se acompañan de su versión en texto.
 
@@ -88,5 +99,5 @@ Cada push a `main` compila el sitio y lo publica en GitHub Pages mediante el wor
 - `src/layouts/Deck.astro`: estructura de la presentación y controles.
 - `src/scripts/deck.ts`: navegación, cuadrícula, notas, foto ampliada y lectura vertical.
 - `src/styles/`: paleta, tipografía y controles.
-- `public/media/`: motion graphic de la diapositiva 10 y su póster.
+- `public/media/`: motion graphic de la diapositiva 15 y su póster.
 - `videos/hallazgo-motion/`: composición de HyperFrames con la que se generó ese video.

@@ -1,0 +1,26 @@
+---
+import Slide from '../components/Slide.astro';
+const { n, items = [] } = Astro.props;
+---
+<Slide n={n} title="Material de consulta" theme="paper" eyebrow="Fin de la exposición · material de consulta"
+  heading="Material de consulta"
+  notes="A partir de aquí, material de consulta que no se expone: queda disponible para responder preguntas de la cátedra. Se puede saltar a cualquier diapositiva desde la vista de cuadrícula (tecla G).">
+  <div class="wrap" data-a style="--i:2">
+    <p class="sm muted">Diapositivas de respaldo del informe, disponibles para responder preguntas:</p>
+    <ol class="list">
+      {items.map((it: { n: number; title: string }) => (
+        <li><a href={`#s${it.n}`}><span class="k">{String(it.n).padStart(2, '0')}</span>{it.title}</a></li>
+      ))}
+    </ol>
+  </div>
+</Slide>
+
+<style>
+  .wrap{display:flex;flex-direction:column;gap:18px;max-width:900px}
+  .list{list-style:none;margin:0;padding:0;columns:2;column-gap:48px}
+  .list li{break-inside:avoid;border-top:1px solid var(--line)}
+  .list a{display:grid;grid-template-columns:48px 1fr;gap:12px;padding:14px 0;font-size:var(--sm);text-decoration:none;color:var(--ink)}
+  .list a:hover{color:var(--rose-deep)}
+  .k{font-family:var(--mono);font-size:var(--xs);color:var(--rose-deep);font-weight:600;padding-top:3px}
+  :global(body.m-scroll) .list{columns:1}
+</style>
